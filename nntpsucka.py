@@ -99,18 +99,20 @@ class NewsDB:
         The first, last, and count that should be checked will be returned
         as a tuple."""
 
-        myfirst=self.getLastId(group)
-        if (int(myfirst) < int(first)) or (int(myfirst) > int(last)):
-            myfirst=first
-        mycount=(int(last)-int(myfirst))+1
+        # Start with myfirst being one greater than the last thing we've seen
+        myfirst=int(self.getLastId(group))+1
+        last=int(last)
+        if (myfirst < first) or (myfirst > last):
+            myfirst=int(first)
+        mycount=(last-myfirst)+1
 
-        self.log.debug("Want no more than %d articles, found %d from %s\n"
+        self.log.debug("Want no more than %d articles, found %d from %d\n"
             % (maxArticles, mycount, myfirst))
 
         if maxArticles > 0 and mycount > maxArticles:
             self.log.debug("Want %d articles with a max of %d...shrinking\n" \
                 % (mycount, maxArticles))
-            myfirst = `int(myfirst) + (mycount - maxArticles)`
+            myfirst = myfirst + (mycount - maxArticles)
             mycount = maxArticles
             self.log.debug("New count is %d, starting with %s"
                 % (mycount, myfirst))
@@ -261,10 +263,10 @@ class NNTPSucka:
         l=[]
         if mycount > 0:
             self.log.info("Copying " + `mycount` + " articles:  " \
-                + myfirst + "-" + mylast + " in " + groupname)
+                + `myfirst` + "-" + `mylast` + " in " + groupname)
 
             # Grab the IDs
-            resp, l = self.src.xhdr('message-id', myfirst + "-" + mylast)
+            resp, l = self.src.xhdr('message-id', `myfirst` + "-" + `mylast`)
 
             # Validate we got as many results as we expected.
             if(len(l) != mycount):
@@ -277,9 +279,9 @@ class NNTPSucka:
                 messid="*empty*"
                 messid=i[1]
                 idx=i[0]
-                self.log.debug("idx is " + idx + " range is " + myfirst \
-                    + "-" + mylast)
-                assert(int(idx) >= int(myfirst) and int(idx) <= int(mylast))
+                self.log.debug("idx is " + idx + " range is " + `myfirst` \
+                    + "-" + `mylast`)
+                assert(int(idx) >= myfirst and int(idx) <= mylast)
                 if self.db.hasArticle(messid):
                     self.log.info("Already seen " + messid)
                     self.stats.addDup()
