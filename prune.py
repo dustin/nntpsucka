@@ -7,6 +7,7 @@ from __future__ import generators
 import anydbm
 import time
 import os
+import sys
 
 import pidlock
 
@@ -23,8 +24,8 @@ def walkDbm(dbm):
 # Prevent a collision
 lock=pidlock.PidLock("nntpsucka.pid")
 
-olddb=anydbm.open("newsdb")
-newdb=anydbm.open("newsdb.new", "c")
+olddb=anydbm.open(sys.argv[1])
+newdb=anydbm.open(sys.argv[1] + ".new", "c")
 
 kept=0
 pruned=0
@@ -50,5 +51,5 @@ for k,v in walkDbm(olddb):
 print "Kept " + `kept` + " entries, removed " + `pruned`
 
 # Swap the DBs
-os.rename('newsdb', 'newsdb.old')
-os.rename('newsdb.new', 'newsdb')
+# os.rename('newsdb', 'newsdb.old')
+# os.rename('newsdb.new', 'newsdb')
