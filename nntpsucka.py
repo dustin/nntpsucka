@@ -234,20 +234,19 @@ class NNTPClient(nntplib.NNTP):
 class NNTPSucka:
     """Copy articles from one NNTP server to another."""
 
-    def __init__(self, src, dest, config=None):
+    def __init__(self, src, dest, config):
         """Get an NNTPSucka with two NNTPClient objects representing the
         source and destination."""
         self.log=logging.getLogger("NNTPSucka")
         self.src=src
         self.dest=dest
         self.maxArticles=0
-        if config is not None:
-            try:
-                self.maxArticles=config.getint("misc", "maxArticles")
-            except ConfigParser.NoSectionError:
-                self.log.debug("No section `misc'")
-            except ConfigParser.NoOptionError:
-                self.log.debug("No option `maxArticles' in section `misc'")
+        try:
+            self.maxArticles=config.getint("misc", "maxArticles")
+        except ConfigParser.NoSectionError:
+            self.log.debug("No section `misc'")
+        except ConfigParser.NoOptionError:
+            self.log.debug("No option `maxArticles' in section `misc'")
         self.log.debug("Max articles is configured as %d" %(self.maxArticles))
         self.db=NewsDB(config.get("misc","newsdb"))
         self.stats=Stats()
