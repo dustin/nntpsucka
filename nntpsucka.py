@@ -416,8 +416,10 @@ def main():
     stop=time.time()
 
     if sucka:
-        print sucka.getStats()
-        print "Total time spent:  " + str(stop-start) + "s"
+        # Log the stats
+        log=logging.getLogger("nntpsucka")
+        log.info(sucka.getStats())
+        log.info("Total time spent:  " + str(stop-start) + "s")
 
 if __name__ == '__main__':
     try:
