@@ -343,6 +343,8 @@ def alarmHandler(sig, frame):
     raise Timeout
 
 def getIgnoreList(fn):
+    log=logging.getLogger("nntpsucka")
+    log.debug("Getting ignore list from " + fn)
     rv=[]
     f=open(fn)
     for l in f.readlines():
@@ -385,7 +387,7 @@ def main():
         toUser=conf.getWithDefault(toServer, "username", None)
         toPass=conf.getWithDefault(toServer, "password", None)
         toPort=conf.getint(toServer, "port")
-    filterList=conf.getWithDefault("servers", "filterList", None)
+    filterList=conf.getWithDefault("misc", "filterList", None)
 
     sucka=None
     # Mark the start time
