@@ -262,25 +262,29 @@ class NNTPSucka:
             + str(myfirst) + "-" + str(mylast) + " in " + groupname)
 
         # Grab the IDs
-        resp, list = self.src.xhdr('message-id', \
-            str(myfirst) + "-" + str(mylast))
-        ids=dict()
-        for set in list:
-            ids[set[0]]=set[1]
+        resp, l = self.src.xhdr('message-id', str(myfirst) + "-" + str(mylast))
 
-        for i in range(int(myfirst), int(mylast)):
+        # Get the subset of articles we want to pull, by article ID (after
+        # converting the first and last to integers for the test)
+        myfirst=int(myfirst)
+        mylast=int(mylast)
+        l=filter(lambda x: int(x[0]) >= myfirst and int(x[0]) <= mylast, l)
+
+        # Flip through the stuff we actually want to process.
+        for i in l:
             try:
                 messid="*empty*"
-                messid=ids[str(i)]
+                messid=i[1]
+                idx=i[0]
                 if self.db.hasArticle(messid):
                     self.log.info("Already seen " + messid)
                     self.stats.addDup()
                 else:
-                    self.dest.copyArticle(self.src, i, messid)
+                    self.dest.copyArticle(self.src, idx, messid)
                     self.db.markArticle(messid)
                     self.stats.addMoved()
                 # Mark this message as having been read in the group
-                self.db.setLastId(groupname, i)
+                self.db.setLastId(groupname, idx)
             except KeyError, e:
                 # Couldn't find the header, article probably doesn't
                 # exist anymore.
