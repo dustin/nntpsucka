@@ -258,17 +258,18 @@ class NNTPSucka:
         # Figure out where we are
         myfirst, mylast, mycount= self.db.getGroupRange(groupname, first, last,
             self.maxArticles)
-        self.log.info("Copying " + str(mycount) + " articles:  " \
-            + str(myfirst) + "-" + str(mylast) + " in " + groupname)
+        l=[]
+        if mycount > 0:
+            self.log.info("Copying " + `mycount` + " articles:  " \
+                + myfirst + "-" + mylast + " in " + groupname)
 
-        # Grab the IDs
-        resp, l = self.src.xhdr('message-id', str(myfirst) + "-" + str(mylast))
+            # Grab the IDs
+            resp, l = self.src.xhdr('message-id', myfirst + "-" + mylast)
 
-        # Get the subset of articles we want to pull, by article ID (after
-        # converting the first and last to integers for the test)
-        myfirst=int(myfirst)
-        mylast=int(mylast)
-        l=filter(lambda x: int(x[0]) >= myfirst and int(x[0]) <= mylast, l)
+            # Validate we got as many results as we expected.
+            if(len(l) != mycount):
+                self.log.warn("Invalid number of articles returned.  " \
+                    + "Expected " + `mycount` + ", but got " + `len(l)`)
 
         # Flip through the stuff we actually want to process.
         for i in l:
@@ -276,6 +277,9 @@ class NNTPSucka:
                 messid="*empty*"
                 messid=i[1]
                 idx=i[0]
+                self.log.debug("idx is " + idx + " range is " + myfirst \
+                    + "-" + mylast)
+                assert(int(idx) >= int(myfirst) and int(idx) <= int(mylast))
                 if self.db.hasArticle(messid):
                     self.log.info("Already seen " + messid)
                     self.stats.addDup()
