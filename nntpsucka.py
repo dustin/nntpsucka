@@ -57,8 +57,8 @@ class NewsDB:
     Group entries (l) have a string value that represents that last seen
     article by number for the given group (the part after the l/).
     """
-    def __init__(self, config=conf):
-        self.db=anydbm.open(conf.get("misc", "newsdb"), "c")
+    def __init__(self, dbpath):
+        self.db=anydbm.open(dbpath, "c")
         self.log=logging.getLogger("NewsDB")
 
     def hasArticle(self, message_id):
@@ -242,7 +242,7 @@ class NNTPSucka:
             except ConfigParser.NoOptionError:
                 self.log.debug("No option `maxArticles' in section `misc'")
         self.log.debug("Max articles is configured as %d" %(self.maxArticles))
-        self.db=NewsDB(config)
+        self.db=NewsDB(config.get("misc","newsdb"))
         self.stats=Stats()
 
     def copyGroup(self, groupname):
@@ -351,8 +351,11 @@ def getIgnoreList(fn):
     return rv
 
 def main():
+    conf=OptConf({'port':'119', 'newsdb':'newsdb', 'pidfile':'nntpsucka.pid'})
+    conf.read(sys.argv[1])
+
     # Lock to make sure only one is running at a time.
-    lock=pidlock.PidLock("nntpsucka.pid")
+    lock=pidlock.PidLock(conf.get("misc", "pidfile"))
 
     # Let it run up to four hours.
     signal.signal(signal.SIGALRM, alarmHandler)
@@ -362,9 +365,6 @@ def main():
     if len(sys.argv) < 2:
         sys.stderr.write("Usage:  " + sys.argv[0] + " configFile\n")
         sys.exit(1)
-
-    conf=OptConf({'port':'119', 'newsdb':'newsdb'})
-    conf.read(sys.argv[1])
 
     # Configure logging.
     logging.config.fileConfig(sys.argv[1])
