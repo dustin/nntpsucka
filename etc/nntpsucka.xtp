@@ -13,7 +13,9 @@
 
 		<p>
 
-		This application requires the python logging module, which may be found at
+		This application requires the python logging module, which comes with newer
+		versions of python.  However, if you don't have it, or want to read up on
+		configuring it more, you can find more at
 		<a href="http://www.red-dove.com/python_logging.html">red-dove.com</a>.
 
 		<p>
