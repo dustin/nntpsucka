@@ -77,7 +77,7 @@ class NewsDB:
         """
         rv=0
         try:
-            rv=self.db["l/" + group]
+            rv=int(self.db["l/" + group])
         except KeyError:
             pass
         return rv
@@ -100,11 +100,15 @@ class NewsDB:
         as a tuple."""
 
         # Start with myfirst being one greater than the last thing we've seen
-        myfirst=int(self.getLastId(group))+1
+        myfirst=self.getLastId(group) + 1
         first=int(first)
         last=int(last)
+        self.log.debug("%s ranges from %d-%d, we want %d\n" \
+            % (group, first, last, myfirst))
         if (myfirst < first) or (myfirst > last):
             myfirst=first
+            self.log.debug("Our first was out of range, now we want %d\n" \
+                % (myfirst, ))
         mycount=(last-myfirst)+1
 
         self.log.debug("Want no more than %d articles, found %d from %d\n"
