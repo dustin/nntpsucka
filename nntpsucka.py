@@ -131,7 +131,7 @@ class NNTPClient(nntplib.NNTP):
     def __init__(self, host, port=119,user=None,password=None,readermode=None):
         """See netlib.NNTP"""
         self.log=logging.getLogger("NNTPClient")
-        self.log.debug("Connecting to %s:%d" % (host, port))
+        self.log.info("Connecting to %s:%d" % (host, port))
         nntplib.NNTP.__init__(self, host, port, user, password, readermode)
         self.log.debug("Connected to %s:%d" % (host, port))
         self.checkMode()
