@@ -105,7 +105,7 @@ class NewsDB:
         last=int(last)
         self.log.debug("%s ranges from %d-%d, we want %d\n" \
             % (group, first, last, myfirst))
-        if (myfirst < first) or (myfirst > last):
+        if (myfirst < first) or (myfirst > (last+1)):
             myfirst=first
             self.log.debug("Our first was out of range, now we want %d\n" \
                 % (myfirst, ))
