@@ -9,8 +9,6 @@ import time
 import os
 import sys
 
-import pidlock
-
 def walkDbm(dbm):
     finished=None
     k,v=dbm.first()
@@ -20,9 +18,6 @@ def walkDbm(dbm):
             k,v=dbm.next()
         except KeyError:
             raise StopIteration
-
-# Prevent a collision
-lock=pidlock.PidLock("nntpsucka.pid")
 
 olddb=anydbm.open(sys.argv[1])
 newdb=anydbm.open(sys.argv[1] + ".new", "c")
