@@ -102,7 +102,7 @@ class NewsDB:
         myfirst=self.getLastId(group)
         if (int(myfirst) < int(first)) or (int(myfirst) > int(last)):
             myfirst=first
-        mycount=(int(last)-int(myfirst))
+        mycount=(int(last)-int(myfirst))+1
 
         self.log.debug("Want no more than %d articles, found %d from %s\n"
             % (maxArticles, mycount, myfirst))
@@ -268,7 +268,7 @@ class NNTPSucka:
 
             # Validate we got as many results as we expected.
             if(len(l) != mycount):
-                self.log.warn("Invalid number of articles returned.  " \
+                self.log.warn("Unexpected number of articles returned.  " \
                     + "Expected " + `mycount` + ", but got " + `len(l)`)
 
         # Flip through the stuff we actually want to process.
