@@ -11,6 +11,9 @@ import signal
 import os
 import sys
 import re
+import ConfigParser
+import logging
+import logging.config
 
 # My pidlock
 import pidlock
@@ -54,8 +57,9 @@ class NewsDB:
     Group entries (l) have a string value that represents that last seen
     article by number for the given group (the part after the l/).
     """
-    def __init__(self):
-        self.db=anydbm.open("newsdb", "c")
+    def __init__(self, config=conf):
+        self.db=anydbm.open(conf.get("misc", "newsdb"), "c")
+        self.log=logging.getLogger("NewsDB")
 
     def hasArticle(self, message_id):
         """Return true if there is a reference to the given message ID in
@@ -86,7 +90,7 @@ class NewsDB:
         """Close the DB on destruct."""
         self.db.close()
 
-    def getGroupRange(self, group, first, last):
+    def getGroupRange(self, group, first, last, maxArticles=0):
         """Get the group range for the given group.
 
         The arguments represent the group you're looking to copy, and the
@@ -94,10 +98,22 @@ class NewsDB:
 
         The first, last, and count that should be checked will be returned
         as a tuple."""
+
         myfirst=self.getLastId(group)
         if (int(myfirst) < int(first)) or (int(myfirst) > int(last)):
             myfirst=first
         mycount=(int(last)-int(myfirst))
+
+        self.log.debug("Want no more than %d articles, found %d from %s\n"
+            % (maxArticles, mycount, myfirst))
+
+        if maxArticles > 0 and mycount > maxArticles:
+            self.log.debug("Want %d articles with a max of %d...shrinking\n" \
+                % (mycount, maxArticles))
+            myfirst = `int(myfirst) + (mycount - maxArticles)`
+            mycount = maxArticles
+            self.log.debug("New count is %d, starting with %s"
+                % (mycount, myfirst))
 
         return myfirst, last, mycount
 
@@ -114,9 +130,16 @@ class NNTPClient(nntplib.NNTP):
 
     def __init__(self, host, port=119,user=None,password=None,readermode=None):
         """See netlib.NNTP"""
+        self.log=logging.getLogger("NNTPClient")
+        self.log.debug("Connecting to %s:%d" % (host, port))
         nntplib.NNTP.__init__(self, host, port, user, password, readermode)
+        self.log.debug("Connected to %s:%d" % (host, port))
         self.checkMode()
-        # self.debugging=1
+        self.host=host
+        self.port=port
+
+    def __repr__(self):
+        return ("<NNTPClient: " + self.host + ":" + `self.port` + ">")
 
     def checkMode(self):
         """Upon construct, this tries to figure out whether the server
@@ -126,6 +149,7 @@ class NNTPClient(nntplib.NNTP):
             self.currentmode='reader'
         except nntplib.NNTPPermanentError:
             self.currentmode='poster'
+        self.log.debug("Detected mode %s" % (self.currentmode))
 
     def __headerMatches(self, h):
         """Internal, checks to see if the header ``h'' is in our list of
@@ -142,16 +166,16 @@ class NNTPClient(nntplib.NNTP):
         An exception will be raised if something breaks, or the article
         isn't wanted.  If an exception is not raised, follow with a stream
         of the article."""
-        print "IHAVing " + id
+        self.log.debug("IHAVing " + id)
         resp = self.shortcmd('IHAVE ' + id)
-        print "IHAVE returned " + str(resp)
+        self.log.debug("IHAVE returned " + str(resp))
 
     def copyArticle(self, src, which, messid):
         """Copy an article from the src server to this server.
 
         which is the ID of the message on the src server, messid is the
         message ID of the article."""
-        print "Moving " + str(which)
+        self.log.debug("Moving " + str(which))
         if self.currentmode == 'reader':
             resp, nr, id, lines = src.article(str(which))
             self.post(lines)
@@ -166,10 +190,10 @@ class NNTPClient(nntplib.NNTP):
 
     def takeThis(self, messid, lines):
         """Stream an article to this server."""
-        print "*** TAKE THIS! ***"
+        self.log.debug("*** TAKE THIS! ***")
         for l in lines:
             if l == '.':
-                print "*** L was ., adding a dot. ***"
+                self.log.debug("*** L was ., adding a dot. ***")
                 l = '..'
             self.putline(l)
         self.putline('.')
@@ -177,7 +201,7 @@ class NNTPClient(nntplib.NNTP):
 
     def post(self, lines):
         """Post an article to this server."""
-        print "*** POSTING! ***"
+        self.log.debug("*** POSTING! ***")
         resp = self.shortcmd('POST')
         if resp[0] != '3':
             raise nntplib.NNTPReplyError(resp)
@@ -192,7 +216,7 @@ class NNTPClient(nntplib.NNTP):
                         self.putline(l)
                 else:
                     if l == '.':
-                        print "*** L was ., adding a dot. ***"
+                        self.log.debug("*** L was ., adding a dot. ***")
                         l = '..'
                     self.putline(l)
         self.putline('.')
@@ -203,12 +227,22 @@ class NNTPClient(nntplib.NNTP):
 class NNTPSucka:
     """Copy articles from one NNTP server to another."""
 
-    def __init__(self, src, dest):
+    def __init__(self, src, dest, config=None):
         """Get an NNTPSucka with two NNTPClient objects representing the
         source and destination."""
+        self.log=logging.getLogger("NNTPSucka")
         self.src=src
         self.dest=dest
-        self.db=NewsDB()
+        self.maxArticles=0
+        if config is not None:
+            try:
+                self.maxArticles=config.getint("misc", "maxArticles")
+            except ConfigParser.NoSectionError:
+                self.log.debug("No section `misc'")
+            except ConfigParser.NoOptionError:
+                self.log.debug("No option `maxArticles' in section `misc'")
+        self.log.debug("Max articles is configured as %d" %(self.maxArticles))
+        self.db=NewsDB(config)
         self.stats=Stats()
 
     def copyGroup(self, groupname):
@@ -217,12 +251,15 @@ class NNTPSucka:
         
         Efforts are made to ensure only articles that haven't been seen are
         copied."""
+        self.log.debug("Getting group " + groupname + " from " + `self.src`)
         resp, count, first, last, name = self.src.group(groupname)
+        self.log.debug("Done getting group")
 
         # Figure out where we are
-        myfirst, mylast, mycount= self.db.getGroupRange(groupname, first, last)
-        print "Copying " + str(mycount) + " articles:  " \
-            + str(myfirst) + "-" + str(mylast) + " in " + groupname
+        myfirst, mylast, mycount= self.db.getGroupRange(groupname, first, last,
+            self.maxArticles)
+        self.log.info("Copying " + str(mycount) + " articles:  " \
+            + str(myfirst) + "-" + str(mylast) + " in " + groupname)
 
         # Grab the IDs
         resp, list = self.src.xhdr('message-id', \
@@ -236,7 +273,7 @@ class NNTPSucka:
                 messid="*empty*"
                 messid=ids[str(i)]
                 if self.db.hasArticle(messid):
-                    print "Already seen " + messid
+                    self.log.info("Already seen " + messid)
                     self.stats.addDup()
                 else:
                     self.dest.copyArticle(self.src, i, messid)
@@ -253,7 +290,7 @@ class NNTPSucka:
                     self.stats.addDup()
                 else:
                     self.stats.addOther()
-                print "Failed:  " + str(e)
+                self.log.warn("Failed:  " + str(e))
         self.db.setLastId(groupname, last)
 
     def shouldProcess(self, group, ignorelist):
@@ -266,18 +303,36 @@ class NNTPSucka:
     def copyServer(self, ignorelist=[]):
         """Copy all groups that appear on the destination server to the
         destination server from the source server."""
+        self.log.debug("Getting list of groups from " + `self.dest`)
         resp, list = self.dest.list()
+        self.log.debug("Done getting list of groups from destination")
         for l in list:
             group=l[0]
             if self.shouldProcess(group, ignorelist):
                 try:
+                    self.log.debug("copying " + `group`)
                     self.copyGroup(group)
                 except nntplib.NNTPTemporaryError, e:
-                    print "Error on group " + group + ":  " + str(e)
+                    self.log.warn("Error on group " + group + ":  " + str(e))
 
     def getStats(self):
         """Get the statistics object."""
         return self.stats
+
+class OptConf(ConfigParser.ConfigParser):
+    """ConfigParser with get that supports default values"""
+
+    def __init__(self, defaults=None):
+        ConfigParser.ConfigParser.__init__(self, defaults)
+
+    def getWithDefault(self, section, option, default, raw=False, vars=None):
+        """returns the configuration entry, or the ``default'' argument"""
+        rv=default
+        try:
+            rv=self.get(section, option, raw, vars)
+        except ConfigParser.NoOptionError:
+            pass
+        return rv
 
 class Timeout:
     """This is an exception that's raised when the alarm handler fires."""
@@ -303,20 +358,47 @@ def main():
     signal.signal(signal.SIGALRM, alarmHandler)
     signal.alarm(4*3600)
 
+    # Validate there's a config file
+    if len(sys.argv) < 2:
+        sys.stderr.write("Usage:  " + sys.argv[0] + " configFile\n")
+        sys.exit(1)
+
+    conf=OptConf({'port':'119', 'newsdb':'newsdb'})
+    conf.read(sys.argv[1])
+
+    # Configure logging.
+    logging.config.fileConfig(sys.argv[1])
+
+    fromServer=conf.get("servers", "from")
+    fromUser=None
+    fromPass=None
+    fromPort=119
+    if conf.has_section(fromServer):
+        fromUser=conf.getWithDefault(fromServer, "username", None)
+        fromPass=conf.getWithDefault(fromServer, "password", None)
+        fromPort=conf.getint(fromServer, "port")
+    toServer=conf.get("servers", "to")
+    toUser=None
+    toPass=None
+    toPort=119
+    if conf.has_section(toServer):
+        toUser=conf.getWithDefault(toServer, "username", None)
+        toPass=conf.getWithDefault(toServer, "password", None)
+        toPort=conf.getint(toServer, "port")
+    filterList=conf.getWithDefault("servers", "filterList", None)
+
     sucka=None
     # Mark the start time
     start=time.time()
     try:
-        s=NNTPClient(sys.argv[1])
-        d=NNTPClient(sys.argv[2])
+        s=NNTPClient(fromServer, port=fromPort, user=fromUser, \
+            password=fromPass)
+        d=NNTPClient(toServer, port=toPort, user=toUser, password=toPass)
         ign=[re.compile('^control\.')]
-        if len(sys.argv) > 2:
-            ign=getIgnoreList(sys.argv[3])
-        sucka=NNTPSucka(s,d)
+        if filterList is not None:
+            ign=getIgnoreList(filterList)
+        sucka=NNTPSucka(s,d, config=conf)
         sucka.copyServer(ign)
-    except IndexError:
-        sys.stderr.write("Usage:  " + sys.argv[0] \
-            + " srchost desthost [ignorelist].\n")
     except Timeout:
         sys.stderr.write("Took too long.\n")
     # Mark the stop time
