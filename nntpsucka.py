@@ -18,6 +18,11 @@ import logging.config
 # My pidlock
 import pidlock
 
+# Configuration defaults
+CONF_DEFAULTS={'port':'119', 'newsdb':'newsdb', 'pidfile':'nntpsucka.pid',
+    'shouldMarkArticles': 'true', 'maxArticles': 0}
+CONF_SECTIONS=['misc', 'servers']
+
 class Stats:
     """Keep statistics describing what got moved."""
 
@@ -60,16 +65,25 @@ class NewsDB:
     def __init__(self, dbpath):
         self.db=anydbm.open(dbpath, "c")
         self.log=logging.getLogger("NewsDB")
+        self.__markArticles=True
+
+    def setShouldMarkArticles(self, to):
+        """Set to false if articles should not be marked in the news db."""
+        self.__markArticles=to
 
     def hasArticle(self, message_id):
         """Return true if there is a reference to the given message ID in
         this database.
         """
-        return self.db.has_key("a/" + message_id)
+        rv=False
+        if self.__markArticles:
+            rv=self.db.has_key("a/" + message_id)
+        return rv
 
     def markArticle(self, message_id):
         """Mark the article seen."""
-        self.db["a/" + message_id] = str(time.time())
+        if self.__markArticles:
+            self.db["a/" + message_id] = str(time.time())
 
     def getLastId(self, group):
         """Get the last seen article ID for the given group, or 0 if this
@@ -240,15 +254,17 @@ class NNTPSucka:
         self.log=logging.getLogger("NNTPSucka")
         self.src=src
         self.dest=dest
-        self.maxArticles=0
-        try:
-            self.maxArticles=config.getint("misc", "maxArticles")
-        except ConfigParser.NoSectionError:
-            self.log.debug("No section `misc'")
-        except ConfigParser.NoOptionError:
-            self.log.debug("No option `maxArticles' in section `misc'")
+
+        # Figure out the maximum number of articles per group
+        self.maxArticles=config.getint("misc", "maxArticles")
         self.log.debug("Max articles is configured as %d" %(self.maxArticles))
+
+        # NewsDB setup
         self.db=NewsDB(config.get("misc","newsdb"))
+        self.db.setShouldMarkArticles(config.getboolean("misc",
+            "shouldMarkArticles"))
+
+        # Initialize stats
         self.stats=Stats()
 
     def copyGroup(self, groupname):
@@ -337,14 +353,19 @@ class NNTPSucka:
 class OptConf(ConfigParser.ConfigParser):
     """ConfigParser with get that supports default values"""
 
-    def __init__(self, defaults=None):
+    def __init__(self, defaults=None, sections=[]):
         ConfigParser.ConfigParser.__init__(self, defaults)
+        for s in sections:
+            if not self.has_section(s):
+                self.add_section(s)
 
     def getWithDefault(self, section, option, default, raw=False, vars=None):
         """returns the configuration entry, or the ``default'' argument"""
         rv=default
         try:
             rv=self.get(section, option, raw, vars)
+        except ConfigParser.NoSectionError:
+            pass
         except ConfigParser.NoOptionError:
             pass
         return rv
@@ -368,7 +389,7 @@ def getIgnoreList(fn):
     return rv
 
 def main():
-    conf=OptConf({'port':'119', 'newsdb':'newsdb', 'pidfile':'nntpsucka.pid'})
+    conf=OptConf(CONF_DEFAULTS, CONF_SECTIONS)
     conf.read(sys.argv[1])
 
     # Lock to make sure only one is running at a time.
