@@ -84,7 +84,7 @@ class NewsDB:
 
     def setLastId(self, group, id):
         """Set the last seen article ID for the given group."""
-        self.db["l/" + group]=id
+        self.db["l/" + group]=str(id)
 
     def __del__(self):
         """Close the DB on destruct."""
@@ -279,6 +279,8 @@ class NNTPSucka:
                     self.dest.copyArticle(self.src, i, messid)
                     self.db.markArticle(messid)
                     self.stats.addMoved()
+                # Mark this message as having been read in the group
+                self.db.setLastId(groupname, i)
             except KeyError, e:
                 # Couldn't find the header, article probably doesn't
                 # exist anymore.
@@ -291,7 +293,6 @@ class NNTPSucka:
                 else:
                     self.stats.addOther()
                 self.log.warn("Failed:  " + str(e))
-        self.db.setLastId(groupname, last)
 
     def shouldProcess(self, group, ignorelist):
         rv = True
