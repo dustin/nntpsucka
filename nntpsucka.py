@@ -101,9 +101,10 @@ class NewsDB:
 
         # Start with myfirst being one greater than the last thing we've seen
         myfirst=int(self.getLastId(group))+1
+        first=int(first)
         last=int(last)
         if (myfirst < first) or (myfirst > last):
-            myfirst=int(first)
+            myfirst=first
         mycount=(last-myfirst)+1
 
         self.log.debug("Want no more than %d articles, found %d from %d\n"
