@@ -1,0 +1,30 @@
+<project>
+	<name>nntpsucka</name>
+
+	<description>
+		nntpsucka is a python program that can be used to populate a news
+		server.  Having had bad experiences with other applications I've
+		tried, I decided to write my own.
+
+		<p>
+		
+		I've been servicing a news feed at my house from this application
+		since about March, 2002.
+
+		<p>
+
+		This application requires the python logging module, which may be found at
+		<a href="http://www.red-dove.com/python_logging.html">red-dove.com</a>.
+
+		<p>
+
+		<a href="nntpsucka.cl.txt">Read the changelog</a>
+	</description>
+
+	<dist>
+		<disturl>/~dustin/soft/nntpsucka-@VER@.tgz</disturl>
+		<distversion>@VER@</distversion>
+	</dist>
+
+</project>
+<!-- arch-tag: 1EC4C2A6-11D0-11D9-93F8-000A957659CC -->

@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# arch-tag: 8C6D56F2-11CF-11D9-87A8-000A957659CC
+
+SOFT=/afs/spy.net/home/dustin/public_html/soft
+PROJ=/afs/spy.net/home/dustin/public_html/projects
+
+trev=`aba tree-revision`
+ver=`tla parse-package-name --non-arch $trev`
+base=`tla tree-version | sed 's/.*--//'`
+patch=`tla logs | tail -1 | sed 's/patch-//'`
+
+shortver="${base}.${patch}"
+
+echo "Installing version $ver"
+
+aba export $trev
+mv $ver.tar.gz $SOFT/nntpsucka-${shortver}.tgz
+tla changelog > $PROJ/nntpsucka.tmp
+mv $PROJ/nntpsucka.tmp $PROJ/nntpsucka.cl.txt
+
+sed "s/@VER@/$shortver/g" < etc/nntpsucka.xtp > $PROJ/nntpsucka.tmp
+mv $PROJ/nntpsucka.tmp $PROJ/nntpsucka.xtp
