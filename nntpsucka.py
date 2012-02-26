@@ -183,7 +183,7 @@ class NNTPClient(nntplib.NNTP):
 
     def ihave(self, id):
         """Send an IHAVE for a message ID (feeder mode only).
-        
+
         An exception will be raised if something breaks, or the article
         isn't wanted.  If an exception is not raised, follow with a stream
         of the article."""
@@ -270,7 +270,7 @@ class NNTPSucka:
     def copyGroup(self, groupname):
         """Copy the given group from the source server to the destination
         server.
-        
+
         Efforts are made to ensure only articles that haven't been seen are
         copied."""
         self.log.debug("Getting group " + groupname + " from " + `self.src`)
