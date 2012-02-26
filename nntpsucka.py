@@ -170,6 +170,8 @@ class NNTPClient(nntplib.NNTP):
             self.currentmode='reader'
         except nntplib.NNTPPermanentError:
             self.currentmode='poster'
+        except nntplib.NNTPTemporaryError:
+            self.currentmode='poster'
         self.log.debug("Detected mode %s" % (self.currentmode))
 
     def __headerMatches(self, h):
