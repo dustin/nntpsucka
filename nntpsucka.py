@@ -390,6 +390,24 @@ def getIgnoreList(fn):
         rv.append(re.compile(l))
     return rv
 
+def connectionMaker(conf, which):
+
+    connServer=conf.get("servers", which)
+    connUser=None
+    connPass=None
+    connPort=119
+    num_conn = 1
+    if conf.has_section(connServer):
+        connUser=conf.getWithDefault(connServer, "username", None)
+        connPass=conf.getWithDefault(connServer, "password", None)
+        connPort=conf.getint(connServer, "port")
+
+    def f():
+        return NNTPClient(connServer, port=connPort,
+                          user=connUser, password=connPass)
+
+    return f
+
 def main():
     conf=OptConf(CONF_DEFAULTS, CONF_SECTIONS)
     conf.read(sys.argv[1])
@@ -409,35 +427,19 @@ def main():
     # Configure logging.
     logging.config.fileConfig(sys.argv[1])
 
-    fromServer=conf.get("servers", "from")
-    fromUser=None
-    fromPass=None
-    fromPort=119
-    if conf.has_section(fromServer):
-        fromUser=conf.getWithDefault(fromServer, "username", None)
-        fromPass=conf.getWithDefault(fromServer, "password", None)
-        fromPort=conf.getint(fromServer, "port")
-    toServer=conf.get("servers", "to")
-    toUser=None
-    toPass=None
-    toPort=119
-    if conf.has_section(toServer):
-        toUser=conf.getWithDefault(toServer, "username", None)
-        toPass=conf.getWithDefault(toServer, "password", None)
-        toPort=conf.getint(toServer, "port")
     filterList=conf.getWithDefault("misc", "filterList", None)
+
+    fromFactory = connectionMaker(conf, "from")
+    toFactory = connectionMaker(conf, "to")
 
     sucka=None
     # Mark the start time
     start=time.time()
     try:
-        s=NNTPClient(fromServer, port=fromPort, user=fromUser, \
-            password=fromPass)
-        d=NNTPClient(toServer, port=toPort, user=toUser, password=toPass)
         ign=[re.compile('^control\.')]
         if filterList is not None:
             ign=getIgnoreList(filterList)
-        sucka=NNTPSucka(s,d, config=conf)
+        sucka=NNTPSucka(fromFactory(), toFactory(), config=conf)
         sucka.copyServer(ign)
     except Timeout:
         sys.stderr.write("Took too long.\n")
