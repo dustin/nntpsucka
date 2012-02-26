@@ -9,6 +9,7 @@ to=news.west.spy.net
 [misc]
 # Name of the file that will contain the news db
 newsdb=newsdb
+workers=5
 
 # Name of the pid file
 pidfile=nntpsucka.pid

@@ -14,6 +14,8 @@ import re
 import ConfigParser
 import logging
 import logging.config
+import threading
+import Queue
 
 # My pidlock
 import pidlock
@@ -205,10 +207,14 @@ class NNTPClient(nntplib.NNTP):
         else:
             self.ihave(messid)
             try:
-                resp, nr, id, lines = src.article(str(which))
+                resp, nr, id, lines = src.article(messid)
             except nntplib.NNTPTemporaryError, e:
                 # Generate an error, I don't HAVE this article, after all
-                self.shortcmd('.')
+                self.log.warn("Did not have %s", messid)
+                try:
+                    self.shortcmd('\r\n.')
+                except nntplib.NNTPTemporaryError, e:
+                    return
             self.takeThis(messid, lines)
 
     def takeThis(self, messid, lines):
@@ -247,15 +253,59 @@ class NNTPClient(nntplib.NNTP):
 
 ######################################################################
 
+class Worker(threading.Thread):
+
+    def __init__(self, sf, df, inq, outq):
+        threading.Thread.__init__(self)
+        self.srcf = sf
+        self.destf = df
+        self.inq = inq
+        self.outq = outq
+        self.log=logging.getLogger("Worker")
+        self.currentGroup = ""
+
+        self.setName("worker")
+        self.setDaemon(True)
+        self.start()
+
+    def run(self):
+        try:
+            self.src = self.srcf()
+            self.dest = self.destf()
+            while True:
+                group, num, messid = self.inq.get()
+                self.log.debug("doing %s, %s, %s", group, num, messid)
+                if group != self.currentGroup:
+                    self.src.group(group)
+                    self.currentGroup = group
+                try:
+                    self.dest.copyArticle(self.src, num, messid)
+                    self.outq.put(('success', messid))
+                except nntplib.NNTPTemporaryError, e:
+                    if str(e).find("Duplicate"):
+                        self.outq.put(('duplicate', messid))
+                    else:
+                        self.outq.put(('error', messid))
+                        self.log.warn("Failed:  " + str(e))
+
+                self.inq.task_done()
+        except:
+            import traceback
+            traceback.print_exc()
+            sys.exit(1)
+
 class NNTPSucka:
     """Copy articles from one NNTP server to another."""
 
-    def __init__(self, src, dest, config):
+    def __init__(self, srcf, destf, config):
         """Get an NNTPSucka with two NNTPClient objects representing the
         source and destination."""
         self.log=logging.getLogger("NNTPSucka")
-        self.src=src
-        self.dest=dest
+        self.src=srcf()
+        self.dest=destf()
+
+        self.reqQueue = Queue.Queue(1000)
+        self.doneQueue = Queue.Queue(1000)
 
         # Figure out the maximum number of articles per group
         self.maxArticles=config.getint("misc", "maxArticles")
@@ -268,6 +318,9 @@ class NNTPSucka:
 
         # Initialize stats
         self.stats=Stats()
+
+        self.workers = [Worker(srcf, destf, self.reqQueue, self.doneQueue)
+                        for x in range(config.getint("misc", "workers"))]
 
     def copyGroup(self, groupname):
         """Copy the given group from the source server to the destination
@@ -298,6 +351,19 @@ class NNTPSucka:
         # Flip through the stuff we actually want to process.
         for i in l:
             try:
+                t,  messid = self.doneQueue.get_nowait()
+                if t == 'success':
+                    self.log.debug("Finished %s", messid)
+                    self.db.markArticle(messid)
+                    self.stats.addMoved()
+                elif t == 'duplicate':
+                    self.db.markArticle(messid)
+                    self.stats.addDup()
+                else:
+                    self.stats.addOther()
+            except Queue.Empty:
+                pass
+            try:
                 messid="*empty*"
                 messid=i[1]
                 idx=i[0]
@@ -308,23 +374,13 @@ class NNTPSucka:
                     self.log.info("Already seen " + messid)
                     self.stats.addDup()
                 else:
-                    self.dest.copyArticle(self.src, idx, messid)
-                    self.db.markArticle(messid)
-                    self.stats.addMoved()
+                    self.reqQueue.put((groupname, idx, messid))
                 # Mark this message as having been read in the group
                 self.db.setLastId(groupname, idx)
             except KeyError, e:
                 # Couldn't find the header, article probably doesn't
                 # exist anymore.
                 pass
-            except nntplib.NNTPTemporaryError, e:
-                # Save it if it's duplicate
-                if str(e).find("Duplicate"):
-                    self.db.markArticle(messid)
-                    self.stats.addDup()
-                else:
-                    self.stats.addOther()
-                self.log.warn("Failed:  " + str(e))
 
     def shouldProcess(self, group, ignorelist):
         rv = True
@@ -347,6 +403,8 @@ class NNTPSucka:
                     self.copyGroup(group)
                 except nntplib.NNTPTemporaryError, e:
                     self.log.warn("Error on group " + group + ":  " + str(e))
+
+        self.reqQueue.join()
 
     def getStats(self):
         """Get the statistics object."""
@@ -417,7 +475,7 @@ def main():
 
     # Let it run up to four hours.
     signal.signal(signal.SIGALRM, alarmHandler)
-    signal.alarm(4*3600)
+    signal.alarm(12*3600)
 
     # Validate there's a config file
     if len(sys.argv) < 2:
@@ -439,7 +497,7 @@ def main():
         ign=[re.compile('^control\.')]
         if filterList is not None:
             ign=getIgnoreList(filterList)
-        sucka=NNTPSucka(fromFactory(), toFactory(), config=conf)
+        sucka=NNTPSucka(fromFactory, toFactory, config=conf)
         sucka.copyServer(ign)
     except Timeout:
         sys.stderr.write("Took too long.\n")
