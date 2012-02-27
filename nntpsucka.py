@@ -11,6 +11,7 @@ import signal
 import os
 import sys
 import re
+import traceback
 import ConfigParser
 import logging
 import logging.config
@@ -263,36 +264,44 @@ class Worker(threading.Thread):
         self.outq = outq
         self.log=logging.getLogger("Worker")
         self.currentGroup = ""
+        self.running = True
 
         self.setName("worker")
         self.setDaemon(True)
         self.start()
 
     def run(self):
-        try:
-            self.src = self.srcf()
-            self.dest = self.destf()
-            while True:
-                group, num, messid = self.inq.get()
-                self.log.debug("doing %s, %s, %s", group, num, messid)
-                if group != self.currentGroup:
-                    self.src.group(group)
-                    self.currentGroup = group
-                try:
-                    self.dest.copyArticle(self.src, num, messid)
-                    self.outq.put(('success', messid))
-                except nntplib.NNTPTemporaryError, e:
-                    if str(e).find("Duplicate"):
-                        self.outq.put(('duplicate', messid))
-                    else:
-                        self.outq.put(('error', messid))
-                        self.log.warn("Failed:  " + str(e))
+        while self.running:
+            try:
+                self.src = self.srcf()
+                self.dest = self.destf()
+                self.mainLoop()
+            except nntplib.NNTPPermanentError, e:
+                traceback.print_exc()
+                self.src.quit()
+                self.dest.quit()
+            except:
+                traceback.print_exc()
+                sys.exit(1)
 
-                self.inq.task_done()
-        except:
-            import traceback
-            traceback.print_exc()
-            sys.exit(1)
+    def mainLoop(self):
+        while self.running:
+            group, num, messid = self.inq.get()
+            self.log.debug("doing %s, %s, %s", group, num, messid)
+            if group != self.currentGroup:
+                self.src.group(group)
+                self.currentGroup = group
+            try:
+                self.dest.copyArticle(self.src, num, messid)
+                self.outq.put(('success', messid))
+            except nntplib.NNTPTemporaryError, e:
+                if str(e).find("Duplicate"):
+                    self.outq.put(('duplicate', messid))
+                else:
+                    self.outq.put(('error', messid))
+                    self.log.warn("Failed:  " + str(e))
+
+            self.inq.task_done()
 
 class NNTPSucka:
     """Copy articles from one NNTP server to another."""
