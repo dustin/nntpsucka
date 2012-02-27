@@ -1,4 +1,7 @@
+#*
+*.db
+*.pid
 *.pyc
 *~
-#*
+/gmane.conf
 nntpsucka.conf
