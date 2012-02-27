@@ -278,8 +278,14 @@ class Worker(threading.Thread):
                 self.mainLoop()
             except nntplib.NNTPPermanentError, e:
                 traceback.print_exc()
-                self.src.quit()
-                self.dest.quit()
+                try:
+                    self.src.quit()
+                except:
+                    pass
+                try:
+                    self.dest.quit()
+                except:
+                    pass
             except:
                 traceback.print_exc()
                 sys.exit(1)
