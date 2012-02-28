@@ -4,19 +4,20 @@
 #
 # arch-tag: 8F42F3DA-10C0-11D9-A55D-000393CFE6B8
 
-import nntplib
-import time
-import anydbm
-import signal
-import os
-import sys
-import re
-import traceback
+from sqlite3 import dbapi2 as sqlite
 import ConfigParser
+import Queue
+import datetime
 import logging
 import logging.config
+import nntplib
+import os
+import re
+import signal
+import sys
 import threading
-import Queue
+import time
+import traceback
 
 # My pidlock
 import pidlock
@@ -53,6 +54,23 @@ class Stats:
 
 ######################################################################
 
+DBINITSCRIPT="""
+create table if not exists articles (
+    messid varchar(256) primary key,
+    ts timestamp
+);
+
+create table if not exists groups (
+    group_name varchar(256) primary key,
+    last_id int
+);
+"""
+
+INS_ARTICLE="""insert or replace into articles values(?, ?)"""
+GET_ARTICLE="""select * from articles where messid = ?"""
+INS_GROUP="""insert or replace into groups values (?, ?)"""
+GET_GROUP="""select * from groups where group_name = ?"""
+
 class NewsDB:
     """Database of seen articles and groups.
 
@@ -65,10 +83,22 @@ class NewsDB:
     Group entries (l) have a string value that represents that last seen
     article by number for the given group (the part after the l/).
     """
+
+    __TXN_SIZE = 100
+
     def __init__(self, dbpath):
-        self.db=anydbm.open(dbpath, "c")
-        self.log=logging.getLogger("NewsDB")
-        self.__markArticles=True
+        self.db = sqlite.connect(dbpath)
+        self.cur = self.db.cursor()
+        self.cur.executescript(DBINITSCRIPT)
+        self.log = logging.getLogger("NewsDB")
+        self.__trans = 0
+        self.__markArticles = True
+
+    def __maybeCommit(self):
+        self.__trans += 1
+        if self.__trans >= self.__TXN_SIZE:
+            self.__trans = 0
+            self.db.commit()
 
     def setShouldMarkArticles(self, to):
         """Set to false if articles should not be marked in the news db."""
@@ -80,31 +110,36 @@ class NewsDB:
         """
         rv=False
         if self.__markArticles:
-            rv=self.db.has_key("a/" + message_id)
+            self.cur.execute(GET_ARTICLE, (message_id,))
+            rv = len(self.cur.fetchall()) > 0
         return rv
 
     def markArticle(self, message_id):
         """Mark the article seen."""
         if self.__markArticles:
-            self.db["a/" + message_id] = str(time.time())
+            self.cur.execute(INS_ARTICLE, (message_id, datetime.datetime.now()))
+            self.__maybeCommit()
 
     def getLastId(self, group):
         """Get the last seen article ID for the given group, or 0 if this
         group hasn't been seen.
         """
         rv=0
-        try:
-            rv=int(self.db["l/" + group])
-        except KeyError:
-            pass
+        self.cur.execute(GET_GROUP, (group,))
+        rows = self.cur.fetchall()
+        if len(rows) > 1:
+            rv = int(rows[0][1])
         return rv
 
     def setLastId(self, group, id):
         """Set the last seen article ID for the given group."""
-        self.db["l/" + group]=str(id)
+        self.cur.execute(INS_GROUP, (group, id))
+        self.__maybeCommit()
 
     def __del__(self):
         """Close the DB on destruct."""
+        self.db.commit()
+        self.cur.close()
         self.db.close()
 
     def getGroupRange(self, group, first, last, maxArticles=0):

@@ -1,7 +1,8 @@
 #*
+*.conf
 *.db
 *.pid
 *.pyc
+*newsdb*
 *~
-/gmane.conf
 nntpsucka.conf
