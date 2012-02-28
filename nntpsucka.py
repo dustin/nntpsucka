@@ -523,9 +523,11 @@ def main():
     # Lock to make sure only one is running at a time.
     lock=pidlock.PidLock(conf.get("misc", "pidfile"))
 
-    # Let it run up to four hours.
+    # How long do we wait for startup?
     signal.signal(signal.SIGALRM, alarmHandler)
-    signal.alarm(12*3600)
+    signal.alarm(30)
+    # And how long will we wait for the actual processing?
+    TIMEOUT = 4 * 3600
 
     # Validate there's a config file
     if len(sys.argv) < 2:
@@ -547,10 +549,13 @@ def main():
         ign=[re.compile('^control\.')]
         if filterList is not None:
             ign=getIgnoreList(filterList)
+        signal.alarm(30)
         sucka=NNTPSucka(fromFactory, toFactory, config=conf)
+        signal.alarm(TIMEOUT)
         sucka.copyServer(ign)
     except Timeout:
         sys.stderr.write("Took too long.\n")
+        sys.exit(1)
     # Mark the stop time
     stop=time.time()
 
