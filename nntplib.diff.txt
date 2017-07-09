@@ -1,0 +1,13 @@
+# python --version
+# tested @ Python 2.7.9 @ debian 8 jessie
+# diff /usr/lib/python2.7/nntplib.py.bak /usr/lib/python2.7/nntplib.py
+44a45
+> _MAXLINE_HARD = 64000
+211,212c212,215
+<         if len(line) > _MAXLINE:
+<             raise NNTPDataError('line too long')
+---
+>         if len(line) > _MAXLINE and len(line) <= _MAXLINE_HARD:
+>             print("line too long, line='%s', len=%d, (bypass)"%(str(line), len(line)))
+>             if len(line) > _MAXLINE_HARD:
+>                 raise NNTPDataError("line too long, line='%s', len=%d, (abort)"%(str(line), len(line)))

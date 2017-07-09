@@ -187,7 +187,7 @@ class NNTPClient(nntplib.NNTP):
         'Distribution', \
         'Lines', 'Content-Type', 'Content-Transfer-Encoding']
 
-    def __init__(self, host, port=119,user=None,password=None,readermode=None):
+    def __init__(self, host, port=119,user=None,password=None,readermode=False):
         """See netlib.NNTP"""
         self.log=logging.getLogger("NNTPClient")
         self.log.info("Connecting to %s:%d" % (host, port))
@@ -222,18 +222,20 @@ class NNTPClient(nntplib.NNTP):
         return rv
 
     def ihave(self, id):
+        #try:
         """Send an IHAVE for a message ID (feeder mode only).
-
         An exception will be raised if something breaks, or the article
         isn't wanted.  If an exception is not raised, follow with a stream
         of the article."""
-        self.log.debug("IHAVing " + id)
+        self.log.debug("def ihave: '%s' "%(id))
         resp = self.shortcmd('IHAVE ' + id)
-        self.log.debug("IHAVE returned " + str(resp))
+        self.log.debug("def ihave: IHAVE '%s' returned '%s' "%(id,resp))
+        #except Exception as e:
+        #    self.log.warn("def ihave: failed, exception = '%s', id = '%s'" % (e,id))
 
     def copyArticle(self, src, which, messid):
+        #try:
         """Copy an article from the src server to this server.
-
         which is the ID of the message on the src server, messid is the
         message ID of the article."""
         self.log.debug("Moving " + str(which))
@@ -246,16 +248,30 @@ class NNTPClient(nntplib.NNTP):
                 resp, nr, id, lines = src.article(messid)
             except nntplib.NNTPTemporaryError, e:
                 # Generate an error, I don't HAVE this article, after all
-                self.log.warn("Did not have %s", messid)
+                self.log.warn("def copyArticle: Did not have %s"%messid)
                 try:
-                    self.shortcmd('\r\n.')
+                    # fixme: why's doing that here?
+                    resp = self.shortcmd('\r\n.')
+                    self.log.warn("def copyArticle: try '%s' shortcmd '\r\n.', resp = '%s'" %(messid,resp))
                 except nntplib.NNTPTemporaryError, e:
                     return
+            except nntplib.NNTPDataError, e:
+                self.log.warn("def copyArticle failed, NNTPDataError exception = '%s', which = '%s', messid='%s'" % (e,which,messid))
+                return
+            except EOFError, e:
+                self.log.warn("def copyArticle failed, EOFError exception = '%s', which = '%s', messid='%s'" % (e,which,messid))
+                return                
+            except Exception as e:
+                self.log.warn("def copyArticle failed, exception = '%s', which = '%s', messid='%s'" % (e,which,messid))
+                return
             self.takeThis(messid, lines)
+        #except Exception as e:
+        #    self.log.warn("def copyArticle failed, exception = '%s', which = '%s', messid='%s'" % (e,which,messid))
 
     def takeThis(self, messid, lines):
+        #try:
         """Stream an article to this server."""
-        self.log.debug("*** TAKE THIS! ***")
+        self.log.info("def takeThis: messid = '%s', lines='%d'" % (messid,len(lines)))
         for l in lines:
             if l == '.':
                 self.log.debug("*** L was ., adding a dot. ***")
@@ -263,10 +279,13 @@ class NNTPClient(nntplib.NNTP):
             self.putline(l)
         self.putline('.')
         self.getresp()
+        #except Exception as e:
+        #    self.log.warn("def takeThis failed, exception = '%s', messid = '%s'" % (e,messid))
 
     def post(self, lines):
+        #try:
         """Post an article to this server."""
-        self.log.debug("*** POSTING! ***")
+        self.log.info("def post: lines='%d'" % (e,len(lines)))
         resp = self.shortcmd('POST')
         if resp[0] != '3':
             raise nntplib.NNTPReplyError(resp)
@@ -286,6 +305,8 @@ class NNTPClient(nntplib.NNTP):
                     self.putline(l)
         self.putline('.')
         self.getresp()
+        #except Exception as e:
+        #    self.log.warn("def post failed, exception = '%s'" % (e))
 
 ######################################################################
 
@@ -300,16 +321,18 @@ class Worker(threading.Thread):
         self.log=logging.getLogger("Worker")
         self.currentGroup = ""
         self.running = True
-
+        
         self.setName("worker")
         self.setDaemon(True)
         self.start()
 
     def run(self):
+        
         while self.running:
             try:
                 self.src = self.srcf()
                 self.dest = self.destf()
+                self.log.info("Worker) def run: self.src = '%s', self.dest = '%s', join mainLoop()"%(self.src,self.dest))
                 self.mainLoop()
             except nntplib.NNTPPermanentError, e:
                 traceback.print_exc()
@@ -328,20 +351,55 @@ class Worker(threading.Thread):
     def mainLoop(self):
         while self.running:
             group, num, messid = self.inq.get()
-            self.log.debug("doing %s, %s, %s", group, num, messid)
-            if group != self.currentGroup:
-                self.src.group(group)
-                self.currentGroup = group
-            try:
-                self.dest.copyArticle(self.src, num, messid)
-                self.outq.put(('success', messid))
-            except nntplib.NNTPTemporaryError, e:
-                if str(e).find("Duplicate"):
-                    self.outq.put(('duplicate', messid))
-                else:
+            
+            if num == None:
+                resp = None
+                
+                if messid == 'SRC':
+                    try:
+                        resp = self.src.shortcmd('GROUP %s'%group)
+                        if str(resp).startswith('211 '):
+                            self.log.debug("Worker) def mainLoop: '%s' anti_timeout sent to src '%s', resp = '%s'"%(group,self.src,resp))
+                    except Exception as e:
+                        self.log.warn("Worker) def mainLoop: '%s' anti_timeout src '%s', exception = '%s', resp = '%s'"%(group,self.src,e,resp))
+                
+                elif messid == 'DST':
+                    try:
+                        resp = self.dest.shortcmd('GROUP %s'%group)
+                    except Exception as e:
+                        if str(e).find('401 MODE READER'):
+                            self.log.debug("Worker) def mainLoop: '%s' anti_timeout sent to dst '%s', resp = '%s'"%(group,self.dest,resp))
+                        else:
+                            self.log.warn("Worker) def mainLoop: '%s' anti_timeout dst '%s', exception = '%s', resp = '%s'"%(group,self.dest,e,resp))
+                
+            else:
+                
+                self.log.debug("Worker) def mainLoop: doing %s, %s, %s", group, num, messid)
+                if group != self.currentGroup:
+                    try:
+                        self.src.group(group)
+                        self.currentGroup = group
+                    except Exception as e:
+                        self.log.warn("Worker) def mainLoop: try #0 self.src.group(group) failed, exception = '%s', group='%s', messid='%s'"%(e,group,messid))
+                try:
+                    self.dest.copyArticle(self.src, num, messid)
+                    self.outq.put(('success', messid))
+                except nntplib.NNTPTemporaryError, e:
+                    if str(e).find("Duplicate"):
+                        self.outq.put(('duplicate', messid))
+                        self.log.debug("Worker) def mainLoop: Duplicate, NNTPTemporaryError exception = '%s', group='%s', messid='%s'"%(e,group,messid))
+                    else:
+                        self.outq.put(('error', messid))
+                        self.log.warn("Worker) def mainLoop: failed #1, NNTPTemporaryError exception = '%s', group='%s', messid='%s'"%(e,group,messid))
+                except nntplib.NNTPProtocolError, e:
                     self.outq.put(('error', messid))
-                    self.log.warn("Failed:  " + str(e))
-
+                    self.log.warn("Worker) def mainLoop: failed #2, NNTPProtocolError exception = '%s', group='%s', messid='%s'"%(e,group,messid))
+                #except Exception as e:
+                #    self.outq.put(('error', messid))
+                #    self.log.warn("Worker) def mainLoop: failed #3, exception = '%s', group='%s', messid='%s'"%(e,group,messid))
+                #    if str(e).find("Broken pipe") or str(e).find("EOFError"):
+                #        pass
+            
             self.inq.task_done()
 
 class NNTPSucka:
@@ -352,10 +410,15 @@ class NNTPSucka:
         source and destination."""
         self.log=logging.getLogger("NNTPSucka")
         self.src=srcf()
+        #self.src=srcf
         self.dest=destf()
-
-        self.reqQueue = Queue.Queue(1000)
-        self.doneQueue = Queue.Queue(1000)
+        #self.dest=destf
+        self.log.info("NNTPsucka) def __init__: self.src = '%s', self.dest = '%s'" %(self.src,self.dest))
+        
+        self.config = config
+        
+        self.reqQueue = Queue.Queue(10000)
+        self.doneQueue = Queue.Queue(10000)
 
         # Figure out the maximum number of articles per group
         self.maxArticles=config.getint("misc", "maxArticles")
@@ -373,88 +436,155 @@ class NNTPSucka:
                         for x in range(config.getint("misc", "workers"))]
 
     def copyGroup(self, groupname):
-        """Copy the given group from the source server to the destination
-        server.
+        try:
+            """Copy the given group from the source server to the destination
+            server.
+            Efforts are made to ensure only articles that haven't been seen are
+            copied."""
+            self.log.debug("Getting group " + groupname + " from " + `self.src`)
+            resp, count, first, last, name = self.src.group(groupname)
+            self.log.debug("Done getting group")
 
-        Efforts are made to ensure only articles that haven't been seen are
-        copied."""
-        self.log.debug("Getting group " + groupname + " from " + `self.src`)
-        resp, count, first, last, name = self.src.group(groupname)
-        self.log.debug("Done getting group")
+            # Figure out where we are
+            myfirst, mylast, mycount = self.db.getGroupRange(groupname, first, last,
+                self.maxArticles)
+            l=[]
+            if mycount > 0:
+                self.log.info("Checking " + `mycount` + " articles:  " \
+                    + `myfirst` + "-" + `mylast` + " in " + groupname)
 
-        # Figure out where we are
-        myfirst, mylast, mycount= self.db.getGroupRange(groupname, first, last,
-            self.maxArticles)
-        l=[]
-        if mycount > 0:
-            self.log.info("Copying " + `mycount` + " articles:  " \
-                + `myfirst` + "-" + `mylast` + " in " + groupname)
+                # Grab the IDs
+                resp, l = self.src.xhdr('message-id', `myfirst` + "-" + `mylast`)
 
-            # Grab the IDs
-            resp, l = self.src.xhdr('message-id', `myfirst` + "-" + `mylast`)
+                # Validate we got as many results as we expected.
+                if(len(l) != mycount):
+                    self.log.warn("Unexpected number of articles returned.  " \
+                        + "Expected " + `mycount` + ", but got " + `len(l)` + " groupname=" + `groupname`)
 
-            # Validate we got as many results as we expected.
-            if(len(l) != mycount):
-                self.log.warn("Unexpected number of articles returned.  " \
-                    + "Expected " + `mycount` + ", but got " + `len(l)`)
+            # Flip through the stuff we actually want to process.
+            succ, suct = 0, 0
+            dupp, dupt = 0, 0
+            errs, errt = 0, 0
+            seen, seet = 0, 0
+            lent = len(l)
+            anti_timeout = int(time.time())
+            for i in l:
+                try:
+                    t,  messid = self.doneQueue.get_nowait()
+                    if t == 'success':
+                        self.log.debug("def copyGroup: '%s', finished @ messid = '%s'"%(groupname,messid))
+                        succ += 1
+                        suct += 1
+                        if succ >= 1000:
+                            self.log.info("def copyGroup: '%s' doing %d/%d"%(groupname,suct,lent))
+                            succ = 0
+                        self.db.markArticle(messid)
+                        self.stats.addMoved()
+                        
+                    elif t == 'duplicate':
+                        self.log.debug("def copyGroup: '%s', duplicate @ messid = '%s'"%(groupname,messid))
+                        dupp += 1
+                        dupt += 1
+                        #suct += 1
+                        if dupp >= 1000:
+                            self.log.info("def copyGroup: '%s' got dupes %d (%d/%d/%d)"%(groupname,dupt,succ,suct,lent))
+                            dupp = 0
+                            if anti_timeout < int(time.time() - 5):
+                                self.reqQueue.put((groupname, None, 'SRC'))
+                                self.log.debug("def copyGroup: '%s' self.reqQueue.put anti_timeout (while duplicate)"%(groupname))
+                                anti_timeout = int(time.time())
+                        self.db.markArticle(messid)
+                        self.stats.addDup()
 
-        # Flip through the stuff we actually want to process.
-        for i in l:
-            try:
-                t,  messid = self.doneQueue.get_nowait()
-                if t == 'success':
-                    self.log.debug("Finished %s", messid)
-                    self.db.markArticle(messid)
-                    self.stats.addMoved()
-                elif t == 'duplicate':
-                    self.db.markArticle(messid)
-                    self.stats.addDup()
-                else:
-                    self.stats.addOther()
-            except Queue.Empty:
-                pass
-            try:
-                messid="*empty*"
-                messid=i[1]
-                idx=i[0]
-                self.log.debug("idx is " + idx + " range is " + `myfirst` \
-                    + "-" + `mylast`)
-                assert(int(idx) >= myfirst and int(idx) <= mylast)
-                if self.db.hasArticle(messid):
-                    self.log.info("Already seen " + messid)
-                    self.stats.addDup()
-                else:
-                    self.reqQueue.put((groupname, idx, messid))
-                # Mark this message as having been read in the group
-                self.db.setLastId(groupname, idx)
-            except KeyError, e:
-                # Couldn't find the header, article probably doesn't
-                # exist anymore.
-                pass
-
-    def shouldProcess(self, group, ignorelist):
-        rv = True
-        for i in ignorelist:
-            if i.match(group) is not None:
-                rv = False
+                    else:
+                        errt += 1
+                        self.log.warn("def copyGroup: '%s', error @ messid = '%s'"%(groupname,messid))
+                        self.stats.addOther()
+                except Queue.Empty:
+                    pass
+                try:
+                    messid="*empty*"
+                    messid=i[1]
+                    idx=i[0]
+                    self.log.debug("idx is " + idx + " range is " + `myfirst` \
+                        + "-" + `mylast`)
+                    assert(int(idx) >= myfirst and int(idx) <= mylast)
+                    if self.db.hasArticle(messid):
+                        seen += 1
+                        seet += 1
+                        self.log.debug("def copyGroup: '%s', already seen @ messid = '%s'"%(groupname,messid))
+                        if seen >= 10000:
+                            self.log.info("def copyGroup: '%s' already seen %d/%d"%(groupname,seet,lent))
+                            if anti_timeout < int(time.time() - 5):
+                                self.reqQueue.put((groupname, None, 'SRC'))
+                                self.reqQueue.put((groupname, None, 'DST'))
+                                self.log.debug("def copyGroup: '%s' self.reqQueue.put anti_timeout"%(groupname))
+                                anti_timeout = int(time.time())
+                            seen = 0
+                        self.stats.addDup()
+                        
+                    else:
+                        self.reqQueue.put((groupname, idx, messid))
+                    # Mark this message as having been read in the group
+                    self.db.setLastId(groupname, idx)
+                except KeyError, e:
+                    # Couldn't find the header, article probably doesn't
+                    # exist anymore.
+                    pass
+            self.log.info("def copyGroup: '%s' added %d/%d, seen %d, dupt %d, errt %d"%(groupname,suct,lent,seet,dupt,errt))
+        except Exception as e:
+            self.log.info("def copyGroup: failed, exception = '%s', groupname = '%s'"%(e,groupname))
+            #if str(e).find("Broken pipe") or str(e).find("EOFError"):
+            #    pass
+    
+    def shouldProcess(self, group, ignorelist, forcedlist, useign):
+        if len(forcedlist):
+            #self.log.debug("def sP: using forcedlist, len = '%s'"%(len(forcedlist)))
+            rv = False
+            cf = True
+            if useign == True:
+                for j in ignorelist:
+                    if j.match(group) is not None:
+                        self.log.info("def sP: group '%s' blacklisted"%(group))
+                        cf = False
+                        break
+            
+            if cf:
+                for i in forcedlist:
+                    if i.match(group) is not None:
+                        self.log.debug("def sP: group '%s' in forcedList, rv = True"%(group))
+                        rv = True
+                        break
+        else:
+            rv = True
+            for i in ignorelist:
+                if i.match(group) is not None:
+                    rv = False
+                    self.log.info("def sP: group '%s' ignored, rv = False"%(group))
+                    break
+        #self.log.debug("def shouldProcess: group %s, rv = %s"%(group,rv))
         return rv
 
-    def copyServer(self, ignorelist=[]):
-        """Copy all groups that appear on the destination server to the
-        destination server from the source server."""
-        self.log.debug("Getting list of groups from " + `self.dest`)
-        resp, list = self.dest.list()
-        self.log.debug("Done getting list of groups from destination")
-        for l in list:
-            group=l[0]
-            if self.shouldProcess(group, ignorelist):
-                try:
-                    self.log.debug("copying " + `group`)
-                    self.copyGroup(group)
-                except nntplib.NNTPTemporaryError, e:
-                    self.log.warn("Error on group " + group + ":  " + str(e))
-
-        self.reqQueue.join()
+    def copyServer(self, ignorelist=[], forcedlist=[], useign=False):
+        try:
+            """Copy all groups that appear on the destination server to the
+            destination server from the source server."""
+            self.log.debug("Getting list of groups from " + `self.dest`)
+            resp, list = self.dest.list()
+            self.log.debug("Done getting list of groups from destination")
+            for l in list:
+                group=l[0]
+                if self.shouldProcess(group, ignorelist, forcedlist, useign):
+                    try:
+                        self.log.debug("copying " + `group`)
+                        self.copyGroup(group)
+                    except nntplib.NNTPTemporaryError, e:
+                        self.log.warn("Error on group " + group + ":  " + str(e))
+            self.reqQueue.join()
+        except Exception as e:
+            self.log.warn("def copyServer: failed, exception = '%s'"%(e))
+            #if str(e).find("Broken pipe") or str(e).find("EOFError"):
+            #    pass
 
     def getStats(self):
         """Get the statistics object."""
@@ -498,6 +628,17 @@ def getIgnoreList(fn):
         rv.append(re.compile(l))
     return rv
 
+def getForcedList(fn):
+    log=logging.getLogger("nntpsucka")
+    log.debug("Getting forced list from " + fn)
+    rv=[]
+    f=open(fn)
+    for l in f.readlines():
+        l=l.strip()
+        rv.append(re.compile(l))
+        log.info("def getForcedList: add '%s'"%(l))
+    return rv
+
 def connectionMaker(conf, which):
 
     connServer=conf.get("servers", which)
@@ -527,7 +668,7 @@ def main():
     signal.signal(signal.SIGALRM, alarmHandler)
     signal.alarm(30)
     # And how long will we wait for the actual processing?
-    TIMEOUT = 4 * 3600
+    TIMEOUT = 72 * 3600
 
     # Validate there's a config file
     if len(sys.argv) < 2:
@@ -538,7 +679,9 @@ def main():
     logging.config.fileConfig(sys.argv[1])
 
     filterList=conf.getWithDefault("misc", "filterList", None)
-
+    forcedList=conf.getWithDefault("misc", "forcedList", None)
+    useignore=conf.getboolean("misc", "useIgnore")
+    
     fromFactory = connectionMaker(conf, "from")
     toFactory = connectionMaker(conf, "to")
 
@@ -547,12 +690,16 @@ def main():
     start=time.time()
     try:
         ign=[re.compile('^control\.')]
+        whi=[]
         if filterList is not None:
             ign=getIgnoreList(filterList)
+        if forcedList is not None:
+            whi=getForcedList(forcedList)
+            useign = useignore
         signal.alarm(30)
         sucka=NNTPSucka(fromFactory, toFactory, config=conf)
         signal.alarm(TIMEOUT)
-        sucka.copyServer(ign)
+        sucka.copyServer(ign,whi,useign)
     except Timeout:
         sys.stderr.write("Took too long.\n")
         sys.exit(1)

@@ -9,13 +9,15 @@ to=news.west.spy.net
 [misc]
 # Name of the file that will contain the news db
 newsdb=newsdb
-workers=5
+workers=1 # use only 1 worker if you only fetch 1 group with forcedList, guess more bugs to find with timeouts
 
 # Name of the pid file
 pidfile=nntpsucka.pid
 
-# List of exceptions
-# filterList=
+# List of exceptions (files contain lines with groups to filter / allow)
+# filterList=filename1 # files contain lines with groups to filter / blacklist
+# forcedList=filename2 # using a forcedList will scan only these groups
+useIgnore = True # setting to False with forcedList in use will not check against blacklist
 
 # Maximum number of articles to get per group
 maxArticles=10000
@@ -23,10 +25,11 @@ maxArticles=10000
 # Whether ``seen'' articles should be marked in the news DB config
 shouldMarkArticles=yes
 
-# Example news server specific config
+# Example news server specific config: [] brackets should contain same domain or ip like 'from=']
 [news.west.earthlink.net]
 username=XXXXXXXX@mindspring.com
 password=XXXXXXXX
+port=119 # fixme: add 563 support to use with NNTPClientSSL or use local stunnel as client, may have better performance
 
 ###### Logging config #######
 
