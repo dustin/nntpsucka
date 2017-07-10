@@ -9,7 +9,7 @@ to=news.west.spy.net
 [misc]
 # Name of the file that will contain the news db
 newsdb=newsdb
-workers=1 # use only 1 worker if you only fetch 1 group with forcedList, guess more bugs to find with timeouts
+workers=5 # workers are fine but first established connection between server still timeouts ( EOFerror ) after fetching 100k+ articles and switching to next group
 
 # Name of the pid file
 pidfile=nntpsucka.pid
