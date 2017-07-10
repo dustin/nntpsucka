@@ -230,6 +230,8 @@ class NNTPClient(nntplib.NNTP):
         self.log.debug("def ihave: '%s' "%(id))
         resp = self.shortcmd('IHAVE ' + id)
         self.log.debug("def ihave: IHAVE '%s' returned '%s' "%(id,resp))
+        #except EOFError:
+        #    self.log.warn("def ihave: failed, EOFError exception = '%s', id = '%s'" % (e,id))
         #except Exception as e:
         #    self.log.warn("def ihave: failed, exception = '%s', id = '%s'" % (e,id))
 
@@ -271,7 +273,7 @@ class NNTPClient(nntplib.NNTP):
     def takeThis(self, messid, lines):
         #try:
         """Stream an article to this server."""
-        self.log.info("def takeThis: messid = '%s', lines='%d'" % (messid,len(lines)))
+        self.log.debug("def takeThis: messid = '%s', lines='%d'" % (messid,len(lines)))
         for l in lines:
             if l == '.':
                 self.log.debug("*** L was ., adding a dot. ***")
@@ -285,7 +287,7 @@ class NNTPClient(nntplib.NNTP):
     def post(self, lines):
         #try:
         """Post an article to this server."""
-        self.log.info("def post: lines='%d'" % (e,len(lines)))
+        self.log.debug("def post: lines='%d'" % (e,len(lines)))
         resp = self.shortcmd('POST')
         if resp[0] != '3':
             raise nntplib.NNTPReplyError(resp)
