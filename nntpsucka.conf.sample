@@ -15,7 +15,7 @@ workers=1 # use only 1 worker if you only fetch 1 group with forcedList, guess m
 pidfile=nntpsucka.pid
 
 # List of exceptions (files contain lines with groups to filter / allow)
-# filterList=filename1 # files contain lines with groups to filter / blacklist
+# filterList=filename1 # file with groups to blacklist
 # forcedList=filename2 # using a forcedList will scan only these groups
 useIgnore = True # setting to False with forcedList in use will not check against blacklist
 
