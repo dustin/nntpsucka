@@ -419,8 +419,8 @@ class NNTPSucka:
         
         self.config = config
         
-        self.reqQueue = Queue.Queue(10000)
-        self.doneQueue = Queue.Queue(10000)
+        self.reqQueue = Queue.Queue(1000)
+        self.doneQueue = Queue.Queue(1000)
 
         # Figure out the maximum number of articles per group
         self.maxArticles=config.getint("misc", "maxArticles")
@@ -438,7 +438,9 @@ class NNTPSucka:
                         for x in range(config.getint("misc", "workers"))]
 
     def copyGroup(self, groupname):
-        try:
+        y = True
+        if y:
+        #try:
             """Copy the given group from the source server to the destination
             server.
             Efforts are made to ensure only articles that haven't been seen are
@@ -534,10 +536,10 @@ class NNTPSucka:
                     # exist anymore.
                     pass
             self.log.info("def copyGroup: '%s' added %d/%d, seen %d, dupt %d, errt %d"%(groupname,suct,lent,seet,dupt,errt))
-        except Exception as e:
-            self.log.info("def copyGroup: failed, exception = '%s', groupname = '%s'"%(e,groupname))
-            #if str(e).find("Broken pipe") or str(e).find("EOFError"):
-            #    pass
+        #except Exception as e:
+        #    self.log.info("def copyGroup: failed, exception = '%s', groupname = '%s'"%(e,groupname))
+        #    #if str(e).find("Broken pipe") or str(e).find("EOFError"):
+        #    #    pass
     
     def shouldProcess(self, group, ignorelist, forcedlist, useign):
         if len(forcedlist):
@@ -568,7 +570,9 @@ class NNTPSucka:
         return rv
 
     def copyServer(self, ignorelist=[], forcedlist=[], useign=False):
-        try:
+        y = True
+        if y:
+        #try:
             """Copy all groups that appear on the destination server to the
             destination server from the source server."""
             self.log.debug("Getting list of groups from " + `self.dest`)
@@ -583,10 +587,10 @@ class NNTPSucka:
                     except nntplib.NNTPTemporaryError, e:
                         self.log.warn("Error on group " + group + ":  " + str(e))
             self.reqQueue.join()
-        except Exception as e:
-            self.log.warn("def copyServer: failed, exception = '%s'"%(e))
-            #if str(e).find("Broken pipe") or str(e).find("EOFError"):
-            #    pass
+        #except Exception as e:
+        #    self.log.warn("def copyServer: failed, exception = '%s'"%(e))
+        #    #if str(e).find("Broken pipe") or str(e).find("EOFError"):
+        #    #    pass
 
     def getStats(self):
         """Get the statistics object."""
