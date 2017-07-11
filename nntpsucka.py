@@ -176,14 +176,16 @@ class NewsDB:
         
         
         #self.log.info("def getGroupRange: Want no more than %d articles, found %d from %d" % (maxArticles, mycount, myfirst))
-        self.log.info("def getGroupRange: '%s' want %d, found %d/%d" % (group, maxArticles, mycount, myfirst))
+        
 
         if maxArticles > 0 and mycount > maxArticles:
             self.log.debug("def getGroupRange: Want %d articles with a max of %d...shrinking" % (mycount, maxArticles))
             myfirst = myfirst + (mycount - maxArticles)
             mycount = maxArticles
             self.log.debug("def getGroupRange: New count is %d, starting with %s" % (mycount, myfirst))
-
+        
+        self.log.info("def getGroupRange: '%s' want %d, found %d/%d" % (group, maxArticles, mycount, myfirst))
+        
         return myfirst, last, mycount
 
 ######################################################################
@@ -691,7 +693,7 @@ def writetoDoneList(group):
                 ws = '^%s$' % group.replace('.','\.')
                 fp.write(ws+'\n')
                 fp.close()
-                log.debug("def writeDoneList: fn='%s', regex = '%s', done"%(fn,group,ws))
+                log.debug("def writeDoneList: fn='%s', group='%s', regex = '%s', done"%(fn,group,ws))
             else:
                 ws = '^%s$' % group
                 fp.write(ws+'\n')
