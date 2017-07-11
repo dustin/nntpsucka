@@ -16,11 +16,16 @@ pidfile=nntpsucka.pid
 
 # List of exceptions (files contain lines with groups to filter / allow)
 # filterList=filename1 # file with groups to blacklist
+
 # forcedList=filename2 # using a forcedList will scan only these groups
-useIgnore = True # setting to False with forcedList in use will not check against blacklist
+useIgnore = True # setting to False will NOT check against filterList
+
+# doneList=filename3 # stores fetched groups and prevents fetching again on next run
+writeRegex = True # setting to True writes doneList in exact regex: ^linux\.kernel$ 
+
 
 # Maximum number of articles to get per group
-maxArticles=10000
+maxArticles=10000 #  tested fine with max=2500000 @ `linux.kernel` (2.35 Mio Articles) @ workers=50 
 
 # Whether ``seen'' articles should be marked in the news DB config
 shouldMarkArticles=yes

@@ -27,6 +27,8 @@ CONF_DEFAULTS={'port':'119', 'newsdb':'newsdb', 'pidfile':'nntpsucka.pid',
     'shouldMarkArticles': 'true', 'maxArticles': 0}
 CONF_SECTIONS=['misc', 'servers']
 
+CONFIG = dict()
+
 class Stats:
     """Keep statistics describing what got moved."""
 
@@ -84,7 +86,7 @@ class NewsDB:
     article by number for the given group (the part after the l/).
     """
 
-    __TXN_SIZE = 100
+    __TXN_SIZE = 100000
 
     def __init__(self, dbpath):
         self.db = sqlite.connect(dbpath)
@@ -334,7 +336,7 @@ class Worker(threading.Thread):
             try:
                 self.src = self.srcf()
                 self.dest = self.destf()
-                self.log.info("Worker) def run: self.src = '%s', self.dest = '%s', join mainLoop()"%(self.src,self.dest))
+                self.log.debug("Worker) def run: self.src = '%s', self.dest = '%s', join mainLoop()"%(self.src,self.dest))
                 self.mainLoop()
             except nntplib.NNTPPermanentError, e:
                 traceback.print_exc()
@@ -419,8 +421,8 @@ class NNTPSucka:
         
         self.config = config
         
-        self.reqQueue = Queue.Queue(1000)
-        self.doneQueue = Queue.Queue(1000)
+        self.reqQueue = Queue.Queue(10000)
+        self.doneQueue = Queue.Queue(10000)
 
         # Figure out the maximum number of articles per group
         self.maxArticles=config.getint("misc", "maxArticles")
@@ -445,7 +447,7 @@ class NNTPSucka:
             server.
             Efforts are made to ensure only articles that haven't been seen are
             copied."""
-            self.log.debug("Getting group " + groupname + " from " + `self.src`)
+            self.log.debug("def copyGroup(%s): from src"%(groupname))
             resp, count, first, last, name = self.src.group(groupname)
             self.log.debug("Done getting group")
 
@@ -519,12 +521,12 @@ class NNTPSucka:
                         self.log.debug("def copyGroup: '%s', already seen @ messid = '%s'"%(groupname,messid))
                         if seen >= 10000:
                             self.log.info("def copyGroup: '%s' already seen %d/%d"%(groupname,seet,lent))
-                            if anti_timeout < int(time.time() - 5):
-                                self.reqQueue.put((groupname, None, 'SRC'))
-                                self.reqQueue.put((groupname, None, 'DST'))
-                                self.log.debug("def copyGroup: '%s' self.reqQueue.put anti_timeout"%(groupname))
-                                anti_timeout = int(time.time())
                             seen = 0
+                        if anti_timeout < int(time.time() - 5):
+                            self.reqQueue.put((groupname, None, 'SRC'))
+                            self.reqQueue.put((groupname, None, 'DST'))
+                            self.log.debug("def copyGroup: '%s' self.reqQueue.put anti_timeout"%(groupname))
+                            anti_timeout = int(time.time())
                         self.stats.addDup()
                         
                     else:
@@ -536,40 +538,41 @@ class NNTPSucka:
                     # exist anymore.
                     pass
             self.log.info("def copyGroup: '%s' added %d/%d, seen %d, dupt %d, errt %d"%(groupname,suct,lent,seet,dupt,errt))
-        #except Exception as e:
-        #    self.log.info("def copyGroup: failed, exception = '%s', groupname = '%s'"%(e,groupname))
-        #    #if str(e).find("Broken pipe") or str(e).find("EOFError"):
-        #    #    pass
+            writetoDoneList(groupname)
     
-    def shouldProcess(self, group, ignorelist, forcedlist, useign):
-        if len(forcedlist):
-            #self.log.debug("def sP: using forcedlist, len = '%s'"%(len(forcedlist)))
-            rv = False
-            cf = True
-            if useign == True:
-                for j in ignorelist:
-                    if j.match(group) is not None:
-                        self.log.info("def sP: group '%s' blacklisted"%(group))
-                        cf = False
-                        break
-            
-            if cf:
-                for i in forcedlist:
-                    if i.match(group) is not None:
-                        self.log.debug("def sP: group '%s' in forcedList, rv = True"%(group))
-                        rv = True
-                        break
-        else:
-            rv = True
-            for i in ignorelist:
+    def shouldProcess(self, group):
+        
+        ignorelist = CONFIG['filterList']
+        forcedlist = CONFIG['forcedList']
+        donelist = CONFIG['doneList']
+        
+        if donelist != None:
+            self.log.debug("def sP: using donelist, len = '%s'"%(len(donelist)))
+            for i in donelist:
                 if i.match(group) is not None:
-                    rv = False
-                    self.log.info("def sP: group '%s' ignored, rv = False"%(group))
-                    break
-        #self.log.debug("def shouldProcess: group %s, rv = %s"%(group,rv))
-        return rv
+                   self.log.info("def sP: group '%s' already done"%(group))
+                   return False
+        
+        if CONFIG['useIgnore']:
+            if len(ignorelist):
+                for i in ignorelist:
+                    if i.match(group) is not None:
+                        self.log.info("def sP: group '%s' ignored"%(group))
+                        return False
+        
+        if forcedlist != None:
+            self.log.debug("def sP: using forcedlist, len = '%s'"%(len(forcedlist)))
+            for i in forcedlist:
+                if i.match(group) is not None:
+                    self.log.info("def sP: group '%s' in forcedList"%(group))
+                    return True
+        else:
+            self.log.debug("def shouldProcess: group '%s', YES"%(group))
+            return True
+        self.log.info("def shouldProcess: group '%s', None"%(group))
+        return None
 
-    def copyServer(self, ignorelist=[], forcedlist=[], useign=False):
+    def copyServer(self):
         y = True
         if y:
         #try:
@@ -580,9 +583,9 @@ class NNTPSucka:
             self.log.debug("Done getting list of groups from destination")
             for l in list:
                 group=l[0]
-                if self.shouldProcess(group, ignorelist, forcedlist, useign):
+                if self.shouldProcess(group):
                     try:
-                        self.log.debug("copying " + `group`)
+                        self.log.info("def copyServer: copyGroup(%s) "%(group))
                         self.copyGroup(group)
                     except nntplib.NNTPTemporaryError, e:
                         self.log.warn("Error on group " + group + ":  " + str(e))
@@ -645,6 +648,44 @@ def getForcedList(fn):
         log.info("def getForcedList: add '%s'"%(l))
     return rv
 
+
+def getDoneList(fn):
+    log=logging.getLogger("nntpsucka")
+    try:
+        
+        log.debug("Getting done list from " + fn)
+        rv=[]
+        f=open(fn)
+        for l in f.readlines():
+            l=l.strip()
+            rv.append(re.compile(l))
+            log.info("def getDoneList: ignore '%s'"%(l))
+        return rv
+    except Exception as e:
+        log.warn("def getDoneList: failed, exception = '%s'"%(e))
+
+def writetoDoneList(group):
+    log=logging.getLogger("nntpsucka")
+    try:
+        
+        fn = CONFIG['file_doneList']
+        if fn != None:
+            #log.info("def writeDoneList: fn='%s', group='%s'"%(fn,group))
+            fp = open(fn, "a")
+            if CONFIG['writeRegex']:
+                ws = '^%s$' % group.replace('.','\.')
+                fp.write(ws+'\n')
+                log.info("def writeDoneList: fn='%s', regex = '%s', done"%(fn,group,ws))
+            else:
+                ws = '^%s$' % group
+                fp.write(ws+'\n')
+                log.info("def writeDoneList: fn='%s', group='%s', done"%(fn,group))
+            fp.close()
+        else:
+            log.info("def writeDoneList: fn='%s', group='%s', failed"%(fn,group))
+    except Exception as e:
+        log.debug("def writeDoneList failed, exception = '%s', fn='%s', group='%s'"%(e,fn,group))
+
 def connectionMaker(conf, which):
 
     connServer=conf.get("servers", which)
@@ -656,11 +697,10 @@ def connectionMaker(conf, which):
         connUser=conf.getWithDefault(connServer, "username", None)
         connPass=conf.getWithDefault(connServer, "password", None)
         connPort=conf.getint(connServer, "port")
-
+    
     def f():
-        return NNTPClient(connServer, port=connPort,
-                          user=connUser, password=connPass)
-
+        return NNTPClient(connServer, port=connPort, user=connUser, password=connPass)
+    
     return f
 
 def main():
@@ -683,10 +723,12 @@ def main():
 
     # Configure logging.
     logging.config.fileConfig(sys.argv[1])
-
+    
     filterList=conf.getWithDefault("misc", "filterList", None)
     forcedList=conf.getWithDefault("misc", "forcedList", None)
     useignore=conf.getboolean("misc", "useIgnore")
+    doneList=conf.getWithDefault("misc", "doneList", None)
+    writeRegex=conf.getboolean("misc", "writeRegex")
     
     fromFactory = connectionMaker(conf, "from")
     toFactory = connectionMaker(conf, "to")
@@ -695,20 +737,35 @@ def main():
     # Mark the start time
     start=time.time()
     try:
-        ign=[re.compile('^control\.')]
-        whi=[]
+        global CONFIG
+        CONFIG['file_doneList'] = doneList
+        CONFIG['writeRegex'] = writeRegex
+        CONFIG['useIgnore'] = useignore
+        
         if filterList is not None:
-            ign=getIgnoreList(filterList)
+            CONFIG['filterList'] = getIgnoreList(filterList)
+        else:
+            CONFIG['filterList'] = [re.compile('^control\.')]
+        
         if forcedList is not None:
-            whi=getForcedList(forcedList)
-            useign = useignore
+            CONFIG['forcedList'] = getForcedList(forcedList)
+        else:
+            CONFIG['forcedList'] = None
+        
+        if doneList is not None:
+            CONFIG['doneList'] = getDoneList(doneList)
+        else:
+            CONFIG['doneList'] = None
+       
         signal.alarm(30)
         sucka=NNTPSucka(fromFactory, toFactory, config=conf)
         signal.alarm(TIMEOUT)
-        sucka.copyServer(ign,whi,useign)
+        sucka.copyServer()
     except Timeout:
         sys.stderr.write("Took too long.\n")
         sys.exit(1)
+    except EOFError:
+        sys.stderr.write("def main() failed, exception EOFError\n")
     # Mark the stop time
     stop=time.time()
 
