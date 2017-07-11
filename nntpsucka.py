@@ -554,7 +554,7 @@ class NNTPSucka:
                    return False
         
         if CONFIG['useIgnore']:
-            if len(ignorelist):
+            if ignorelist != None:
                 for i in ignorelist:
                     if i.match(group) is not None:
                         self.log.info("def sP: group '%s' ignored"%(group))
@@ -569,7 +569,7 @@ class NNTPSucka:
         else:
             self.log.debug("def shouldProcess: group '%s', YES"%(group))
             return True
-        self.log.info("def shouldProcess: group '%s', None"%(group))
+        self.log.warn("def shouldProcess: group '%s', None"%(group))
         return None
 
     def copyServer(self):
@@ -632,9 +632,15 @@ def getIgnoreList(fn):
     log.debug("Getting ignore list from " + fn)
     rv=[]
     f=open(fn)
+    lines = 0
     for l in f.readlines():
         l=l.strip()
+        if l == '':
+            log.warn("def getIgnoreList: error, empty line %d"%lines)
+            return None
         rv.append(re.compile(l))
+        log.info("def getIgnoreList: add '%s'"%(l))
+        lines += 1
     return rv
 
 def getForcedList(fn):
@@ -642,10 +648,15 @@ def getForcedList(fn):
     log.debug("Getting forced list from " + fn)
     rv=[]
     f=open(fn)
+    lines = 0
     for l in f.readlines():
         l=l.strip()
+        if l == '':
+            log.warn("def getForcedList: error, empty line %d"%lines)
+            return None
         rv.append(re.compile(l))
         log.info("def getForcedList: add '%s'"%(l))
+        lines += 1
     return rv
 
 
@@ -656,10 +667,15 @@ def getDoneList(fn):
         log.debug("Getting done list from " + fn)
         rv=[]
         f=open(fn)
+        lines = 0
         for l in f.readlines():
             l=l.strip()
+            if l == '':
+                log.warn("def getDoneList: error, empty line %d"%lines)
+                return None
             rv.append(re.compile(l))
             log.info("def getDoneList: ignore '%s'"%(l))
+            lines += 1
         return rv
     except Exception as e:
         log.warn("def getDoneList: failed, exception = '%s'"%(e))
