@@ -578,8 +578,9 @@ class NNTPSucka:
         else:
             self.log.debug("def shouldProcess: group '%s', YES"%(group))
             return True
-        self.log.warn("def shouldProcess: group '%s', None"%(group))
-        return None
+        
+        self.log.debug("def shouldProcess: group '%s', end False"%(group))
+        return False
 
     def copyServer(self):
         """Copy all groups that appear on the destination server to the
