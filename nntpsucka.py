@@ -203,7 +203,7 @@ class NNTPClient(nntplib.NNTP):
     def __init__(self, host, port=119,user=None,password=None,readermode=False):
         """See netlib.NNTP"""
         self.log=logging.getLogger("NNTPClient")
-        self.log.info("Connecting to %s:%d" % (host, port))
+        self.log.debug("Connecting to %s:%d" % (host, port))
         nntplib.NNTP.__init__(self, host, port, user, password, readermode)
         self.log.debug("Connected to %s:%d" % (host, port))
         self.checkMode()
@@ -643,7 +643,7 @@ def getIgnoreList(fn):
             log.warn("def getIgnoreList: error, empty line %d"%lines)
             return None
         rv.append(re.compile(l))
-        log.info("def getIgnoreList: add '%s'"%(l))
+        log.debug("def getIgnoreList: add '%s'"%(l))
         lines += 1
     return rv
 
@@ -659,7 +659,7 @@ def getForcedList(fn):
             log.warn("def getForcedList: error, empty line %d"%lines)
             return None
         rv.append(re.compile(l))
-        log.info("def getForcedList: add '%s'"%(l))
+        log.debug("def getForcedList: add '%s'"%(l))
         lines += 1
     return rv
 
@@ -682,7 +682,7 @@ def getDoneList(fn):
             lines += 1
         return rv
     except Exception as e:
-        log.warn("def getDoneList: failed, exception = '%s'"%(e))
+        log.debug("def getDoneList: failed, exception = '%s'"%(e))
 
 def writetoDoneList(group):
     log=logging.getLogger("nntpsucka")
