@@ -541,7 +541,6 @@ class NNTPSucka:
             except Queue.Empty:
                 pass
             try:
-                writetoMessageList
                 messid="*empty*"
                 messid=i[1]
                 idx=i[0]
