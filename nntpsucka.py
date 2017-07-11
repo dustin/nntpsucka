@@ -174,8 +174,9 @@ class NewsDB:
             self.log.debug("def getGroupRange: Our first was out of range, now we want %d" % (myfirst, ))
         mycount=(last-myfirst)+1
         
-        if mycount > 0:
-            self.log.info("def getGroupRange: Want no more than %d articles, found %d from %d" % (maxArticles, mycount, myfirst))
+        
+        #self.log.info("def getGroupRange: Want no more than %d articles, found %d from %d" % (maxArticles, mycount, myfirst))
+        self.log.info("def getGroupRange: '%s' want %d, found %d/%d" % (group, maxArticles, mycount, myfirst))
 
         if maxArticles > 0 and mycount > maxArticles:
             self.log.debug("def getGroupRange: Want %d articles with a max of %d...shrinking" % (mycount, maxArticles))
@@ -541,7 +542,8 @@ class NNTPSucka:
                 # Couldn't find the header, article probably doesn't
                 # exist anymore.
                 pass
-        self.log.info("def copyGroup: '%s' added %d/%d, seen %d, dupt %d, errt %d"%(groupname,suct,lent,seet,dupt,errt))
+        if suct > 0 or lent > 0 or seet > 0 or dupt > 0 or errt > 0:
+            self.log.info("def copyGroup: '%s' added %d/%d, seen %d, dupt %d, errt %d"%(groupname,suct,lent,seet,dupt,errt))
         writetoDoneList(groupname)
     
     def shouldProcess(self, group):
@@ -554,22 +556,22 @@ class NNTPSucka:
             self.log.debug("def sP: using donelist, len = '%s'"%(len(donelist)))
             for i in donelist:
                 if i.match(group) is not None:
-                   self.log.info("def sP: group '%s' already done"%(group))
+                   self.log.debug("def sP: group '%s' already done"%(group))
                    return False
         
-        if CONFIG['useIgnore']:
+        if CONFIG['useIgnore'] == True:
             if ignorelist != None:
                 self.log.debug("def sP: using ignorelist, len = '%s'"%(len(ignorelist)))
                 for i in ignorelist:
                     if i.match(group) is not None:
-                        self.log.info("def sP: group '%s' ignored"%(group))
+                        self.log.debug("def sP: group '%s' ignored"%(group))
                         return False
         
         if forcedlist != None:
             self.log.debug("def sP: using forcedlist, len = '%s'"%(len(forcedlist)))
             for i in forcedlist:
                 if i.match(group) is not None:
-                    self.log.info("def sP: group '%s' in forcedList"%(group))
+                    self.log.debug("def sP: group '%s' in forcedList"%(group))
                     return True
         else:
             self.log.debug("def shouldProcess: group '%s', YES"%(group))
