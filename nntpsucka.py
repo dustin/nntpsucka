@@ -168,20 +168,20 @@ class NewsDB:
         myfirst=self.getLastId(group) + 1
         first=int(first)
         last=int(last)
-        self.log.info("def getGroupRange: '%s' ranges from %d-%d, we want %d" % (group, first, last, myfirst))
+        self.log.debug("def getGroupRange: '%s' ranges from %d-%d, we want %d" % (group, first, last, myfirst))
         if (myfirst < first) or (myfirst > (last+1)):
             myfirst=first
-            self.log.info("def getGroupRange: Our first was out of range, now we want %d" % (myfirst, ))
+            self.log.debug("def getGroupRange: Our first was out of range, now we want %d" % (myfirst, ))
         mycount=(last-myfirst)+1
-
-        self.log.info("def getGroupRange: Want no more than %d articles, found %d from %d" % (maxArticles, mycount, myfirst))
+        
+        if mycount > 0:
+            self.log.info("def getGroupRange: Want no more than %d articles, found %d from %d" % (maxArticles, mycount, myfirst))
 
         if maxArticles > 0 and mycount > maxArticles:
-            self.log.info("def getGroupRange: Want %d articles with a max of %d...shrinking" % (mycount, maxArticles))
+            self.log.debug("def getGroupRange: Want %d articles with a max of %d...shrinking" % (mycount, maxArticles))
             myfirst = myfirst + (mycount - maxArticles)
             mycount = maxArticles
-            self.log.info("def getGroupRange: New count is %d, starting with %s"
-                % (mycount, myfirst))
+            self.log.debug("def getGroupRange: New count is %d, starting with %s" % (mycount, myfirst))
 
         return myfirst, last, mycount
 
@@ -447,105 +447,102 @@ class NNTPSucka:
                         for x in range(config.getint("misc", "workers"))]
 
     def copyGroup(self, groupname):
-        y = True
-        if y:
-        #try:
-            """Copy the given group from the source server to the destination
-            server.
-            Efforts are made to ensure only articles that haven't been seen are
-            copied."""
-            self.log.debug("def copyGroup(%s): from src"%(groupname))
-            resp, count, first, last, name = self.src.group(groupname)
-            self.log.debug("Done getting group")
+        """Copy the given group from the source server to the destination
+        server.
+        Efforts are made to ensure only articles that haven't been seen are
+        copied."""
+        self.log.debug("def copyGroup(%s): from src"%(groupname))
+        resp, count, first, last, name = self.src.group(groupname)
+        self.log.debug("def copyGroup(%s): got group from src"%(groupname))
+        
+        # Figure out where we are
+        myfirst, mylast, mycount = self.db.getGroupRange(groupname, first, last,
+            self.maxArticles)
+        l=[]
+        if mycount > 0:
+            self.log.info("Checking " + `mycount` + " articles:  " \
+                + `myfirst` + "-" + `mylast` + " in " + groupname)
 
-            # Figure out where we are
-            myfirst, mylast, mycount = self.db.getGroupRange(groupname, first, last,
-                self.maxArticles)
-            l=[]
-            if mycount > 0:
-                self.log.info("Checking " + `mycount` + " articles:  " \
-                    + `myfirst` + "-" + `mylast` + " in " + groupname)
+            # Grab the IDs
+            resp, l = self.src.xhdr('message-id', `myfirst` + "-" + `mylast`)
 
-                # Grab the IDs
-                resp, l = self.src.xhdr('message-id', `myfirst` + "-" + `mylast`)
+            # Validate we got as many results as we expected.
+            if(len(l) != mycount):
+                self.log.warn("Unexpected number of articles returned.  " \
+                    + "Expected " + `mycount` + ", but got " + `len(l)` + " groupname=" + `groupname`)
 
-                # Validate we got as many results as we expected.
-                if(len(l) != mycount):
-                    self.log.warn("Unexpected number of articles returned.  " \
-                        + "Expected " + `mycount` + ", but got " + `len(l)` + " groupname=" + `groupname`)
-
-            # Flip through the stuff we actually want to process.
-            succ, suct = 0, 0
-            dupp, dupt = 0, 0
-            errs, errt = 0, 0
-            seen, seet = 0, 0
-            lent = len(l)
-            anti_timeout = int(time.time())
-            for i in l:
-                try:
-                    t,  messid = self.doneQueue.get_nowait()
-                    if t == 'success':
-                        self.log.debug("def copyGroup: '%s', finished @ messid = '%s'"%(groupname,messid))
-                        succ += 1
-                        suct += 1
-                        if succ >= 1000:
-                            self.log.info("def copyGroup: '%s' doing %d/%d"%(groupname,suct,lent))
-                            succ = 0
-                        self.db.markArticle(messid)
-                        self.stats.addMoved()
-                        
-                    elif t == 'duplicate':
-                        self.log.debug("def copyGroup: '%s', duplicate @ messid = '%s'"%(groupname,messid))
-                        dupp += 1
-                        dupt += 1
-                        #suct += 1
-                        if dupp >= 1000:
-                            self.log.info("def copyGroup: '%s' got dupes %d (%d/%d/%d)"%(groupname,dupt,succ,suct,lent))
-                            dupp = 0
-                            if anti_timeout < int(time.time() - 5):
-                                self.reqQueue.put((groupname, None, 'SRC'))
-                                self.log.debug("def copyGroup: '%s' self.reqQueue.put anti_timeout (while duplicate)"%(groupname))
-                                anti_timeout = int(time.time())
-                        self.db.markArticle(messid)
-                        self.stats.addDup()
-
-                    else:
-                        errt += 1
-                        self.log.warn("def copyGroup: '%s', error @ messid = '%s'"%(groupname,messid))
-                        self.stats.addOther()
-                except Queue.Empty:
-                    pass
-                try:
-                    messid="*empty*"
-                    messid=i[1]
-                    idx=i[0]
-                    self.log.debug("idx is " + idx + " range is " + `myfirst` \
-                        + "-" + `mylast`)
-                    assert(int(idx) >= myfirst and int(idx) <= mylast)
-                    if self.db.hasArticle(messid):
-                        seen += 1
-                        seet += 1
-                        self.log.debug("def copyGroup: '%s', already seen @ messid = '%s'"%(groupname,messid))
-                        if seen >= 10000:
-                            self.log.info("def copyGroup: '%s' already seen %d/%d"%(groupname,seet,lent))
-                            seen = 0
+        # Flip through the stuff we actually want to process.
+        succ, suct = 0, 0
+        dupp, dupt = 0, 0
+        errs, errt = 0, 0
+        seen, seet = 0, 0
+        lent = len(l)
+        anti_timeout = int(time.time())
+        for i in l:
+            try:
+                t,  messid = self.doneQueue.get_nowait()
+                if t == 'success':
+                    self.log.debug("def copyGroup: '%s', finished @ messid = '%s'"%(groupname,messid))
+                    succ += 1
+                    suct += 1
+                    if succ >= 1000:
+                        self.log.info("def copyGroup: '%s' doing %d/%d"%(groupname,suct,lent))
+                        succ = 0
+                    self.db.markArticle(messid)
+                    self.stats.addMoved()
+                    
+                elif t == 'duplicate':
+                    self.log.debug("def copyGroup: '%s', duplicate @ messid = '%s'"%(groupname,messid))
+                    dupp += 1
+                    dupt += 1
+                    #suct += 1
+                    if dupp >= 1000:
+                        self.log.info("def copyGroup: '%s' got dupes %d (%d/%d/%d)"%(groupname,dupt,succ,suct,lent))
+                        dupp = 0
                         if anti_timeout < int(time.time() - 5):
                             self.reqQueue.put((groupname, None, 'SRC'))
-                            self.reqQueue.put((groupname, None, 'DST'))
-                            self.log.debug("def copyGroup: '%s' self.reqQueue.put anti_timeout"%(groupname))
+                            self.log.debug("def copyGroup: '%s' self.reqQueue.put anti_timeout (while duplicate)"%(groupname))
                             anti_timeout = int(time.time())
-                        self.stats.addDup()
-                        
-                    else:
-                        self.reqQueue.put((groupname, idx, messid))
-                    # Mark this message as having been read in the group
-                    self.db.setLastId(groupname, idx)
-                except KeyError, e:
-                    # Couldn't find the header, article probably doesn't
-                    # exist anymore.
-                    pass
-            self.log.info("def copyGroup: '%s' added %d/%d, seen %d, dupt %d, errt %d"%(groupname,suct,lent,seet,dupt,errt))
-            writetoDoneList(groupname)
+                    self.db.markArticle(messid)
+                    self.stats.addDup()
+
+                else:
+                    errt += 1
+                    self.log.warn("def copyGroup: '%s', error @ messid = '%s'"%(groupname,messid))
+                    self.stats.addOther()
+            except Queue.Empty:
+                pass
+            try:
+                messid="*empty*"
+                messid=i[1]
+                idx=i[0]
+                self.log.debug("idx is " + idx + " range is " + `myfirst` \
+                    + "-" + `mylast`)
+                assert(int(idx) >= myfirst and int(idx) <= mylast)
+                if self.db.hasArticle(messid):
+                    seen += 1
+                    seet += 1
+                    self.log.debug("def copyGroup: '%s', already seen @ messid = '%s'"%(groupname,messid))
+                    if seen >= 10000:
+                        self.log.info("def copyGroup: '%s' already seen %d/%d"%(groupname,seet,lent))
+                        seen = 0
+                    if anti_timeout < int(time.time() - 5):
+                        self.reqQueue.put((groupname, None, 'SRC'))
+                        self.reqQueue.put((groupname, None, 'DST'))
+                        self.log.debug("def copyGroup: '%s' self.reqQueue.put anti_timeout"%(groupname))
+                        anti_timeout = int(time.time())
+                    self.stats.addDup()
+                    
+                else:
+                    self.reqQueue.put((groupname, idx, messid))
+                # Mark this message as having been read in the group
+                self.db.setLastId(groupname, idx)
+            except KeyError, e:
+                # Couldn't find the header, article probably doesn't
+                # exist anymore.
+                pass
+        self.log.info("def copyGroup: '%s' added %d/%d, seen %d, dupt %d, errt %d"%(groupname,suct,lent,seet,dupt,errt))
+        writetoDoneList(groupname)
     
     def shouldProcess(self, group):
         
@@ -562,6 +559,7 @@ class NNTPSucka:
         
         if CONFIG['useIgnore']:
             if ignorelist != None:
+                self.log.debug("def sP: using ignorelist, len = '%s'"%(len(ignorelist)))
                 for i in ignorelist:
                     if i.match(group) is not None:
                         self.log.info("def sP: group '%s' ignored"%(group))
@@ -580,27 +578,20 @@ class NNTPSucka:
         return None
 
     def copyServer(self):
-        y = True
-        if y:
-        #try:
-            """Copy all groups that appear on the destination server to the
-            destination server from the source server."""
-            self.log.debug("Getting list of groups from " + `self.dest`)
-            resp, list = self.dest.list()
-            self.log.debug("Done getting list of groups from destination")
-            for l in list:
-                group=l[0]
-                if self.shouldProcess(group):
-                    try:
-                        self.log.info("def copyServer: copyGroup(%s) "%(group))
-                        self.copyGroup(group)
-                    except nntplib.NNTPTemporaryError, e:
-                        self.log.warn("Error on group " + group + ":  " + str(e))
-            self.reqQueue.join()
-        #except Exception as e:
-        #    self.log.warn("def copyServer: failed, exception = '%s'"%(e))
-        #    #if str(e).find("Broken pipe") or str(e).find("EOFError"):
-        #    #    pass
+        """Copy all groups that appear on the destination server to the
+        destination server from the source server."""
+        self.log.debug("Getting list of groups from " + `self.dest`)
+        resp, list = self.dest.list()
+        self.log.debug("Done getting list of groups from destination")
+        for l in list:
+            group=l[0]
+            if self.shouldProcess(group):
+                try:
+                    self.log.debug("def copyServer: copyGroup(%s) "%(group))
+                    self.copyGroup(group)
+                except nntplib.NNTPTemporaryError, e:
+                    self.log.warn("Error on group " + group + ":  " + str(e))
+        self.reqQueue.join()
 
     def getStats(self):
         """Get the statistics object."""
