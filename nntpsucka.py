@@ -184,7 +184,8 @@ class NewsDB:
             mycount = maxArticles
             self.log.debug("def getGroupRange: New count is %d, starting with %s" % (mycount, myfirst))
         
-        self.log.info("def getGroupRange: '%s' want %d, found %d/%d" % (group, maxArticles, mycount, myfirst))
+        if mycount > 0:
+            self.log.info("def getGroupRange: '%s' found %d/%d" % (group, mycount, myfirst))
         
         return myfirst, last, mycount
 
