@@ -127,10 +127,21 @@ class NewsDB:
         group hasn't been seen.
         """
         rv=0
+        rows=None
         self.cur.execute(GET_GROUP, (group,))
         rows = self.cur.fetchall()
-        if len(rows) > 1:
-            rv = int(rows[0][1])
+        if rows != None:
+            try:
+                rv = int(rows[0][1])
+            except Exception as e:
+                self.log.warn("def getLastId: #1 '%s' rows='%s', rv='%s'"%(group,rows,rv))
+            
+            if rv > 0:
+                self.log.debug("def getLastId: #2 '%s' rows='%s', rv='%s'"%(group,rows,rv))
+            else:
+                self.log.warn("def getLastId: #3 '%s' rows='%s', rv='%s'"%(group,rows,rv))
+        else:
+            self.log.warn("def getLastId: #4 '%s' rows='%s', rv='%s'"%(group,rows,rv))
         return rv
 
     def setLastId(self, group, id):
@@ -157,23 +168,19 @@ class NewsDB:
         myfirst=self.getLastId(group) + 1
         first=int(first)
         last=int(last)
-        self.log.debug("%s ranges from %d-%d, we want %d\n" \
-            % (group, first, last, myfirst))
+        self.log.info("def getGroupRange: '%s' ranges from %d-%d, we want %d" % (group, first, last, myfirst))
         if (myfirst < first) or (myfirst > (last+1)):
             myfirst=first
-            self.log.debug("Our first was out of range, now we want %d\n" \
-                % (myfirst, ))
+            self.log.info("def getGroupRange: Our first was out of range, now we want %d" % (myfirst, ))
         mycount=(last-myfirst)+1
 
-        self.log.debug("Want no more than %d articles, found %d from %d\n"
-            % (maxArticles, mycount, myfirst))
+        self.log.info("def getGroupRange: Want no more than %d articles, found %d from %d" % (maxArticles, mycount, myfirst))
 
         if maxArticles > 0 and mycount > maxArticles:
-            self.log.debug("Want %d articles with a max of %d...shrinking\n" \
-                % (mycount, maxArticles))
+            self.log.info("def getGroupRange: Want %d articles with a max of %d...shrinking" % (mycount, maxArticles))
             myfirst = myfirst + (mycount - maxArticles)
             mycount = maxArticles
-            self.log.debug("New count is %d, starting with %s"
+            self.log.info("def getGroupRange: New count is %d, starting with %s"
                 % (mycount, myfirst))
 
         return myfirst, last, mycount
@@ -683,24 +690,22 @@ def getDoneList(fn):
 def writetoDoneList(group):
     log=logging.getLogger("nntpsucka")
     try:
-        
         fn = CONFIG['file_doneList']
         if fn != None:
-            #log.info("def writeDoneList: fn='%s', group='%s'"%(fn,group))
+            log.debug("def writeDoneList: fn='%s', group='%s'"%(fn,group))
             fp = open(fn, "a")
             if CONFIG['writeRegex']:
                 ws = '^%s$' % group.replace('.','\.')
                 fp.write(ws+'\n')
-                log.info("def writeDoneList: fn='%s', regex = '%s', done"%(fn,group,ws))
+                fp.close()
+                log.debug("def writeDoneList: fn='%s', regex = '%s', done"%(fn,group,ws))
             else:
                 ws = '^%s$' % group
                 fp.write(ws+'\n')
-                log.info("def writeDoneList: fn='%s', group='%s', done"%(fn,group))
-            fp.close()
-        else:
-            log.info("def writeDoneList: fn='%s', group='%s', failed"%(fn,group))
+                fp.close()
+                log.debug("def writeDoneList: fn='%s', group='%s', done"%(fn,group))
     except Exception as e:
-        log.debug("def writeDoneList failed, exception = '%s', fn='%s', group='%s'"%(e,fn,group))
+        log.warn("def writeDoneList failed, exception = '%s', fn='%s', group='%s'"%(e,fn,group))
 
 def connectionMaker(conf, which):
 
