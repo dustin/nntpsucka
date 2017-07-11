@@ -462,13 +462,32 @@ class NNTPSucka:
         # Figure out where we are
         myfirst, mylast, mycount = self.db.getGroupRange(groupname, first, last,
             self.maxArticles)
+        
         l=[]
+        
+        #LARGE_GROUPS = ('talk.politics.misc')
+        LARGE_GROUPS = []
+        cacheidx = False
+        if groupname in LARGE_GROUPS:
+            cacheidx = True
+        
+        fn = "messages_%s" % groupname
+        maywrite = False
+        
         if mycount > 0:
             self.log.info("Checking " + `mycount` + " articles:  " \
                 + `myfirst` + "-" + `mylast` + " in " + groupname)
-
-            # Grab the IDs
-            resp, l = self.src.xhdr('message-id', `myfirst` + "-" + `mylast`)
+            
+            if cacheidx:
+                if os.path.isfile(fn):
+                    # Grab IDs from file
+                    l = readMessagesList(fn)
+            
+            if not len(l):
+                # Grab the IDs
+                resp, l = self.src.xhdr('message-id', `myfirst` + "-" + `mylast`)
+                if cacheidx:
+                    maywrite = True
 
             # Validate we got as many results as we expected.
             if(len(l) != mycount):
@@ -482,6 +501,11 @@ class NNTPSucka:
         seen, seet = 0, 0
         lent = len(l)
         anti_timeout = int(time.time())
+        
+        if maywrite:
+            writetoMessageList(fn,groupname,l)
+            sys.exit()
+        
         for i in l:
             try:
                 t,  messid = self.doneQueue.get_nowait()
@@ -517,6 +541,7 @@ class NNTPSucka:
             except Queue.Empty:
                 pass
             try:
+                writetoMessageList
                 messid="*empty*"
                 messid=i[1]
                 idx=i[0]
@@ -703,6 +728,34 @@ def writetoDoneList(group):
                 log.debug("def writeDoneList: fn='%s', group='%s', done"%(fn,group))
     except Exception as e:
         log.warn("def writeDoneList failed, exception = '%s', fn='%s', group='%s'"%(e,fn,group))
+
+def writetoMessageList(fn,group,l):
+    log=logging.getLogger("nntpsucka")
+    try:
+        if fn != None:
+            fp = open(fn, "a")
+            log.info("def writetoMessageList: fn='%s', group='%s', lent='%s', writing"%(fn,group,len(l)))
+            for i in l:
+                ws = '%d %s' % (int(i[0]),i[1])
+                fp.write(ws+'\n')
+            fp.close()
+            log.info("def writetoMessageList: fn='%s', group='%s', lent='%s', done"%(fn,group,len(l)))
+    except Exception as e:
+        log.warn("def writetoMessageList failed, exception = '%s', fn='%s', group='%s'"%(e,fn,group))
+
+def readMessagesList(fn):
+    log=logging.getLogger("nntpsucka")
+    try:
+        rv=[]
+        f=open(fn)
+        for l in f.readlines():
+            if l == '':
+                break
+            rv.append(l.split())
+        log.info("def readMessagesList: got %d msg-ids from file '%s'"%(len(rv),fn))
+        return rv
+    except Exception as e:
+        log.warn("def readMessagesList: failed, exception = '%s'"%(e))
 
 def connectionMaker(conf, which):
 
