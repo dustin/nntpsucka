@@ -465,23 +465,22 @@ class NNTPSucka:
         
         l=[]
         
-        #LARGE_GROUPS = ('talk.politics.misc')
+        #LARGE_GROUPS = ('talk.politics.misc','sci.environment')
         LARGE_GROUPS = []
-        cacheidx = False
-        if groupname in LARGE_GROUPS:
-            cacheidx = True
-        
         fn = "messages_%s" % groupname
+        cacheidx = False
         maywrite = False
+        if groupname in LARGE_GROUPS:
+            if os.path.isfile(fn):
+                cacheidx = True
         
         if mycount > 0:
             self.log.info("Checking " + `mycount` + " articles:  " \
                 + `myfirst` + "-" + `mylast` + " in " + groupname)
             
             if cacheidx:
-                if os.path.isfile(fn):
-                    # Grab IDs from file
-                    l = readMessagesList(fn)
+                # Grab IDs from file
+                l = readMessagesList(fn)
             
             if not len(l):
                 # Grab the IDs
