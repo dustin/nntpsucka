@@ -11,6 +11,9 @@ if test -f ${pidfile}; then
  test $? -eq 0 && echo "nntpsucka_${1}.pid ${pid} runnning!" && exit 1
 fi;
 
+test -x filter.sh && ./filter.sh
+test -f doneList.${1} && sort -u doneList.${1} > doneList.${1}.tmp; mv -v doneList.${1}.tmp doneList.${1}
+
 gzip *_${1}.log
 mkdir -p log.old/${1}
 mv -v *_${1}.log.gz log.old/${1}/
