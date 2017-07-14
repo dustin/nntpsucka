@@ -204,7 +204,13 @@ class NNTPClient(nntplib.NNTP):
         """See netlib.NNTP"""
         self.log=logging.getLogger("NNTPClient")
         self.log.debug("Connecting to %s:%d" % (host, port))
-        nntplib.NNTP.__init__(self, host, port, user, password, readermode)
+        try:
+            nntplib.NNTP.__init__(self, host, port, user, password, readermode)
+        except nntplib.NNTPPermanentError,e:
+            if str(e).find('502'):
+                self.log.warn("NNTPClient) failed NNTPPermanentError, exception = '%s'"%(e))
+                sys.exit(1)
+        
         self.log.debug("Connected to %s:%d" % (host, port))
         self.checkMode()
         self.host=host
@@ -275,7 +281,7 @@ class NNTPClient(nntplib.NNTP):
                 return
             except EOFError, e:
                 self.log.warn("def copyArticle failed, EOFError exception = '%s', which = '%s', messid='%s'" % (e,which,messid))
-                return                
+                return
             except Exception as e:
                 self.log.warn("def copyArticle failed, exception = '%s', which = '%s', messid='%s'" % (e,which,messid))
                 return
@@ -503,7 +509,7 @@ class NNTPSucka:
         
         if maywrite:
             writetoMessageList(fn,groupname,l)
-            sys.exit()
+            sys.exit(0)
         
         for i in l:
             try:
@@ -575,14 +581,22 @@ class NNTPSucka:
     def shouldProcess(self, group):
         
         ignorelist = CONFIG['filterList']
+        globalignorelist = CONFIG['globalfilterList']
         forcedlist = CONFIG['forcedList']
         donelist = CONFIG['doneList']
+        
+        if globalignorelist != None:
+            self.log.debug("def sP: using globalignorelist, len = '%s'"%(len(globalignorelist)))
+            for i in globalignorelist:
+                if i.match(group) is not None:
+                   self.log.debug("def sP: group '%s' in globalignorelist"%(group))
+                   return False
         
         if donelist != None:
             self.log.debug("def sP: using donelist, len = '%s'"%(len(donelist)))
             for i in donelist:
                 if i.match(group) is not None:
-                   self.log.debug("def sP: group '%s' already done"%(group))
+                   self.log.debug("def sP: group '%s' in donelist"%(group))
                    return False
         
         if CONFIG['useIgnore'] == True:
@@ -590,14 +604,14 @@ class NNTPSucka:
                 self.log.debug("def sP: using ignorelist, len = '%s'"%(len(ignorelist)))
                 for i in ignorelist:
                     if i.match(group) is not None:
-                        self.log.debug("def sP: group '%s' ignored"%(group))
+                        self.log.debug("def sP: group '%s' in ignorelist"%(group))
                         return False
         
         if forcedlist != None:
             self.log.debug("def sP: using forcedlist, len = '%s'"%(len(forcedlist)))
             for i in forcedlist:
                 if i.match(group) is not None:
-                    self.log.debug("def sP: group '%s' in forcedList"%(group))
+                    self.log.debug("def sP: group '%s' in forcedlist"%(group))
                     return True
         else:
             self.log.debug("def shouldProcess: group '%s', YES"%(group))
@@ -656,42 +670,68 @@ def alarmHandler(sig, frame):
 
 def getIgnoreList(fn):
     log=logging.getLogger("nntpsucka")
-    log.debug("Getting ignore list from " + fn)
-    rv=[]
-    f=open(fn)
-    lines = 0
-    for l in f.readlines():
-        l=l.strip()
-        if l == '':
-            log.warn("def getIgnoreList: error, empty line %d"%lines)
+    try:
+        
+        if not os.path.isfile(fn):
+            log.warn("def getIgnoreList: '%s' not found "%(fn))
             return None
-        rv.append(re.compile(l))
-        log.debug("def getIgnoreList: add '%s'"%(l))
-        lines += 1
-    return rv
+        log.info("def getIgnoreList: loading '%s' "%(fn))
+        rv=[]
+        f=open(fn)
+        lines = 0
+        for l in f.readlines():
+            l=l.strip()
+            if l == '':
+                log.warn("def getIgnoreList: error, empty line %d"%lines)
+                return None
+            if l in rv:
+                continue
+            rv.append(re.compile(l))
+            log.debug("def getIgnoreList: add '%s'"%(l))
+            lines += 1
+        if len(rv) > 0:
+            log.info("def getIgnoreList: loaded %d"%(len(rv)))
+            return rv
+        else:
+            return None
+    except Exception as e:
+        log.warn("def getGlobalIgnoreList: failed, exception = '%s'"%(e))
 
 def getForcedList(fn):
     log=logging.getLogger("nntpsucka")
-    log.debug("Getting forced list from " + fn)
-    rv=[]
-    f=open(fn)
-    lines = 0
-    for l in f.readlines():
-        l=l.strip()
-        if l == '':
-            log.warn("def getForcedList: error, empty line %d"%lines)
+    try:
+        if not os.path.isfile(fn):
+            log.warn("def getForcedList: '%s' not found "%(fn))
             return None
-        rv.append(re.compile(l))
-        log.debug("def getForcedList: add '%s'"%(l))
-        lines += 1
-    return rv
-
+        log.info("def getForcedList: loading '%s' "%(fn))
+        rv=[]
+        f=open(fn)
+        lines = 0
+        for l in f.readlines():
+            l=l.strip()
+            if l == '':
+                log.warn("def getForcedList: error, empty line %d"%lines)
+                return None
+            if l in rv:
+                break
+            rv.append(re.compile(l))
+            log.debug("def getForcedList: add '%s'"%(l))
+            lines += 1
+        if len(rv) > 0:
+            log.info("def getForcedList: loaded %d"%(len(rv)))
+            return rv
+        else:
+            return None
+    except Exception as e:
+        log.warn("def getForcedList: failed, exception = '%s'"%(e))
 
 def getDoneList(fn):
     log=logging.getLogger("nntpsucka")
     try:
-        
-        log.debug("Getting done list from " + fn)
+        if not os.path.isfile(fn):
+            log.warn("def getDoneList: '%s' not found "%(fn))
+            return None
+        log.info("def getDoneList: loading '%s' "%(fn))
         rv=[]
         f=open(fn)
         lines = 0
@@ -700,12 +740,46 @@ def getDoneList(fn):
             if l == '':
                 log.warn("def getDoneList: error, empty line %d"%lines)
                 return None
+            if l in rv:
+                break
             rv.append(re.compile(l))
             log.info("def getDoneList: ignore '%s'"%(l))
             lines += 1
-        return rv
+        if len(rv) > 0:
+            log.info("def getDoneList: loaded %d"%(len(rv)))
+            return rv
+        else:
+            return None
     except Exception as e:
-        log.debug("def getDoneList: failed, exception = '%s'"%(e))
+        log.warn("def getDoneList: failed, exception = '%s'"%(e))
+
+def getGlobalIgnoreList(fn):
+    log=logging.getLogger("nntpsucka")
+    try:
+        if not os.path.isfile(fn):
+            log.warn("def getGlobalIgnoreList: '%s' not found "%(fn))
+            return None
+        log.info("def getGlobalIgnoreList: loading '%s' "%(fn))
+        rv=[]
+        f=open(fn)
+        lines = 0
+        for l in f.readlines():
+            l=l.strip()
+            if l == '':
+                log.warn("def getGlobalIgnoreList: error, empty line %d"%lines)
+                return None
+            if l in rv:
+                break
+            rv.append(re.compile(l))
+            log.debug("def getGlobalIgnoreList: add '%s'"%(l))
+            lines += 1
+        if len(rv) > 0:
+            log.info("def getGlobalIgnoreList: loaded %d"%(len(rv)))
+            return rv
+        else:
+            return None    
+    except Exception as e:
+        log.warn("def getGlobalIgnoreList: failed, exception = '%s'"%(e))
 
 def writetoDoneList(group):
     log=logging.getLogger("nntpsucka")
@@ -756,21 +830,24 @@ def readMessagesList(fn):
         log.warn("def readMessagesList: failed, exception = '%s'"%(e))
 
 def connectionMaker(conf, which):
-
-    connServer=conf.get("servers", which)
-    connUser=None
-    connPass=None
-    connPort=119
-    num_conn = 1
-    if conf.has_section(connServer):
-        connUser=conf.getWithDefault(connServer, "username", None)
-        connPass=conf.getWithDefault(connServer, "password", None)
-        connPort=conf.getint(connServer, "port")
-    
-    def f():
-        return NNTPClient(connServer, port=connPort, user=connUser, password=connPass)
-    
-    return f
+    log=logging.getLogger("nntpsucka")
+    try:
+        connServer=conf.get("servers", which)
+        connUser=None
+        connPass=None
+        connPort=119
+        num_conn = 1
+        if conf.has_section(connServer):
+            connUser=conf.getWithDefault(connServer, "username", None)
+            connPass=conf.getWithDefault(connServer, "password", None)
+            connPort=conf.getint(connServer, "port")
+        
+        def f():
+            return NNTPClient(connServer, port=connPort, user=connUser, password=connPass)
+        
+        return f
+    except Exception as e:
+        log.warn("def connectionMaker: failed, exception = '%s'"%(e))
 
 def main():
     conf=OptConf(CONF_DEFAULTS, CONF_SECTIONS)
@@ -794,6 +871,7 @@ def main():
     logging.config.fileConfig(sys.argv[1])
     
     filterList=conf.getWithDefault("misc", "filterList", None)
+    globalfilterList=conf.getWithDefault("misc", "globalfilterList", None)
     forcedList=conf.getWithDefault("misc", "forcedList", None)
     useignore=conf.getboolean("misc", "useIgnore")
     doneList=conf.getWithDefault("misc", "doneList", None)
@@ -814,7 +892,12 @@ def main():
         if filterList is not None:
             CONFIG['filterList'] = getIgnoreList(filterList)
         else:
-            CONFIG['filterList'] = [re.compile('^control\.')]
+            CONFIG['filterList'] = None
+                    
+        if globalfilterList is not None:
+            CONFIG['globalfilterList'] = getGlobalIgnoreList(globalfilterList)
+        else:
+            CONFIG['globalfilterList'] = None
         
         if forcedList is not None:
             CONFIG['forcedList'] = getForcedList(forcedList)
@@ -832,12 +915,14 @@ def main():
         sucka.copyServer()
     except Timeout:
         sys.stderr.write("Took too long.\n")
+        sys.stdout.write("Took too long.\n")
         sys.exit(1)
     except EOFError:
         sys.stderr.write("def main() failed, exception EOFError\n")
+        sys.stdout.write("def main() failed, exception EOFError\n")
+        sys.exit(1)
     # Mark the stop time
     stop=time.time()
-
     if sucka:
         # Log the stats
         log=logging.getLogger("nntpsucka")
