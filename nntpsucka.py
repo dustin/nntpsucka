@@ -28,6 +28,8 @@ CONF_DEFAULTS={'port':'119', 'newsdb':'newsdb', 'pidfile':'nntpsucka.pid',
 CONF_SECTIONS=['misc', 'servers']
 
 CONFIG = dict()
+CONFIG['conns_localhost'] = 0
+CONFIG['conns_remote'] = 0
 
 class Stats:
     """Keep statistics describing what got moved."""
@@ -50,9 +52,9 @@ class Stats:
         self.other+=1
 
     def __str__(self):
-        return "Moved:  " + str(self.moved) \
-            + ", duplicate:  " + str(self.dup) \
-            + ", Other:  " + str(self.other)
+        text="Moved:  %d, Dup:  %d, Other:  %d, Conns (Local %d / Remote %d)" \
+        % (self.moved,self.dup,self.other,CONFIG['conns_localhost'],CONFIG['conns_remote'])
+        return text
 
 ######################################################################
 
@@ -202,16 +204,23 @@ class NNTPClient(nntplib.NNTP):
 
     def __init__(self, host, port=119,user=None,password=None,readermode=False):
         """See netlib.NNTP"""
+        global CONFIG
         self.log=logging.getLogger("NNTPClient")
         self.log.debug("Connecting to %s:%d" % (host, port))
         try:
             nntplib.NNTP.__init__(self, host, port, user, password, readermode)
         except nntplib.NNTPPermanentError,e:
-            if str(e).find('502'):
-                self.log.warn("NNTPClient) failed NNTPPermanentError, exception = '%s'"%(e))
-                sys.exit(1)
+            self.log.warn("NNTPClient) failed NNTPPermanentError, exception = '%s'"%(e))
+            sys.exit(1)
+        except Exception as e:
+            self.log.warn("NNTPClient) failed, exception = '%s'"%(e))
+            sys.exit(1)
         
-        self.log.debug("Connected to %s:%d" % (host, port))
+        self.log.info("Connected to %s:%d" % (host, port))
+        if host == '127.0.0.1':
+            CONFIG['conns_localhost'] += 1
+        else:
+            CONFIG['conns_remote'] += 1
         self.checkMode()
         self.host=host
         self.port=port
