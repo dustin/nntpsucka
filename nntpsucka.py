@@ -211,10 +211,10 @@ class NNTPClient(nntplib.NNTP):
             nntplib.NNTP.__init__(self, host, port, user, password, readermode)
         except nntplib.NNTPPermanentError,e:
             self.log.warn("NNTPClient) failed NNTPPermanentError, exception = '%s'"%(e))
-            sys.exit(1)
+            return
         except Exception as e:
             self.log.warn("NNTPClient) failed, exception = '%s'"%(e))
-            sys.exit(1)
+            return
         
         self.log.info("Connected to %s:%d" % (host, port))
         if host == '127.0.0.1':
@@ -485,9 +485,9 @@ class NNTPSucka:
         fn = "messages_%s" % groupname
         cacheidx = False
         maywrite = False
-        if groupname in LARGE_GROUPS:
-            if os.path.isfile(fn):
-                cacheidx = True
+        written = False
+        if groupname in LARGE_GROUPS or os.path.isfile(fn):
+            cacheidx = True
         
         if mycount > 0:
             self.log.info("Checking " + `mycount` + " articles:  " \
@@ -500,9 +500,11 @@ class NNTPSucka:
             if not len(l):
                 # Grab the IDs
                 resp, l = self.src.xhdr('message-id', `myfirst` + "-" + `mylast`)
+                if len(l) > 100000:
+                    cacheidx = True
                 if cacheidx:
                     maywrite = True
-
+            
             # Validate we got as many results as we expected.
             if(len(l) != mycount):
                 self.log.warn("Unexpected number of articles returned.  " \
@@ -516,9 +518,16 @@ class NNTPSucka:
         lent = len(l)
         anti_timeout = int(time.time())
         
-        if maywrite:
-            writetoMessageList(fn,groupname,l)
-            sys.exit(0)
+        if maywrite == True:
+            if writetoMessageList(fn,groupname,l) == True:
+                written = True
+                sys.exit(1)
+        
+        if cacheidx == True and written == False:
+            if os.path.isfile(fn):
+                fnd = fn+".done"
+                os.rename(fn,fnd)
+                self.log.info("renamed '%s' to '%s'"%(fn,fnd))
         
         for i in l:
             try:
@@ -586,7 +595,7 @@ class NNTPSucka:
         if suct > 0 or lent > 0 or seet > 0 or dupt > 0 or errt > 0:
             self.log.info("def copyGroup: '%s' added %d/%d, seen %d, dupt %d, errt %d"%(groupname,suct,lent,seet,dupt,errt))
         writetoDoneList(groupname)
-    
+        
     def shouldProcess(self, group):
         
         ignorelist = CONFIG['filterList']
@@ -821,22 +830,25 @@ def writetoMessageList(fn,group,l):
                 fp.write(ws+'\n')
             fp.close()
             log.info("def writetoMessageList: fn='%s', group='%s', lent='%s', done"%(fn,group,len(l)))
+            return True
+        return False
     except Exception as e:
         log.warn("def writetoMessageList failed, exception = '%s', fn='%s', group='%s'"%(e,fn,group))
 
 def readMessagesList(fn):
     log=logging.getLogger("nntpsucka")
+    rv=[]
     try:
-        rv=[]
-        f=open(fn)
-        for l in f.readlines():
-            if l == '':
-                break
-            rv.append(l.split())
-        log.info("def readMessagesList: got %d msg-ids from file '%s'"%(len(rv),fn))
-        return rv
+        if os.path.isfile(fn):
+            f=open(fn)
+            for l in f.readlines():
+                if l == '':
+                    break
+                rv.append(l.split())
+            log.info("def readMessagesList: got %d msg-ids from file '%s'"%(len(rv),fn))
     except Exception as e:
         log.warn("def readMessagesList: failed, exception = '%s'"%(e))
+    return rv
 
 def connectionMaker(conf, which):
     log=logging.getLogger("nntpsucka")
