@@ -3,19 +3,30 @@
 level=INFO
 
 [servers]
-from=news.west.earthlink.net
-to=news.west.spy.net
+from=127.0.0.1
+to=127.0.0.2
+
+[127.0.0.2]
+port=4119
+
+[127.0.0.1]
+port=1119
+
 
 [misc]
+mode=reader
 # Name of the file that will contain the news db
-newsdb=newsdb
-workers=5 # workers are fine but first established connection between server still timeouts ( EOFerror ) after fetching 100k+ articles and switching to next group
+newsdb=newsdb.sdb/newsdb_nl
+workers=5
 
 # Name of the pid file
-pidfile=nntpsucka.pid
+pidfile=nntpsucka_nl.pid
 
 # List of exceptions (files contain lines with groups to filter / allow)
 globalfilterList=globalfilter.txt
+
+#doneList=doneList.nl
+writeRegex=False
 
 # filterList=filename1 # file with groups to blacklist
 
@@ -27,7 +38,7 @@ writeRegex = True # setting to True writes doneList in exact regex: ^linux\.kern
 
 
 # Maximum number of articles to get per group
-maxArticles=10000 #  tested fine with max=2500000 @ `linux.kernel` (2.35 Mio Articles) @ workers=50 
+maxArticles=0 # all
 
 # Whether ``seen'' articles should be marked in the news DB config
 shouldMarkArticles=yes
