@@ -3,30 +3,51 @@
 level=INFO
 
 [servers]
-from=news.west.earthlink.net
-to=news.west.spy.net
+from=127.0.0.1
+to=127.0.0.2
+
+[127.0.0.2]
+port=4119
+
+[127.0.0.1]
+port=1119
+
 
 [misc]
+mode=reader
 # Name of the file that will contain the news db
-newsdb=newsdb
+newsdb=newsdb.sdb/newsdb_nl
 workers=5
 
 # Name of the pid file
-pidfile=nntpsucka.pid
+pidfile=nntpsucka_nl.pid
 
-# List of exceptions
-# filterList=
+# List of exceptions (files contain lines with groups to filter / allow)
+globalfilterList=globalfilter.txt
+
+#doneList=doneList.nl
+writeRegex=False
+
+# filterList=filename1 # file with groups to blacklist
+
+# forcedList=filename2 # using a forcedList will scan only these groups
+useIgnore = True # setting to False will NOT check against filterList
+
+# doneList=filename3 # stores fetched groups and prevents fetching again on next run
+writeRegex = True # setting to True writes doneList in exact regex: ^linux\.kernel$ 
+
 
 # Maximum number of articles to get per group
-maxArticles=10000
+maxArticles=0 # all
 
 # Whether ``seen'' articles should be marked in the news DB config
 shouldMarkArticles=yes
 
-# Example news server specific config
+# Example news server specific config: [] brackets should contain same domain or ip like 'from=']
 [news.west.earthlink.net]
 username=XXXXXXXX@mindspring.com
 password=XXXXXXXX
+port=119 # fixme: add 563 support to use with NNTPClientSSL or use local stunnel as client, may have better performance
 
 ###### Logging config #######
 

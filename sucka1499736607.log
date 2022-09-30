@@ -1,0 +1,1722 @@
+2017-07-11 03:30:07,773 INFO def getForcedList: add 'linux'
+2017-07-11 03:30:07,773 INFO def getForcedList: add 'linux.act.680x0'
+2017-07-11 03:30:07,773 INFO def getForcedList: add 'linux.act.admin'
+2017-07-11 03:30:07,773 INFO def getForcedList: add 'linux.act.apps'
+2017-07-11 03:30:07,773 INFO def getForcedList: add 'linux.act.bbsdev'
+2017-07-11 03:30:07,773 INFO def getForcedList: add 'linux.act.chaos_digest'
+2017-07-11 03:30:07,774 INFO def getForcedList: add 'linux.act.compression'
+2017-07-11 03:30:07,774 INFO def getForcedList: add 'linux.act.configs'
+2017-07-11 03:30:07,774 INFO def getForcedList: add 'linux.act.c-programming'
+2017-07-11 03:30:07,774 INFO def getForcedList: add 'linux.act.debian'
+2017-07-11 03:30:07,774 INFO def getForcedList: add 'linux.act.dec_alpha'
+2017-07-11 03:30:07,774 INFO def getForcedList: add 'linux.act.doc'
+2017-07-11 03:30:07,774 INFO def getForcedList: add 'linux.act.fido'
+2017-07-11 03:30:07,775 INFO def getForcedList: add 'linux.act.fsf'
+2017-07-11 03:30:07,775 INFO def getForcedList: add 'linux.act.fsstnd'
+2017-07-11 03:30:07,775 INFO def getForcedList: add 'linux.act.ftp'
+2017-07-11 03:30:07,775 INFO def getForcedList: add 'linux.act.gcc'
+2017-07-11 03:30:07,775 INFO def getForcedList: add 'linux.act.hams'
+2017-07-11 03:30:07,775 INFO def getForcedList: add 'linux.act.ibcs2'
+2017-07-11 03:30:07,775 INFO def getForcedList: add 'linux.act.ibsc2'
+2017-07-11 03:30:07,775 INFO def getForcedList: add 'linux.act.interviews'
+2017-07-11 03:30:07,776 INFO def getForcedList: add 'linux.act.japanese'
+2017-07-11 03:30:07,776 INFO def getForcedList: add 'linux.act.kernel'
+2017-07-11 03:30:07,776 INFO def getForcedList: add 'linux.act.laptops'
+2017-07-11 03:30:07,776 INFO def getForcedList: add 'linux.act.linux-bbs'
+2017-07-11 03:30:07,776 INFO def getForcedList: add 'linux.act.linuxbsd'
+2017-07-11 03:30:07,776 INFO def getForcedList: add 'linux.act.linuxnews'
+2017-07-11 03:30:07,776 INFO def getForcedList: add 'linux.act.linuxss'
+2017-07-11 03:30:07,776 INFO def getForcedList: add 'linux.act.localbus'
+2017-07-11 03:30:07,777 INFO def getForcedList: add 'linux.act.lugnuts'
+2017-07-11 03:30:07,777 INFO def getForcedList: add 'linux.act.mca'
+2017-07-11 03:30:07,777 INFO def getForcedList: add 'linux.act.mgr'
+2017-07-11 03:30:07,777 INFO def getForcedList: add 'linux.act.mips'
+2017-07-11 03:30:07,777 INFO def getForcedList: add 'linux.act.msdos'
+2017-07-11 03:30:07,777 INFO def getForcedList: add 'linux.act.mumail'
+2017-07-11 03:30:07,777 INFO def getForcedList: add 'linux.act.net'
+2017-07-11 03:30:07,778 INFO def getForcedList: add 'linux.act.newbie'
+2017-07-11 03:30:07,778 INFO def getForcedList: add 'linux.act.new-channels'
+2017-07-11 03:30:07,778 INFO def getForcedList: add 'linux.act.normal'
+2017-07-11 03:30:07,778 INFO def getForcedList: add 'linux.act.nys'
+2017-07-11 03:30:07,778 INFO def getForcedList: add 'linux.act.oasg-trust'
+2017-07-11 03:30:07,778 INFO def getForcedList: add 'linux.act.oi'
+2017-07-11 03:30:07,778 INFO def getForcedList: add 'linux.act.pkg'
+2017-07-11 03:30:07,778 INFO def getForcedList: add 'linux.act.postgres'
+2017-07-11 03:30:07,779 INFO def getForcedList: add 'linux.act.ppp'
+2017-07-11 03:30:07,779 INFO def getForcedList: add 'linux.act.promotion'
+2017-07-11 03:30:07,779 INFO def getForcedList: add 'linux.act.qag'
+2017-07-11 03:30:07,779 INFO def getForcedList: add 'linux.act.scsi'
+2017-07-11 03:30:07,779 INFO def getForcedList: add 'linux.act.serial'
+2017-07-11 03:30:07,779 INFO def getForcedList: add 'linux.act.seyon.development'
+2017-07-11 03:30:07,779 INFO def getForcedList: add 'linux.act.sound'
+2017-07-11 03:30:07,779 INFO def getForcedList: add 'linux.act.svgalib'
+2017-07-11 03:30:07,780 INFO def getForcedList: add 'linux.act.sysvpkg-project'
+2017-07-11 03:30:07,780 INFO def getForcedList: add 'linux.act.tape'
+2017-07-11 03:30:07,780 INFO def getForcedList: add 'linux.act.term'
+2017-07-11 03:30:07,780 INFO def getForcedList: add 'linux.act.tktools'
+2017-07-11 03:30:07,780 INFO def getForcedList: add 'linux.act.userfs'
+2017-07-11 03:30:07,780 INFO def getForcedList: add 'linux.act.uucp'
+2017-07-11 03:30:07,780 INFO def getForcedList: add 'linux.act.wabi'
+2017-07-11 03:30:07,781 INFO def getForcedList: add 'linux.act.word'
+2017-07-11 03:30:07,781 INFO def getForcedList: add 'linux.act.x11'
+2017-07-11 03:30:07,781 INFO def getForcedList: add 'linux.admin.isp'
+2017-07-11 03:30:07,781 INFO def getForcedList: add 'linux.admin.news'
+2017-07-11 03:30:07,781 INFO def getForcedList: add 'linux.ads'
+2017-07-11 03:30:07,781 INFO def getForcedList: add 'linux.announce'
+2017-07-11 03:30:07,781 INFO def getForcedList: add 'linuxanswers.discussion'
+2017-07-11 03:30:07,781 INFO def getForcedList: add 'linux.appletalk'
+2017-07-11 03:30:07,782 INFO def getForcedList: add 'linux.apps.bbsdev'
+2017-07-11 03:30:07,782 INFO def getForcedList: add 'linux.apps.cdwrite'
+2017-07-11 03:30:07,782 INFO def getForcedList: add 'linux.apps.flexfax'
+2017-07-11 03:30:07,782 INFO def getForcedList: add 'linux.apps.linux-bbs'
+2017-07-11 03:30:07,782 INFO def getForcedList: add 'linux.apps.seyon'
+2017-07-11 03:30:07,782 INFO def getForcedList: add 'linux.apps.seyon.development'
+2017-07-11 03:30:07,782 INFO def getForcedList: add 'linux.apps.word'
+2017-07-11 03:30:07,783 INFO def getForcedList: add 'linux.apps.xword'
+2017-07-11 03:30:07,783 INFO def getForcedList: add 'linux.bbs'
+2017-07-11 03:30:07,783 INFO def getForcedList: add 'linux.bbs.rocat'
+2017-07-11 03:30:07,783 INFO def getForcedList: add 'linux.debian'
+2017-07-11 03:30:07,783 INFO def getForcedList: add 'linux.debian.68k'
+2017-07-11 03:30:07,783 INFO def getForcedList: add 'linux.debian.admintool'
+2017-07-11 03:30:07,783 INFO def getForcedList: add 'linux.debian.alpha'
+2017-07-11 03:30:07,783 INFO def getForcedList: add 'linux.debian.announce'
+2017-07-11 03:30:07,784 INFO def getForcedList: add 'linux.debian.announce.devel'
+2017-07-11 03:30:07,784 INFO def getForcedList: add 'linux.debian.announce.security'
+2017-07-11 03:30:07,784 INFO def getForcedList: add 'linux.debian.autobuild'
+2017-07-11 03:30:07,784 INFO def getForcedList: add 'linux.debian.beowulf'
+2017-07-11 03:30:07,784 INFO def getForcedList: add 'linux.debian.bugs.closed'
+2017-07-11 03:30:07,784 INFO def getForcedList: add 'linux.debian.bugs.dist'
+2017-07-11 03:30:07,784 INFO def getForcedList: add 'linux.debian.bugs.forwarded'
+2017-07-11 03:30:07,785 INFO def getForcedList: add 'linux.debian.bugs.rc'
+2017-07-11 03:30:07,785 INFO def getForcedList: add 'linux.debian.bugs.reports'
+2017-07-11 03:30:07,785 INFO def getForcedList: add 'linux.debian.changes'
+2017-07-11 03:30:07,785 INFO def getForcedList: add 'linux.debian.changes.devel'
+2017-07-11 03:30:07,785 INFO def getForcedList: add 'linux.debian.consultants'
+2017-07-11 03:30:07,785 INFO def getForcedList: add 'linux.debian.curiosa'
+2017-07-11 03:30:07,785 INFO def getForcedList: add 'linux.debian.devel'
+2017-07-11 03:30:07,786 INFO def getForcedList: add 'linux.debian.devel.announce'
+2017-07-11 03:30:07,786 INFO def getForcedList: add 'linux.debian.devel.cd'
+2017-07-11 03:30:07,786 INFO def getForcedList: add 'linux.debian.devel.changes'
+2017-07-11 03:30:07,786 INFO def getForcedList: add 'linux.debian.devel.french'
+2017-07-11 03:30:07,786 INFO def getForcedList: add 'linux.debian.devel.italian'
+2017-07-11 03:30:07,786 INFO def getForcedList: add 'linux.debian.devel.mentors'
+2017-07-11 03:30:07,786 INFO def getForcedList: add 'linux.debian.devel.qa'
+2017-07-11 03:30:07,787 INFO def getForcedList: add 'linux.debian.devel.release'
+2017-07-11 03:30:07,787 INFO def getForcedList: add 'linux.debian.devel.spanish'
+2017-07-11 03:30:07,787 INFO def getForcedList: add 'linux.debian.devel.testing'
+2017-07-11 03:30:07,787 INFO def getForcedList: add 'linux.debian.doc'
+2017-07-11 03:30:07,787 INFO def getForcedList: add 'linux.debian.faq'
+2017-07-11 03:30:07,787 INFO def getForcedList: add 'linux.debian.french'
+2017-07-11 03:30:07,788 INFO def getForcedList: add 'linux.debian.german'
+2017-07-11 03:30:07,788 INFO def getForcedList: add 'linux.debian.i18n'
+2017-07-11 03:30:07,788 INFO def getForcedList: add 'linux.debian.isp'
+2017-07-11 03:30:07,788 INFO def getForcedList: add 'linux.debian.italian'
+2017-07-11 03:30:07,788 INFO def getForcedList: add 'linux.debian.kernel'
+2017-07-11 03:30:07,788 INFO def getForcedList: add 'linux.debian.l10n.danish'
+2017-07-11 03:30:07,788 INFO def getForcedList: add 'linux.debian.l10n.dutch'
+2017-07-11 03:30:07,789 INFO def getForcedList: add 'linux.debian.l10n.finnish'
+2017-07-11 03:30:07,789 INFO def getForcedList: add 'linux.debian.l10n.french'
+2017-07-11 03:30:07,789 INFO def getForcedList: add 'linux.debian.l10n.german'
+2017-07-11 03:30:07,789 INFO def getForcedList: add 'linux.debian.l10n.polish'
+2017-07-11 03:30:07,789 INFO def getForcedList: add 'linux.debian.l10n.portuguese'
+2017-07-11 03:30:07,789 INFO def getForcedList: add 'linux.debian.l10n.spanish'
+2017-07-11 03:30:07,789 INFO def getForcedList: add 'linux.debian.l10n.turkish'
+2017-07-11 03:30:07,790 INFO def getForcedList: add 'linux.debian.laptop'
+2017-07-11 03:30:07,790 INFO def getForcedList: add 'linux.debian.legal'
+2017-07-11 03:30:07,790 INFO def getForcedList: add 'linux.debian.maint.admintool'
+2017-07-11 03:30:07,790 INFO def getForcedList: add 'linux.debian.maint.boot'
+2017-07-11 03:30:07,790 INFO def getForcedList: add 'linux.debian.maint.dpkg'
+2017-07-11 03:30:07,790 INFO def getForcedList: add 'linux.debian.maint.emacsen'
+2017-07-11 03:30:07,790 INFO def getForcedList: add 'linux.debian.maint.firewall'
+2017-07-11 03:30:07,791 INFO def getForcedList: add 'linux.debian.maint.glibc'
+2017-07-11 03:30:07,791 INFO def getForcedList: add 'linux.debian.maint.gtk.gnome'
+2017-07-11 03:30:07,791 INFO def getForcedList: add 'linux.debian.maint.hams'
+2017-07-11 03:30:07,791 INFO def getForcedList: add 'linux.debian.maint.i18n'
+2017-07-11 03:30:07,791 INFO def getForcedList: add 'linux.debian.maint.ipv6'
+2017-07-11 03:30:07,791 INFO def getForcedList: add 'linux.debian.maint.java'
+2017-07-11 03:30:07,791 INFO def getForcedList: add 'linux.debian.maint.jr'
+2017-07-11 03:30:07,792 INFO def getForcedList: add 'linux.debian.maint.kde'
+2017-07-11 03:30:07,792 INFO def getForcedList: add 'linux.debian.maint.ocaml.maint'
+2017-07-11 03:30:07,792 INFO def getForcedList: add 'linux.debian.maint.perl'
+2017-07-11 03:30:07,792 INFO def getForcedList: add 'linux.debian.maint.pilot'
+2017-07-11 03:30:07,792 INFO def getForcedList: add 'linux.debian.maint.python'
+2017-07-11 03:30:07,792 INFO def getForcedList: add 'linux.debian.maint.sgml'
+2017-07-11 03:30:07,793 INFO def getForcedList: add 'linux.debian.maint.tetex'
+2017-07-11 03:30:07,793 INFO def getForcedList: add 'linux.debian.maint.toolchain'
+2017-07-11 03:30:07,793 INFO def getForcedList: add 'linux.debian.maint.x'
+2017-07-11 03:30:07,793 INFO def getForcedList: add 'linux.debian.news'
+2017-07-11 03:30:07,793 INFO def getForcedList: add 'linux.debian.news.french'
+2017-07-11 03:30:07,793 INFO def getForcedList: add 'linux.debian.news.german'
+2017-07-11 03:30:07,793 INFO def getForcedList: add 'linux.debian.news.portuguese'
+2017-07-11 03:30:07,794 INFO def getForcedList: add 'linux.debian.policy'
+2017-07-11 03:30:07,794 INFO def getForcedList: add 'linux.debian.ports.68k'
+2017-07-11 03:30:07,794 INFO def getForcedList: add 'linux.debian.ports.alpha'
+2017-07-11 03:30:07,794 INFO def getForcedList: add 'linux.debian.ports.arm'
+2017-07-11 03:30:07,794 INFO def getForcedList: add 'linux.debian.ports.hppa'
+2017-07-11 03:30:07,794 INFO def getForcedList: add 'linux.debian.ports.hurd'
+2017-07-11 03:30:07,794 INFO def getForcedList: add 'linux.debian.ports.ia64'
+2017-07-11 03:30:07,795 INFO def getForcedList: add 'linux.debian.ports.mips'
+2017-07-11 03:30:07,795 INFO def getForcedList: add 'linux.debian.ports.powerpc'
+2017-07-11 03:30:07,795 INFO def getForcedList: add 'linux.debian.ports.s390'
+2017-07-11 03:30:07,795 INFO def getForcedList: add 'linux.debian.ports.sparc'
+2017-07-11 03:30:07,795 INFO def getForcedList: add 'linux.debian.ports.superh'
+2017-07-11 03:30:07,795 INFO def getForcedList: add 'linux.debian.ports.x86-64'
+2017-07-11 03:30:07,795 INFO def getForcedList: add 'linux.debian.powerpc'
+2017-07-11 03:30:07,796 INFO def getForcedList: add 'linux.debian.project'
+2017-07-11 03:30:07,796 INFO def getForcedList: add 'linux.debian.publicity'
+2017-07-11 03:30:07,796 INFO def getForcedList: add 'linux.debian.qa'
+2017-07-11 03:30:07,796 INFO def getForcedList: add 'linux.debian.security'
+2017-07-11 03:30:07,796 INFO def getForcedList: add 'linux.debian.spanish'
+2017-07-11 03:30:07,796 INFO def getForcedList: add 'linux.debian.sparc'
+2017-07-11 03:30:07,796 INFO def getForcedList: add 'linux.debian.user'
+2017-07-11 03:30:07,796 INFO def getForcedList: add 'linux.debian.user.catalan'
+2017-07-11 03:30:07,797 INFO def getForcedList: add 'linux.debian.user.chinese.big5'
+2017-07-11 03:30:07,797 INFO def getForcedList: add 'linux.debian.user.danish'
+2017-07-11 03:30:07,797 INFO def getForcedList: add 'linux.debian.user.french'
+2017-07-11 03:30:07,797 INFO def getForcedList: add 'linux.debian.user.german'
+2017-07-11 03:30:07,797 INFO def getForcedList: add 'linux.debian.user.italian'
+2017-07-11 03:30:07,797 INFO def getForcedList: add 'linux.debian.user.japanese'
+2017-07-11 03:30:07,798 INFO def getForcedList: add 'linux.debian.user.polish'
+2017-07-11 03:30:07,798 INFO def getForcedList: add 'linux.debian.user.portuguese'
+2017-07-11 03:30:07,798 INFO def getForcedList: add 'linux.debian.user.russian'
+2017-07-11 03:30:07,798 INFO def getForcedList: add 'linux.debian.user.spanish'
+2017-07-11 03:30:07,798 INFO def getForcedList: add 'linux.debian.user.swedish'
+2017-07-11 03:30:07,798 INFO def getForcedList: add 'linux.debian.user.turkish'
+2017-07-11 03:30:07,798 INFO def getForcedList: add 'linux.debian.user.ukrainian'
+2017-07-11 03:30:07,799 INFO def getForcedList: add 'linux.debian.vote'
+2017-07-11 03:30:07,799 INFO def getForcedList: add 'linux.debian.www'
+2017-07-11 03:30:07,799 INFO def getForcedList: add 'linux.debs.changes'
+2017-07-11 03:30:07,799 INFO def getForcedList: add 'linux.dev.680x0'
+2017-07-11 03:30:07,799 INFO def getForcedList: add 'linux.dev.8086'
+2017-07-11 03:30:07,799 INFO def getForcedList: add 'linux.dev.admin'
+2017-07-11 03:30:07,799 INFO def getForcedList: add 'linux.dev.apps'
+2017-07-11 03:30:07,799 INFO def getForcedList: add 'linux.dev.atm'
+2017-07-11 03:30:07,800 INFO def getForcedList: add 'linux.dev.bbs'
+2017-07-11 03:30:07,800 INFO def getForcedList: add 'linux.dev.blab'
+2017-07-11 03:30:07,800 INFO def getForcedList: add 'linux.dev.config'
+2017-07-11 03:30:07,800 INFO def getForcedList: add 'linux.dev.c-programming'
+2017-07-11 03:30:07,800 INFO def getForcedList: add 'linux.dev.debian'
+2017-07-11 03:30:07,800 INFO def getForcedList: add 'linux.dev.diald'
+2017-07-11 03:30:07,800 INFO def getForcedList: add 'linux.dev.doc'
+2017-07-11 03:30:07,800 INFO def getForcedList: add 'linux.dev.fido'
+2017-07-11 03:30:07,801 INFO def getForcedList: add 'linux.dev.fsf'
+2017-07-11 03:30:07,801 INFO def getForcedList: add 'linux.dev.fsstnd'
+2017-07-11 03:30:07,801 INFO def getForcedList: add 'linux.dev.ftp'
+2017-07-11 03:30:07,801 INFO def getForcedList: add 'linux.dev.gcc'
+2017-07-11 03:30:07,801 INFO def getForcedList: add 'linux.dev.hams'
+2017-07-11 03:30:07,801 INFO def getForcedList: add 'linux.dev.ibcs2'
+2017-07-11 03:30:07,801 INFO def getForcedList: add 'linux.dev.interviews'
+2017-07-11 03:30:07,801 INFO def getForcedList: add 'linux.dev.ipx'
+2017-07-11 03:30:07,802 INFO def getForcedList: add 'linux.dev.isdn'
+2017-07-11 03:30:07,802 INFO def getForcedList: add 'linux.dev.japanese'
+2017-07-11 03:30:07,802 INFO def getForcedList: add 'linux.dev.kernel'
+2017-07-11 03:30:07,802 INFO def getForcedList: add 'linux.dev.kernel.announce'
+2017-07-11 03:30:07,802 INFO def getForcedList: add 'linux.dev.kernel.patch'
+2017-07-11 03:30:07,802 INFO def getForcedList: add 'linux.dev.laptop'
+2017-07-11 03:30:07,802 INFO def getForcedList: add 'linux.dev.linuxbsd'
+2017-07-11 03:30:07,802 INFO def getForcedList: add 'linux.dev.linuxnews'
+2017-07-11 03:30:07,803 INFO def getForcedList: add 'linux.dev.linuxss'
+2017-07-11 03:30:07,803 INFO def getForcedList: add 'linux.dev.localbus'
+2017-07-11 03:30:07,803 INFO def getForcedList: add 'linux.dev.lugnuts'
+2017-07-11 03:30:07,803 INFO def getForcedList: add 'linux.dev.mca'
+2017-07-11 03:30:07,803 INFO def getForcedList: add 'linux.dev.mgr'
+2017-07-11 03:30:07,803 INFO def getForcedList: add 'linux.dev.msdos'
+2017-07-11 03:30:07,803 INFO def getForcedList: add 'linux.dev.net'
+2017-07-11 03:30:07,803 INFO def getForcedList: add 'linux.dev.newbie'
+2017-07-11 03:30:07,804 INFO def getForcedList: add 'linux.dev.new-lists'
+2017-07-11 03:30:07,804 INFO def getForcedList: add 'linux.dev.normal'
+2017-07-11 03:30:07,804 INFO def getForcedList: add 'linux.dev.nys'
+2017-07-11 03:30:07,804 INFO def getForcedList: add 'linux.dev.oasg'
+2017-07-11 03:30:07,804 INFO def getForcedList: add 'linux.dev.oi'
+2017-07-11 03:30:07,804 INFO def getForcedList: add 'linux.dev.opengl'
+2017-07-11 03:30:07,804 INFO def getForcedList: add 'linux.dev.pkg'
+2017-07-11 03:30:07,804 INFO def getForcedList: add 'linux.dev.ppp'
+2017-07-11 03:30:07,805 INFO def getForcedList: add 'linux.dev.qag'
+2017-07-11 03:30:07,805 INFO def getForcedList: add 'linux.dev.raid'
+2017-07-11 03:30:07,805 INFO def getForcedList: add 'linux.dev.scsi'
+2017-07-11 03:30:07,805 INFO def getForcedList: add 'linux.dev.serial'
+2017-07-11 03:30:07,805 INFO def getForcedList: add 'linux.dev.seyon'
+2017-07-11 03:30:07,805 INFO def getForcedList: add 'linux.dev.smp'
+2017-07-11 03:30:07,805 INFO def getForcedList: add 'linux.dev.sound'
+2017-07-11 03:30:07,805 INFO def getForcedList: add 'linux.dev.sparc'
+2017-07-11 03:30:07,805 INFO def getForcedList: add 'linux.dev.standards'
+2017-07-11 03:30:07,806 INFO def getForcedList: add 'linux.dev.svgalib'
+2017-07-11 03:30:07,806 INFO def getForcedList: add 'linux.dev.tape'
+2017-07-11 03:30:07,806 INFO def getForcedList: add 'linux.dev.term'
+2017-07-11 03:30:07,806 INFO def getForcedList: add 'linux.dev.userfs'
+2017-07-11 03:30:07,806 INFO def getForcedList: add 'linux.dev.uucp'
+2017-07-11 03:30:07,806 INFO def getForcedList: add 'linux.dev.wabi'
+2017-07-11 03:30:07,806 INFO def getForcedList: add 'linux.dev.word'
+2017-07-11 03:30:07,806 INFO def getForcedList: add 'linux.dev.x11'
+2017-07-11 03:30:07,807 INFO def getForcedList: add 'linux.dev.x25'
+2017-07-11 03:30:07,807 INFO def getForcedList: add 'linux.fido.ifmail'
+2017-07-11 03:30:07,807 INFO def getForcedList: add 'linux.free-widgets.announce'
+2017-07-11 03:30:07,807 INFO def getForcedList: add 'linux.free-widgets.bugs'
+2017-07-11 03:30:07,807 INFO def getForcedList: add 'linux.free-widgets.development'
+2017-07-11 03:30:07,807 INFO def getForcedList: add 'linuxfr.linuxfr-news'
+2017-07-11 03:30:07,807 INFO def getForcedList: add 'linuxfr.ml.php-france'
+2017-07-11 03:30:07,808 INFO def getForcedList: add 'linuxfr.wireless.general'
+2017-07-11 03:30:07,808 INFO def getForcedList: add 'linuxfr.wireless.technique'
+2017-07-11 03:30:07,808 INFO def getForcedList: add 'linux.gentoo.announce'
+2017-07-11 03:30:07,808 INFO def getForcedList: add 'linux.gentoo.dev'
+2017-07-11 03:30:07,808 INFO def getForcedList: add 'linux.gentoo.user'
+2017-07-11 03:30:07,808 INFO def getForcedList: add 'linux.gentoo.user.de'
+2017-07-11 03:30:07,808 INFO def getForcedList: add 'linux.gentoo.user.es'
+2017-07-11 03:30:07,808 INFO def getForcedList: add 'linux.gentoo.user.fr'
+2017-07-11 03:30:07,809 INFO def getForcedList: add 'linux.gentoo.user.id'
+2017-07-11 03:30:07,809 INFO def getForcedList: add 'linux.gentoo.user.kr'
+2017-07-11 03:30:07,809 INFO def getForcedList: add 'linux.gentoo.user.pl'
+2017-07-11 03:30:07,809 INFO def getForcedList: add 'linux.gentoo.weekly-news'
+2017-07-11 03:30:07,809 INFO def getForcedList: add 'linux.help'
+2017-07-11 03:30:07,809 INFO def getForcedList: add 'linux.i18n'
+2017-07-11 03:30:07,809 INFO def getForcedList: add 'linux.jobs'
+2017-07-11 03:30:07,809 INFO def getForcedList: add 'linux.kernel'
+2017-07-11 03:30:07,810 INFO def getForcedList: add 'linux.largesites'
+2017-07-11 03:30:07,810 INFO def getForcedList: add 'linux.local.chicago'
+2017-07-11 03:30:07,810 INFO def getForcedList: add 'linux.local.nova-scotia'
+2017-07-11 03:30:07,810 INFO def getForcedList: add 'linux.local.silicon-valley'
+2017-07-11 03:30:07,810 INFO def getForcedList: add 'linux.misc'
+2017-07-11 03:30:07,810 INFO def getForcedList: add 'linux.motif.clone'
+2017-07-11 03:30:07,810 INFO def getForcedList: add 'linux.motif.clone.lesstif'
+2017-07-11 03:30:07,811 INFO def getForcedList: add 'linux.net.atm'
+2017-07-11 03:30:07,811 INFO def getForcedList: add 'linux.net.masquerade'
+2017-07-11 03:30:07,811 INFO def getForcedList: add 'linux.news.groups'
+2017-07-11 03:30:07,811 INFO def getForcedList: add 'linux.new-tty'
+2017-07-11 03:30:07,811 INFO def getForcedList: add 'linux.ports.alpha'
+2017-07-11 03:30:07,811 INFO def getForcedList: add 'linux.ports.hp-pa'
+2017-07-11 03:30:07,811 INFO def getForcedList: add 'linux.ports.powerpc'
+2017-07-11 03:30:07,811 INFO def getForcedList: add 'linux.postgres'
+2017-07-11 03:30:07,812 INFO def getForcedList: add 'linux.pvt'
+2017-07-11 03:30:07,812 INFO def getForcedList: add 'linux.pvt.png.announce'
+2017-07-11 03:30:07,812 INFO def getForcedList: add 'linux.pvt.png.implement'
+2017-07-11 03:30:07,812 INFO def getForcedList: add 'linux.redhat'
+2017-07-11 03:30:07,812 INFO def getForcedList: add 'linux.redhat.announce'
+2017-07-11 03:30:07,812 INFO def getForcedList: add 'linux.redhat.applixware'
+2017-07-11 03:30:07,812 INFO def getForcedList: add 'linux.redhat.axp'
+2017-07-11 03:30:07,812 INFO def getForcedList: add 'linux.redhat.devel'
+2017-07-11 03:30:07,813 INFO def getForcedList: add 'linux.redhat.development'
+2017-07-11 03:30:07,813 INFO def getForcedList: add 'linux.redhat.digest'
+2017-07-11 03:30:07,813 INFO def getForcedList: add 'linux.redhat.install'
+2017-07-11 03:30:07,813 INFO def getForcedList: add 'linux.redhat.list'
+2017-07-11 03:30:07,813 INFO def getForcedList: add 'linux.redhat.lists'
+2017-07-11 03:30:07,813 INFO def getForcedList: add 'linux.redhat.misc'
+2017-07-11 03:30:07,813 INFO def getForcedList: add 'linux.redhat.pam'
+2017-07-11 03:30:07,813 INFO def getForcedList: add 'linux.redhat.ppp'
+2017-07-11 03:30:07,814 INFO def getForcedList: add 'linux.redhat.rpm'
+2017-07-11 03:30:07,814 INFO def getForcedList: add 'linux.redhat.sparc'
+2017-07-11 03:30:07,814 INFO def getForcedList: add 'linux.samba'
+2017-07-11 03:30:07,814 INFO def getForcedList: add 'linux.samba.announce'
+2017-07-11 03:30:07,814 INFO def getForcedList: add 'linux.samba+it.hobby.creativi'
+2017-07-11 03:30:07,814 INFO def getForcedList: add 'linux.scsi.nc53c8xx'
+2017-07-11 03:30:07,814 INFO def getForcedList: add 'linux.scsi.ncr53c8xx'
+2017-07-11 03:30:07,814 INFO def getForcedList: add 'linux.sdk'
+2017-07-11 03:30:07,815 INFO def getForcedList: add 'linux.setup.install'
+2017-07-11 03:30:07,815 INFO def getForcedList: add 'linux.sources.kernel'
+2017-07-11 03:30:07,815 INFO def getForcedList: add 'linux.support.commercial'
+2017-07-11 03:30:07,815 INFO def getForcedList: add 'linux.syquest'
+2017-07-11 03:30:07,815 INFO def getForcedList: add 'linux.sys.alpha'
+2017-07-11 03:30:07,815 INFO def getForcedList: add 'linux.test'
+2017-07-11 03:30:07,815 INFO def getForcedList: add 'linux.test.moderated'
+2017-07-11 03:30:07,815 INFO def getForcedList: add 'linux.wine.users'
+2017-07-11 03:30:07,816 WARNING def getDoneList: error, empty line 0
+2017-07-11 03:30:07,816 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,994 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:07,995 INFO NNTPsucka) def __init__: self.src = '<NNTPClient: REMOTE:PORT>', self.dest = '<NNTPClient: 127.0.0.1:119>'
+2017-07-11 03:30:07,995 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,996 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,996 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,996 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,997 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,997 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,997 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,997 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,998 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,998 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,998 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,998 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,999 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,999 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,999 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,999 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:07,999 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:08,000 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:08,000 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:08,000 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:08,000 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:08,001 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:08,001 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:08,001 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:08,001 INFO Connecting to REMOTE:PORT
+2017-07-11 03:30:08,042 WARNING def shouldProcess: group 'control', None
+2017-07-11 03:30:08,042 INFO def sP: group 'control.cancel' ignored
+2017-07-11 03:30:08,042 WARNING def shouldProcess: group 'junk', None
+2017-07-11 03:30:08,042 INFO def sP: group 'linux' in forcedList
+2017-07-11 03:30:08,042 INFO def copyServer: copyGroup(linux) 
+2017-07-11 03:30:08,114 INFO Checking 118 articles:  2-119 in linux
+2017-07-11 03:30:08,163 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,165 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,165 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,167 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,173 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,174 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,175 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,177 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,185 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,186 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,191 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,191 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,193 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,194 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,194 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,198 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,200 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,200 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,201 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,202 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,202 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,206 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,207 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,207 INFO def copyGroup: 'linux' added 0/118, seen 118, dupt 0, errt 0
+2017-07-11 03:30:08,207 INFO def sP: group 'linux.act.680x0' in forcedList
+2017-07-11 03:30:08,207 INFO def copyServer: copyGroup(linux.act.680x0) 
+2017-07-11 03:30:08,216 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,227 INFO Connecting to 127.0.0.1:119
+2017-07-11 03:30:08,278 INFO Checking 13 articles:  2-14 in linux.act.680x0
+2017-07-11 03:30:08,378 INFO def copyGroup: 'linux.act.680x0' added 0/13, seen 13, dupt 0, errt 0
+2017-07-11 03:30:08,378 INFO def sP: group 'linux.act.admin' in forcedList
+2017-07-11 03:30:08,378 INFO def copyServer: copyGroup(linux.act.admin) 
+2017-07-11 03:30:08,423 INFO Checking 11 articles:  2-12 in linux.act.admin
+2017-07-11 03:30:08,523 INFO def copyGroup: 'linux.act.admin' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:30:08,523 INFO def sP: group 'linux.act.apps' in forcedList
+2017-07-11 03:30:08,523 INFO def copyServer: copyGroup(linux.act.apps) 
+2017-07-11 03:30:08,620 INFO Checking 12 articles:  2-13 in linux.act.apps
+2017-07-11 03:30:08,740 INFO def copyGroup: 'linux.act.apps' added 0/12, seen 12, dupt 0, errt 0
+2017-07-11 03:30:08,740 INFO def sP: group 'linux.act.bbsdev' in forcedList
+2017-07-11 03:30:08,740 INFO def copyServer: copyGroup(linux.act.bbsdev) 
+2017-07-11 03:30:08,811 INFO Checking 12 articles:  2-13 in linux.act.bbsdev
+2017-07-11 03:30:08,911 INFO def copyGroup: 'linux.act.bbsdev' added 0/12, seen 12, dupt 0, errt 0
+2017-07-11 03:30:08,911 INFO def sP: group 'linux.act.chaos_digest' in forcedList
+2017-07-11 03:30:08,911 INFO def copyServer: copyGroup(linux.act.chaos_digest) 
+2017-07-11 03:30:08,983 INFO Checking 10 articles:  2-11 in linux.act.chaos_digest
+2017-07-11 03:30:09,083 INFO def copyGroup: 'linux.act.chaos_digest' added 0/10, seen 10, dupt 0, errt 0
+2017-07-11 03:30:09,083 INFO def sP: group 'linux.act.compression' in forcedList
+2017-07-11 03:30:09,083 INFO def copyServer: copyGroup(linux.act.compression) 
+2017-07-11 03:30:09,177 INFO Checking 15 articles:  2-16 in linux.act.compression
+2017-07-11 03:30:09,225 INFO def copyGroup: 'linux.act.compression' added 0/15, seen 15, dupt 0, errt 0
+2017-07-11 03:30:09,226 INFO def sP: group 'linux.act.configs' in forcedList
+2017-07-11 03:30:09,226 INFO def copyServer: copyGroup(linux.act.configs) 
+2017-07-11 03:30:09,299 INFO Checking 12 articles:  2-13 in linux.act.configs
+2017-07-11 03:30:09,425 INFO def copyGroup: 'linux.act.configs' added 0/12, seen 12, dupt 0, errt 0
+2017-07-11 03:30:09,425 INFO def sP: group 'linux.act.c-programming' in forcedList
+2017-07-11 03:30:09,425 INFO def copyServer: copyGroup(linux.act.c-programming) 
+2017-07-11 03:30:09,496 INFO Checking 18 articles:  2-19 in linux.act.c-programming
+2017-07-11 03:30:09,616 INFO def copyGroup: 'linux.act.c-programming' added 0/18, seen 18, dupt 0, errt 0
+2017-07-11 03:30:09,616 INFO def sP: group 'linux.act.debian' in forcedList
+2017-07-11 03:30:09,616 INFO def copyServer: copyGroup(linux.act.debian) 
+2017-07-11 03:30:09,687 INFO Checking 9 articles:  2-10 in linux.act.debian
+2017-07-11 03:30:09,788 INFO def copyGroup: 'linux.act.debian' added 0/9, seen 9, dupt 0, errt 0
+2017-07-11 03:30:09,788 INFO def sP: group 'linux.act.dec_alpha' in forcedList
+2017-07-11 03:30:09,788 INFO def copyServer: copyGroup(linux.act.dec_alpha) 
+2017-07-11 03:30:09,834 INFO Checking 7 articles:  2-8 in linux.act.dec_alpha
+2017-07-11 03:30:09,935 INFO def copyGroup: 'linux.act.dec_alpha' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:30:09,935 INFO def sP: group 'linux.act.doc' in forcedList
+2017-07-11 03:30:09,935 INFO def copyServer: copyGroup(linux.act.doc) 
+2017-07-11 03:30:10,006 INFO Checking 10 articles:  2-11 in linux.act.doc
+2017-07-11 03:30:10,087 INFO def copyGroup: 'linux.act.doc' added 0/10, seen 10, dupt 0, errt 0
+2017-07-11 03:30:10,087 INFO def sP: group 'linux.act.fido' in forcedList
+2017-07-11 03:30:10,087 INFO def copyServer: copyGroup(linux.act.fido) 
+2017-07-11 03:30:10,160 INFO Checking 11 articles:  2-12 in linux.act.fido
+2017-07-11 03:30:10,260 INFO def copyGroup: 'linux.act.fido' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:30:10,260 INFO def sP: group 'linux.act.fsf' in forcedList
+2017-07-11 03:30:10,260 INFO def copyServer: copyGroup(linux.act.fsf) 
+2017-07-11 03:30:10,358 INFO Checking 8 articles:  2-9 in linux.act.fsf
+2017-07-11 03:30:10,458 INFO def copyGroup: 'linux.act.fsf' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:30:10,458 INFO def sP: group 'linux.act.fsstnd' in forcedList
+2017-07-11 03:30:10,458 INFO def copyServer: copyGroup(linux.act.fsstnd) 
+2017-07-11 03:30:10,529 INFO Checking 7 articles:  2-8 in linux.act.fsstnd
+2017-07-11 03:30:10,608 INFO def copyGroup: 'linux.act.fsstnd' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:30:10,609 INFO def sP: group 'linux.act.ftp' in forcedList
+2017-07-11 03:30:10,609 INFO def copyServer: copyGroup(linux.act.ftp) 
+2017-07-11 03:30:10,680 INFO Checking 8 articles:  2-9 in linux.act.ftp
+2017-07-11 03:30:10,780 INFO def copyGroup: 'linux.act.ftp' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:30:10,780 INFO def sP: group 'linux.act.gcc' in forcedList
+2017-07-11 03:30:10,780 INFO def copyServer: copyGroup(linux.act.gcc) 
+2017-07-11 03:30:10,826 INFO Checking 14 articles:  2-15 in linux.act.gcc
+2017-07-11 03:30:10,927 INFO def copyGroup: 'linux.act.gcc' added 0/14, seen 14, dupt 0, errt 0
+2017-07-11 03:30:10,927 INFO def sP: group 'linux.act.hams' in forcedList
+2017-07-11 03:30:10,928 INFO def copyServer: copyGroup(linux.act.hams) 
+2017-07-11 03:30:10,999 INFO Checking 12 articles:  2-13 in linux.act.hams
+2017-07-11 03:30:11,119 INFO def copyGroup: 'linux.act.hams' added 0/12, seen 12, dupt 0, errt 0
+2017-07-11 03:30:11,119 INFO def sP: group 'linux.act.ibcs2' in forcedList
+2017-07-11 03:30:11,119 INFO def copyServer: copyGroup(linux.act.ibcs2) 
+2017-07-11 03:30:11,190 INFO Checking 8 articles:  2-9 in linux.act.ibcs2
+2017-07-11 03:30:11,291 INFO def copyGroup: 'linux.act.ibcs2' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:30:11,291 INFO def sP: group 'linux.act.ibsc2' in forcedList
+2017-07-11 03:30:11,291 INFO def copyServer: copyGroup(linux.act.ibsc2) 
+2017-07-11 03:30:11,337 INFO Checking 10 articles:  2-11 in linux.act.ibsc2
+2017-07-11 03:30:11,468 INFO def copyGroup: 'linux.act.ibsc2' added 0/10, seen 10, dupt 0, errt 0
+2017-07-11 03:30:11,468 INFO def sP: group 'linux.act.interviews' in forcedList
+2017-07-11 03:30:11,468 INFO def copyServer: copyGroup(linux.act.interviews) 
+2017-07-11 03:30:11,540 INFO Checking 9 articles:  2-10 in linux.act.interviews
+2017-07-11 03:30:11,621 INFO def copyGroup: 'linux.act.interviews' added 0/9, seen 9, dupt 0, errt 0
+2017-07-11 03:30:11,621 INFO def sP: group 'linux.act.japanese' in forcedList
+2017-07-11 03:30:11,621 INFO def copyServer: copyGroup(linux.act.japanese) 
+2017-07-11 03:30:11,694 INFO Checking 8 articles:  2-9 in linux.act.japanese
+2017-07-11 03:30:11,795 INFO def copyGroup: 'linux.act.japanese' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:30:11,795 INFO def sP: group 'linux.act.kernel' in forcedList
+2017-07-11 03:30:11,795 INFO def copyServer: copyGroup(linux.act.kernel) 
+2017-07-11 03:30:11,866 INFO Checking 18 articles:  2-19 in linux.act.kernel
+2017-07-11 03:30:11,988 INFO def copyGroup: 'linux.act.kernel' added 0/18, seen 18, dupt 0, errt 0
+2017-07-11 03:30:11,988 INFO def sP: group 'linux.act.laptops' in forcedList
+2017-07-11 03:30:11,988 INFO def copyServer: copyGroup(linux.act.laptops) 
+2017-07-11 03:30:12,059 INFO Checking 16 articles:  2-17 in linux.act.laptops
+2017-07-11 03:30:12,161 INFO def copyGroup: 'linux.act.laptops' added 0/16, seen 16, dupt 0, errt 0
+2017-07-11 03:30:12,161 INFO def sP: group 'linux.act.linux-bbs' in forcedList
+2017-07-11 03:30:12,161 INFO def copyServer: copyGroup(linux.act.linux-bbs) 
+2017-07-11 03:30:12,207 INFO Checking 10 articles:  2-11 in linux.act.linux-bbs
+2017-07-11 03:30:12,307 INFO def copyGroup: 'linux.act.linux-bbs' added 0/10, seen 10, dupt 0, errt 0
+2017-07-11 03:30:12,307 INFO def sP: group 'linux.act.linuxbsd' in forcedList
+2017-07-11 03:30:12,307 INFO def copyServer: copyGroup(linux.act.linuxbsd) 
+2017-07-11 03:30:12,379 INFO Checking 10 articles:  2-11 in linux.act.linuxbsd
+2017-07-11 03:30:12,460 INFO def copyGroup: 'linux.act.linuxbsd' added 0/10, seen 10, dupt 0, errt 0
+2017-07-11 03:30:12,460 INFO def sP: group 'linux.act.linuxnews' in forcedList
+2017-07-11 03:30:12,460 INFO def copyServer: copyGroup(linux.act.linuxnews) 
+2017-07-11 03:30:12,533 INFO Checking 8 articles:  2-9 in linux.act.linuxnews
+2017-07-11 03:30:12,654 INFO def copyGroup: 'linux.act.linuxnews' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:30:12,654 INFO def sP: group 'linux.act.linuxss' in forcedList
+2017-07-11 03:30:12,654 INFO def copyServer: copyGroup(linux.act.linuxss) 
+2017-07-11 03:30:12,726 INFO Checking 9 articles:  2-10 in linux.act.linuxss
+2017-07-11 03:30:12,845 INFO def copyGroup: 'linux.act.linuxss' added 0/9, seen 9, dupt 0, errt 0
+2017-07-11 03:30:12,845 INFO def sP: group 'linux.act.localbus' in forcedList
+2017-07-11 03:30:12,845 INFO def copyServer: copyGroup(linux.act.localbus) 
+2017-07-11 03:30:12,917 INFO Checking 8 articles:  2-9 in linux.act.localbus
+2017-07-11 03:30:13,018 INFO def copyGroup: 'linux.act.localbus' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:30:13,018 INFO def sP: group 'linux.act.lugnuts' in forcedList
+2017-07-11 03:30:13,018 INFO def copyServer: copyGroup(linux.act.lugnuts) 
+2017-07-11 03:30:13,065 INFO Checking 7 articles:  2-8 in linux.act.lugnuts
+2017-07-11 03:30:13,166 INFO def copyGroup: 'linux.act.lugnuts' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:30:13,166 INFO def sP: group 'linux.act.mca' in forcedList
+2017-07-11 03:30:13,166 INFO def copyServer: copyGroup(linux.act.mca) 
+2017-07-11 03:30:13,238 INFO Checking 8 articles:  2-9 in linux.act.mca
+2017-07-11 03:30:13,318 INFO def copyGroup: 'linux.act.mca' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:30:13,318 INFO def sP: group 'linux.act.mgr' in forcedList
+2017-07-11 03:30:13,318 INFO def copyServer: copyGroup(linux.act.mgr) 
+2017-07-11 03:30:13,389 INFO Checking 7 articles:  2-8 in linux.act.mgr
+2017-07-11 03:30:13,509 INFO def copyGroup: 'linux.act.mgr' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:30:13,509 INFO def sP: group 'linux.act.mips' in forcedList
+2017-07-11 03:30:13,509 INFO def copyServer: copyGroup(linux.act.mips) 
+2017-07-11 03:30:13,607 INFO Checking 9 articles:  2-10 in linux.act.mips
+2017-07-11 03:30:13,727 INFO def copyGroup: 'linux.act.mips' added 0/9, seen 9, dupt 0, errt 0
+2017-07-11 03:30:13,727 INFO def sP: group 'linux.act.msdos' in forcedList
+2017-07-11 03:30:13,727 INFO def copyServer: copyGroup(linux.act.msdos) 
+2017-07-11 03:30:13,798 INFO Checking 14 articles:  2-15 in linux.act.msdos
+2017-07-11 03:30:13,880 INFO def copyGroup: 'linux.act.msdos' added 0/14, seen 14, dupt 0, errt 0
+2017-07-11 03:30:13,880 INFO def sP: group 'linux.act.mumail' in forcedList
+2017-07-11 03:30:13,881 INFO def copyServer: copyGroup(linux.act.mumail) 
+2017-07-11 03:30:13,952 INFO Checking 9 articles:  2-10 in linux.act.mumail
+2017-07-11 03:30:14,052 INFO def copyGroup: 'linux.act.mumail' added 0/9, seen 9, dupt 0, errt 0
+2017-07-11 03:30:14,052 INFO def sP: group 'linux.act.net' in forcedList
+2017-07-11 03:30:14,052 INFO def copyServer: copyGroup(linux.act.net) 
+2017-07-11 03:30:14,098 INFO Checking 11 articles:  2-12 in linux.act.net
+2017-07-11 03:30:14,199 INFO def copyGroup: 'linux.act.net' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:30:14,199 INFO def sP: group 'linux.act.newbie' in forcedList
+2017-07-11 03:30:14,199 INFO def copyServer: copyGroup(linux.act.newbie) 
+2017-07-11 03:30:14,270 INFO Checking 13 articles:  2-14 in linux.act.newbie
+2017-07-11 03:30:14,370 INFO def copyGroup: 'linux.act.newbie' added 0/13, seen 13, dupt 0, errt 0
+2017-07-11 03:30:14,371 INFO def sP: group 'linux.act.new-channels' in forcedList
+2017-07-11 03:30:14,371 INFO def copyServer: copyGroup(linux.act.new-channels) 
+2017-07-11 03:30:14,469 INFO Checking 7 articles:  2-8 in linux.act.new-channels
+2017-07-11 03:30:14,569 INFO def copyGroup: 'linux.act.new-channels' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:30:14,569 INFO def sP: group 'linux.act.normal' in forcedList
+2017-07-11 03:30:14,569 INFO def copyServer: copyGroup(linux.act.normal) 
+2017-07-11 03:30:14,641 INFO Checking 11 articles:  2-12 in linux.act.normal
+2017-07-11 03:30:14,722 INFO def copyGroup: 'linux.act.normal' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:30:14,722 INFO def sP: group 'linux.act.nys' in forcedList
+2017-07-11 03:30:14,722 INFO def copyServer: copyGroup(linux.act.nys) 
+2017-07-11 03:30:14,793 INFO Checking 7 articles:  2-8 in linux.act.nys
+2017-07-11 03:30:14,894 INFO def copyGroup: 'linux.act.nys' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:30:14,894 INFO def sP: group 'linux.act.oasg-trust' in forcedList
+2017-07-11 03:30:14,894 INFO def copyServer: copyGroup(linux.act.oasg-trust) 
+2017-07-11 03:30:14,940 INFO Checking 8 articles:  2-9 in linux.act.oasg-trust
+2017-07-11 03:30:15,041 INFO def copyGroup: 'linux.act.oasg-trust' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:30:15,041 INFO def sP: group 'linux.act.oi' in forcedList
+2017-07-11 03:30:15,041 INFO def copyServer: copyGroup(linux.act.oi) 
+2017-07-11 03:30:15,139 INFO Checking 9 articles:  2-10 in linux.act.oi
+2017-07-11 03:30:15,257 INFO def copyGroup: 'linux.act.oi' added 0/9, seen 9, dupt 0, errt 0
+2017-07-11 03:30:15,257 INFO def sP: group 'linux.act.pkg' in forcedList
+2017-07-11 03:30:15,257 INFO def copyServer: copyGroup(linux.act.pkg) 
+2017-07-11 03:30:15,355 INFO Checking 13 articles:  2-14 in linux.act.pkg
+2017-07-11 03:30:15,456 INFO def copyGroup: 'linux.act.pkg' added 0/13, seen 13, dupt 0, errt 0
+2017-07-11 03:30:15,456 INFO def sP: group 'linux.act.postgres' in forcedList
+2017-07-11 03:30:15,456 INFO def copyServer: copyGroup(linux.act.postgres) 
+2017-07-11 03:30:15,528 INFO Checking 7 articles:  2-8 in linux.act.postgres
+2017-07-11 03:30:15,628 INFO def copyGroup: 'linux.act.postgres' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:30:15,628 INFO def sP: group 'linux.act.ppp' in forcedList
+2017-07-11 03:30:15,628 INFO def copyServer: copyGroup(linux.act.ppp) 
+2017-07-11 03:30:15,700 INFO Checking 17 articles:  2-18 in linux.act.ppp
+2017-07-11 03:30:15,781 INFO def copyGroup: 'linux.act.ppp' added 0/17, seen 17, dupt 0, errt 0
+2017-07-11 03:30:15,782 INFO def sP: group 'linux.act.promotion' in forcedList
+2017-07-11 03:30:15,782 INFO def copyServer: copyGroup(linux.act.promotion) 
+2017-07-11 03:30:15,826 INFO Checking 15 articles:  2-16 in linux.act.promotion
+2017-07-11 03:30:15,926 INFO def copyGroup: 'linux.act.promotion' added 0/15, seen 15, dupt 0, errt 0
+2017-07-11 03:30:15,927 INFO def sP: group 'linux.act.qag' in forcedList
+2017-07-11 03:30:15,927 INFO def copyServer: copyGroup(linux.act.qag) 
+2017-07-11 03:30:16,024 INFO Checking 11 articles:  2-12 in linux.act.qag
+2017-07-11 03:30:16,144 INFO def copyGroup: 'linux.act.qag' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:30:16,144 INFO def sP: group 'linux.act.scsi' in forcedList
+2017-07-11 03:30:16,144 INFO def copyServer: copyGroup(linux.act.scsi) 
+2017-07-11 03:30:16,215 INFO Checking 11 articles:  2-12 in linux.act.scsi
+2017-07-11 03:30:16,316 INFO def copyGroup: 'linux.act.scsi' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:30:16,316 INFO def sP: group 'linux.act.serial' in forcedList
+2017-07-11 03:30:16,316 INFO def copyServer: copyGroup(linux.act.serial) 
+2017-07-11 03:30:16,363 INFO Checking 7 articles:  2-8 in linux.act.serial
+2017-07-11 03:30:16,464 INFO def copyGroup: 'linux.act.serial' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:30:16,464 INFO def sP: group 'linux.act.seyon.development' in forcedList
+2017-07-11 03:30:16,464 INFO def copyServer: copyGroup(linux.act.seyon.development) 
+2017-07-11 03:30:16,535 INFO Checking 8 articles:  2-9 in linux.act.seyon.development
+2017-07-11 03:30:16,616 INFO def copyGroup: 'linux.act.seyon.development' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:30:16,616 INFO def sP: group 'linux.act.sound' in forcedList
+2017-07-11 03:30:16,616 INFO def copyServer: copyGroup(linux.act.sound) 
+2017-07-11 03:30:16,661 INFO Checking 11 articles:  2-12 in linux.act.sound
+2017-07-11 03:30:16,761 INFO def copyGroup: 'linux.act.sound' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:30:16,761 INFO def sP: group 'linux.act.svgalib' in forcedList
+2017-07-11 03:30:16,761 INFO def copyServer: copyGroup(linux.act.svgalib) 
+2017-07-11 03:30:16,858 INFO Checking 9 articles:  2-10 in linux.act.svgalib
+2017-07-11 03:30:16,983 INFO def copyGroup: 'linux.act.svgalib' added 0/9, seen 9, dupt 0, errt 0
+2017-07-11 03:30:16,983 INFO def sP: group 'linux.act.sysvpkg-project' in forcedList
+2017-07-11 03:30:16,983 INFO def copyServer: copyGroup(linux.act.sysvpkg-project) 
+2017-07-11 03:30:17,054 INFO Checking 11 articles:  2-12 in linux.act.sysvpkg-project
+2017-07-11 03:30:17,155 INFO def copyGroup: 'linux.act.sysvpkg-project' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:30:17,155 INFO def sP: group 'linux.act.tape' in forcedList
+2017-07-11 03:30:17,155 INFO def copyServer: copyGroup(linux.act.tape) 
+2017-07-11 03:30:17,202 INFO Checking 9 articles:  2-10 in linux.act.tape
+2017-07-11 03:30:17,303 INFO def copyGroup: 'linux.act.tape' added 0/9, seen 9, dupt 0, errt 0
+2017-07-11 03:30:17,303 INFO def sP: group 'linux.act.term' in forcedList
+2017-07-11 03:30:17,303 INFO def copyServer: copyGroup(linux.act.term) 
+2017-07-11 03:30:17,375 INFO Checking 7 articles:  2-8 in linux.act.term
+2017-07-11 03:30:17,456 INFO def copyGroup: 'linux.act.term' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:30:17,456 INFO def sP: group 'linux.act.tktools' in forcedList
+2017-07-11 03:30:17,456 INFO def copyServer: copyGroup(linux.act.tktools) 
+2017-07-11 03:30:17,529 INFO Checking 8 articles:  2-9 in linux.act.tktools
+2017-07-11 03:30:17,629 INFO def copyGroup: 'linux.act.tktools' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:30:17,629 INFO def sP: group 'linux.act.userfs' in forcedList
+2017-07-11 03:30:17,629 INFO def copyServer: copyGroup(linux.act.userfs) 
+2017-07-11 03:30:17,700 INFO Checking 6 articles:  2-7 in linux.act.userfs
+2017-07-11 03:30:17,821 INFO def copyGroup: 'linux.act.userfs' added 0/6, seen 6, dupt 0, errt 0
+2017-07-11 03:30:17,821 INFO def sP: group 'linux.act.uucp' in forcedList
+2017-07-11 03:30:17,821 INFO def copyServer: copyGroup(linux.act.uucp) 
+2017-07-11 03:30:17,892 INFO Checking 6 articles:  2-7 in linux.act.uucp
+2017-07-11 03:30:17,992 INFO def copyGroup: 'linux.act.uucp' added 0/6, seen 6, dupt 0, errt 0
+2017-07-11 03:30:17,992 INFO def sP: group 'linux.act.wabi' in forcedList
+2017-07-11 03:30:17,992 INFO def copyServer: copyGroup(linux.act.wabi) 
+2017-07-11 03:30:18,038 INFO Checking 7 articles:  2-8 in linux.act.wabi
+2017-07-11 03:30:18,139 INFO def copyGroup: 'linux.act.wabi' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:30:18,139 INFO def sP: group 'linux.act.word' in forcedList
+2017-07-11 03:30:18,139 INFO def copyServer: copyGroup(linux.act.word) 
+2017-07-11 03:30:18,210 INFO Checking 7 articles:  2-8 in linux.act.word
+2017-07-11 03:30:18,291 INFO def copyGroup: 'linux.act.word' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:30:18,291 INFO def sP: group 'linux.act.x11' in forcedList
+2017-07-11 03:30:18,291 INFO def copyServer: copyGroup(linux.act.x11) 
+2017-07-11 03:30:18,364 INFO Checking 5 articles:  2-6 in linux.act.x11
+2017-07-11 03:30:18,483 INFO def copyGroup: 'linux.act.x11' added 0/5, seen 5, dupt 0, errt 0
+2017-07-11 03:30:18,484 INFO def sP: group 'linux.admin.isp' in forcedList
+2017-07-11 03:30:18,484 INFO def copyServer: copyGroup(linux.admin.isp) 
+2017-07-11 03:30:18,555 INFO Checking 28 articles:  2-29 in linux.admin.isp
+2017-07-11 03:30:18,677 INFO def copyGroup: 'linux.admin.isp' added 0/28, seen 28, dupt 0, errt 0
+2017-07-11 03:30:18,677 INFO def sP: group 'linux.admin.news' in forcedList
+2017-07-11 03:30:18,677 INFO def copyServer: copyGroup(linux.admin.news) 
+2017-07-11 03:30:18,748 INFO Checking 232 articles:  2-233 in linux.admin.news
+2017-07-11 03:30:18,864 INFO def copyGroup: 'linux.admin.news' added 0/232, seen 232, dupt 0, errt 0
+2017-07-11 03:30:18,865 INFO def sP: group 'linux.ads' in forcedList
+2017-07-11 03:30:18,865 INFO def copyServer: copyGroup(linux.ads) 
+2017-07-11 03:30:18,951 INFO Checking 15 articles:  2-16 in linux.ads
+2017-07-11 03:30:19,052 INFO def copyGroup: 'linux.ads' added 0/15, seen 15, dupt 0, errt 0
+2017-07-11 03:30:19,052 INFO def sP: group 'linux.announce' in forcedList
+2017-07-11 03:30:19,052 INFO def copyServer: copyGroup(linux.announce) 
+2017-07-11 03:30:19,115 INFO Checking 5 articles:  2-6 in linux.announce
+2017-07-11 03:30:19,197 INFO def copyGroup: 'linux.announce' added 0/5, seen 5, dupt 0, errt 0
+2017-07-11 03:30:19,197 INFO def sP: group 'linuxanswers.discussion' in forcedList
+2017-07-11 03:30:19,197 INFO def copyServer: copyGroup(linuxanswers.discussion) 
+2017-07-11 03:30:19,271 INFO Checking 2 articles:  2-3 in linuxanswers.discussion
+2017-07-11 03:30:19,392 INFO def copyGroup: 'linuxanswers.discussion' added 0/2, seen 2, dupt 0, errt 0
+2017-07-11 03:30:19,392 INFO def sP: group 'linux.appletalk' in forcedList
+2017-07-11 03:30:19,393 INFO def copyServer: copyGroup(linux.appletalk) 
+2017-07-11 03:30:19,494 INFO Checking 27 articles:  2-28 in linux.appletalk
+2017-07-11 03:30:19,600 INFO def copyGroup: 'linux.appletalk' added 0/27, seen 27, dupt 0, errt 0
+2017-07-11 03:30:19,600 INFO def sP: group 'linux.apps.bbsdev' in forcedList
+2017-07-11 03:30:19,600 INFO def copyServer: copyGroup(linux.apps.bbsdev) 
+2017-07-11 03:30:19,675 INFO Checking 2 articles:  2-3 in linux.apps.bbsdev
+2017-07-11 03:30:19,758 WARNING Unexpected number of articles returned.  Expected 2, but got 0 groupname='linux.apps.bbsdev'
+2017-07-11 03:30:19,758 INFO def copyGroup: 'linux.apps.bbsdev' added 0/0, seen 0, dupt 0, errt 0
+2017-07-11 03:30:19,758 INFO def sP: group 'linux.apps.cdwrite' in forcedList
+2017-07-11 03:30:19,758 INFO def copyServer: copyGroup(linux.apps.cdwrite) 
+2017-07-11 03:30:19,832 INFO Checking 23 articles:  2-24 in linux.apps.cdwrite
+2017-07-11 03:30:19,936 INFO def copyGroup: 'linux.apps.cdwrite' added 0/23, seen 23, dupt 0, errt 0
+2017-07-11 03:30:19,936 INFO def sP: group 'linux.apps.flexfax' in forcedList
+2017-07-11 03:30:19,936 INFO def copyServer: copyGroup(linux.apps.flexfax) 
+2017-07-11 03:30:19,985 INFO Checking 1 articles:  2-2 in linux.apps.flexfax
+2017-07-11 03:30:20,090 INFO def copyGroup: 'linux.apps.flexfax' added 0/1, seen 1, dupt 0, errt 0
+2017-07-11 03:30:20,090 INFO def sP: group 'linux.apps.linux-bbs' in forcedList
+2017-07-11 03:30:20,090 INFO def copyServer: copyGroup(linux.apps.linux-bbs) 
+2017-07-11 03:30:20,191 INFO Checking 1 articles:  2-2 in linux.apps.linux-bbs
+2017-07-11 03:30:20,293 INFO def copyGroup: 'linux.apps.linux-bbs' added 0/1, seen 1, dupt 0, errt 0
+2017-07-11 03:30:20,294 INFO def sP: group 'linux.apps.seyon' in forcedList
+2017-07-11 03:30:20,294 INFO def copyServer: copyGroup(linux.apps.seyon) 
+2017-07-11 03:30:20,394 INFO Checking 2 articles:  2-3 in linux.apps.seyon
+2017-07-11 03:30:20,495 WARNING Unexpected number of articles returned.  Expected 2, but got 0 groupname='linux.apps.seyon'
+2017-07-11 03:30:20,495 INFO def copyGroup: 'linux.apps.seyon' added 0/0, seen 0, dupt 0, errt 0
+2017-07-11 03:30:20,495 INFO def sP: group 'linux.apps.seyon.development' in forcedList
+2017-07-11 03:30:20,496 INFO def copyServer: copyGroup(linux.apps.seyon.development) 
+2017-07-11 03:30:20,568 INFO Checking 1 articles:  2-2 in linux.apps.seyon.development
+2017-07-11 03:30:20,650 INFO def copyGroup: 'linux.apps.seyon.development' added 0/1, seen 1, dupt 0, errt 0
+2017-07-11 03:30:20,651 INFO def sP: group 'linux.apps.word' in forcedList
+2017-07-11 03:30:20,651 INFO def copyServer: copyGroup(linux.apps.word) 
+2017-07-11 03:30:20,726 INFO Checking 8 articles:  2-9 in linux.apps.word
+2017-07-11 03:30:20,829 INFO def copyGroup: 'linux.apps.word' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:30:20,829 INFO def sP: group 'linux.apps.xword' in forcedList
+2017-07-11 03:30:20,830 INFO def copyServer: copyGroup(linux.apps.xword) 
+2017-07-11 03:30:20,877 INFO Checking 11 articles:  2-12 in linux.apps.xword
+2017-07-11 03:30:20,982 INFO def copyGroup: 'linux.apps.xword' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:30:20,982 INFO def sP: group 'linux.bbs' in forcedList
+2017-07-11 03:30:20,982 INFO def copyServer: copyGroup(linux.bbs) 
+2017-07-11 03:30:21,080 INFO Checking 6 articles:  2-7 in linux.bbs
+2017-07-11 03:30:21,222 INFO def copyGroup: 'linux.bbs' added 0/6, seen 6, dupt 0, errt 0
+2017-07-11 03:30:21,222 INFO def sP: group 'linux.bbs.rocat' in forcedList
+2017-07-11 03:30:21,222 INFO def copyServer: copyGroup(linux.bbs.rocat) 
+2017-07-11 03:30:21,294 INFO Checking 1 articles:  2-2 in linux.bbs.rocat
+2017-07-11 03:30:21,393 INFO def copyGroup: 'linux.bbs.rocat' added 0/1, seen 1, dupt 0, errt 0
+2017-07-11 03:30:21,393 INFO def sP: group 'linux.debian' in forcedList
+2017-07-11 03:30:21,393 INFO def copyServer: copyGroup(linux.debian) 
+2017-07-11 03:30:21,439 INFO Checking 10 articles:  2-11 in linux.debian
+2017-07-11 03:30:21,539 INFO def copyGroup: 'linux.debian' added 0/10, seen 10, dupt 0, errt 0
+2017-07-11 03:30:21,540 INFO def sP: group 'linux.debian.68k' in forcedList
+2017-07-11 03:30:21,540 INFO def copyServer: copyGroup(linux.debian.68k) 
+2017-07-11 03:30:21,611 INFO Checking 30 articles:  2-31 in linux.debian.68k
+2017-07-11 03:30:21,693 INFO def copyGroup: 'linux.debian.68k' added 0/30, seen 30, dupt 0, errt 0
+2017-07-11 03:30:21,694 INFO def sP: group 'linux.debian.admintool' in forcedList
+2017-07-11 03:30:21,694 INFO def copyServer: copyGroup(linux.debian.admintool) 
+2017-07-11 03:30:21,767 INFO Checking 8 articles:  2-9 in linux.debian.admintool
+2017-07-11 03:30:21,867 INFO def copyGroup: 'linux.debian.admintool' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:30:21,873 INFO def sP: group 'linux.debian.alpha' in forcedList
+2017-07-11 03:30:21,873 INFO def copyServer: copyGroup(linux.debian.alpha) 
+2017-07-11 03:30:21,944 INFO Checking 23 articles:  2-24 in linux.debian.alpha
+2017-07-11 03:30:22,065 INFO def copyGroup: 'linux.debian.alpha' added 0/23, seen 23, dupt 0, errt 0
+2017-07-11 03:30:22,065 INFO def sP: group 'linux.debian.announce' in forcedList
+2017-07-11 03:30:22,065 INFO def copyServer: copyGroup(linux.debian.announce) 
+2017-07-11 03:30:22,136 INFO Checking 152 articles:  2-153 in linux.debian.announce
+2017-07-11 03:30:22,276 INFO def copyGroup: 'linux.debian.announce' added 0/152, seen 152, dupt 0, errt 0
+2017-07-11 03:30:22,276 INFO def sP: group 'linux.debian.announce.devel' in forcedList
+2017-07-11 03:30:22,276 INFO def copyServer: copyGroup(linux.debian.announce.devel) 
+2017-07-11 03:30:22,323 INFO Checking 1836 articles:  2-1837 in linux.debian.announce.devel
+2017-07-11 03:30:22,558 INFO def copyGroup: 'linux.debian.announce.devel' added 0/1836, seen 1836, dupt 0, errt 0
+2017-07-11 03:30:22,558 INFO def sP: group 'linux.debian.announce.security' in forcedList
+2017-07-11 03:30:22,558 INFO def copyServer: copyGroup(linux.debian.announce.security) 
+2017-07-11 03:30:22,603 INFO Checking 3828 articles:  2-3829 in linux.debian.announce.security
+2017-07-11 03:30:22,874 INFO def copyGroup: 'linux.debian.announce.security' added 0/3828, seen 3828, dupt 0, errt 0
+2017-07-11 03:30:22,874 INFO def sP: group 'linux.debian.autobuild' in forcedList
+2017-07-11 03:30:22,874 INFO def copyServer: copyGroup(linux.debian.autobuild) 
+2017-07-11 03:30:22,971 INFO Checking 4 articles:  2-5 in linux.debian.autobuild
+2017-07-11 03:30:23,091 INFO def copyGroup: 'linux.debian.autobuild' added 0/4, seen 4, dupt 0, errt 0
+2017-07-11 03:30:23,091 INFO def sP: group 'linux.debian.beowulf' in forcedList
+2017-07-11 03:30:23,091 INFO def copyServer: copyGroup(linux.debian.beowulf) 
+2017-07-11 03:30:23,188 INFO Checking 1335 articles:  2-1336 in linux.debian.beowulf
+2017-07-11 03:30:23,381 INFO def copyGroup: 'linux.debian.beowulf' added 0/1335, seen 1335, dupt 0, errt 0
+2017-07-11 03:30:23,381 INFO def sP: group 'linux.debian.bugs.closed' in forcedList
+2017-07-11 03:30:23,381 INFO def copyServer: copyGroup(linux.debian.bugs.closed) 
+2017-07-11 03:30:23,428 INFO Checking 10 articles:  2-11 in linux.debian.bugs.closed
+2017-07-11 03:30:23,528 INFO def copyGroup: 'linux.debian.bugs.closed' added 0/10, seen 10, dupt 0, errt 0
+2017-07-11 03:30:23,528 INFO def sP: group 'linux.debian.bugs.dist' in forcedList
+2017-07-11 03:30:23,528 INFO def copyServer: copyGroup(linux.debian.bugs.dist) 
+2017-07-11 03:30:23,600 INFO Checking 10000 articles:  1528856-1538855 in linux.debian.bugs.dist
+2017-07-11 03:30:24,279 INFO def copyGroup: 'linux.debian.bugs.dist' added 0/10000, seen 9999, dupt 0, errt 0
+2017-07-11 03:30:24,279 INFO def sP: group 'linux.debian.bugs.forwarded' in forcedList
+2017-07-11 03:30:24,279 INFO def copyServer: copyGroup(linux.debian.bugs.forwarded) 
+2017-07-11 03:30:24,377 INFO Checking 5 articles:  2-6 in linux.debian.bugs.forwarded
+2017-07-11 03:30:24,478 INFO def copyGroup: 'linux.debian.bugs.forwarded' added 1/5, seen 5, dupt 0, errt 0
+2017-07-11 03:30:24,478 INFO def sP: group 'linux.debian.bugs.rc' in forcedList
+2017-07-11 03:30:24,478 INFO def copyServer: copyGroup(linux.debian.bugs.rc) 
+2017-07-11 03:30:24,549 INFO Checking 10000 articles:  315677-325676 in linux.debian.bugs.rc
+2017-07-11 03:30:25,099 INFO def copyGroup: 'linux.debian.bugs.rc' already seen 10000/10000
+2017-07-11 03:30:25,099 INFO def copyGroup: 'linux.debian.bugs.rc' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:25,099 INFO def sP: group 'linux.debian.bugs.reports' in forcedList
+2017-07-11 03:30:25,099 INFO def copyServer: copyGroup(linux.debian.bugs.reports) 
+2017-07-11 03:30:25,145 INFO Checking 16 articles:  2-17 in linux.debian.bugs.reports
+2017-07-11 03:30:25,225 INFO def copyGroup: 'linux.debian.bugs.reports' added 0/16, seen 16, dupt 0, errt 0
+2017-07-11 03:30:25,226 INFO def sP: group 'linux.debian.changes' in forcedList
+2017-07-11 03:30:25,226 INFO def copyServer: copyGroup(linux.debian.changes) 
+2017-07-11 03:30:25,297 INFO Checking 9724 articles:  2-9725 in linux.debian.changes
+2017-07-11 03:30:25,875 INFO def copyGroup: 'linux.debian.changes' added 0/9724, seen 9724, dupt 0, errt 0
+2017-07-11 03:30:25,876 INFO def sP: group 'linux.debian.changes.devel' in forcedList
+2017-07-11 03:30:25,876 INFO def copyServer: copyGroup(linux.debian.changes.devel) 
+2017-07-11 03:30:25,947 INFO Checking 10000 articles:  418210-428209 in linux.debian.changes.devel
+2017-07-11 03:30:26,541 INFO def copyGroup: 'linux.debian.changes.devel' already seen 10000/10000
+2017-07-11 03:30:26,542 INFO def copyGroup: 'linux.debian.changes.devel' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:26,542 INFO def sP: group 'linux.debian.consultants' in forcedList
+2017-07-11 03:30:26,542 INFO def copyServer: copyGroup(linux.debian.consultants) 
+2017-07-11 03:30:26,588 INFO Checking 894 articles:  2-895 in linux.debian.consultants
+2017-07-11 03:30:26,716 INFO def copyGroup: 'linux.debian.consultants' added 0/894, seen 894, dupt 0, errt 0
+2017-07-11 03:30:26,717 INFO def sP: group 'linux.debian.curiosa' in forcedList
+2017-07-11 03:30:26,717 INFO def copyServer: copyGroup(linux.debian.curiosa) 
+2017-07-11 03:30:26,788 INFO Checking 2972 articles:  2-2973 in linux.debian.curiosa
+2017-07-11 03:30:27,083 INFO def copyGroup: 'linux.debian.curiosa' added 0/2972, seen 2972, dupt 0, errt 0
+2017-07-11 03:30:27,084 INFO def sP: group 'linux.debian.devel' in forcedList
+2017-07-11 03:30:27,084 INFO def copyServer: copyGroup(linux.debian.devel) 
+2017-07-11 03:30:27,181 INFO Checking 10000 articles:  160771-170770 in linux.debian.devel
+2017-07-11 03:30:27,952 INFO def copyGroup: 'linux.debian.devel' already seen 10000/10000
+2017-07-11 03:30:27,952 INFO def copyGroup: 'linux.debian.devel' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:27,953 INFO def sP: group 'linux.debian.devel.announce' in forcedList
+2017-07-11 03:30:27,953 INFO def copyServer: copyGroup(linux.debian.devel.announce) 
+2017-07-11 03:30:27,997 INFO Checking 9 articles:  2-10 in linux.debian.devel.announce
+2017-07-11 03:30:28,099 INFO def copyGroup: 'linux.debian.devel.announce' added 0/9, seen 9, dupt 0, errt 0
+2017-07-11 03:30:28,099 INFO def sP: group 'linux.debian.devel.cd' in forcedList
+2017-07-11 03:30:28,100 INFO def copyServer: copyGroup(linux.debian.devel.cd) 
+2017-07-11 03:30:28,197 INFO Checking 10000 articles:  510-10509 in linux.debian.devel.cd
+2017-07-11 03:30:28,828 INFO def copyGroup: 'linux.debian.devel.cd' already seen 10000/10000
+2017-07-11 03:30:28,828 INFO def copyGroup: 'linux.debian.devel.cd' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:28,829 INFO def sP: group 'linux.debian.devel.changes' in forcedList
+2017-07-11 03:30:28,829 INFO def copyServer: copyGroup(linux.debian.devel.changes) 
+2017-07-11 03:30:28,875 INFO Checking 9 articles:  2-10 in linux.debian.devel.changes
+2017-07-11 03:30:28,975 INFO def copyGroup: 'linux.debian.devel.changes' added 0/9, seen 9, dupt 0, errt 0
+2017-07-11 03:30:28,975 INFO def sP: group 'linux.debian.devel.french' in forcedList
+2017-07-11 03:30:28,975 INFO def copyServer: copyGroup(linux.debian.devel.french) 
+2017-07-11 03:30:29,046 INFO Checking 2605 articles:  2-2606 in linux.debian.devel.french
+2017-07-11 03:30:29,278 INFO def copyGroup: 'linux.debian.devel.french' added 0/2605, seen 2605, dupt 0, errt 0
+2017-07-11 03:30:29,279 INFO def sP: group 'linux.debian.devel.italian' in forcedList
+2017-07-11 03:30:29,279 INFO def copyServer: copyGroup(linux.debian.devel.italian) 
+2017-07-11 03:30:29,376 INFO Checking 1394 articles:  2-1395 in linux.debian.devel.italian
+2017-07-11 03:30:29,585 INFO def copyGroup: 'linux.debian.devel.italian' added 0/1394, seen 1394, dupt 0, errt 0
+2017-07-11 03:30:29,585 INFO def sP: group 'linux.debian.devel.mentors' in forcedList
+2017-07-11 03:30:29,586 INFO def copyServer: copyGroup(linux.debian.devel.mentors) 
+2017-07-11 03:30:29,657 INFO Checking 10000 articles:  55211-65210 in linux.debian.devel.mentors
+2017-07-11 03:30:30,215 INFO def copyGroup: 'linux.debian.devel.mentors' already seen 10000/10000
+2017-07-11 03:30:30,215 INFO def copyGroup: 'linux.debian.devel.mentors' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:30,215 INFO def sP: group 'linux.debian.devel.qa' in forcedList
+2017-07-11 03:30:30,215 INFO def copyServer: copyGroup(linux.debian.devel.qa) 
+2017-07-11 03:30:30,260 INFO Checking 10000 articles:  3655-13654 in linux.debian.devel.qa
+2017-07-11 03:30:30,815 INFO def copyGroup: 'linux.debian.devel.qa' already seen 10000/10000
+2017-07-11 03:30:30,815 INFO def copyGroup: 'linux.debian.devel.qa' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:30,816 INFO def sP: group 'linux.debian.devel.release' in forcedList
+2017-07-11 03:30:30,816 INFO def copyServer: copyGroup(linux.debian.devel.release) 
+2017-07-11 03:30:30,887 INFO Checking 10000 articles:  91840-101839 in linux.debian.devel.release
+2017-07-11 03:30:31,962 INFO def copyGroup: 'linux.debian.devel.release' already seen 10000/10000
+2017-07-11 03:30:31,962 INFO def copyGroup: 'linux.debian.devel.release' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:31,962 INFO def sP: group 'linux.debian.devel.spanish' in forcedList
+2017-07-11 03:30:31,962 INFO def copyServer: copyGroup(linux.debian.devel.spanish) 
+2017-07-11 03:30:32,008 INFO Checking 2066 articles:  2-2067 in linux.debian.devel.spanish
+2017-07-11 03:30:32,216 INFO def copyGroup: 'linux.debian.devel.spanish' added 0/2066, seen 2066, dupt 0, errt 0
+2017-07-11 03:30:32,216 INFO def sP: group 'linux.debian.devel.testing' in forcedList
+2017-07-11 03:30:32,216 INFO def copyServer: copyGroup(linux.debian.devel.testing) 
+2017-07-11 03:30:32,309 INFO Checking 4132 articles:  2-4133 in linux.debian.devel.testing
+2017-07-11 03:30:32,724 INFO def copyGroup: 'linux.debian.devel.testing' added 0/4132, seen 4132, dupt 0, errt 0
+2017-07-11 03:30:32,725 INFO def sP: group 'linux.debian.doc' in forcedList
+2017-07-11 03:30:32,725 INFO def copyServer: copyGroup(linux.debian.doc) 
+2017-07-11 03:30:32,846 INFO Checking 10000 articles:  1755-11754 in linux.debian.doc
+2017-07-11 03:30:33,503 INFO def copyGroup: 'linux.debian.doc' already seen 10000/10000
+2017-07-11 03:30:33,503 INFO def copyGroup: 'linux.debian.doc' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:33,503 INFO def sP: group 'linux.debian.faq' in forcedList
+2017-07-11 03:30:33,503 INFO def copyServer: copyGroup(linux.debian.faq) 
+2017-07-11 03:30:33,549 INFO Checking 7 articles:  2-8 in linux.debian.faq
+2017-07-11 03:30:33,651 INFO def copyGroup: 'linux.debian.faq' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:30:33,651 INFO def sP: group 'linux.debian.french' in forcedList
+2017-07-11 03:30:33,651 INFO def copyServer: copyGroup(linux.debian.french) 
+2017-07-11 03:30:33,722 INFO Checking 63 articles:  2-64 in linux.debian.french
+2017-07-11 03:30:33,827 INFO def copyGroup: 'linux.debian.french' added 0/63, seen 63, dupt 0, errt 0
+2017-07-11 03:30:33,827 INFO def sP: group 'linux.debian.german' in forcedList
+2017-07-11 03:30:33,827 INFO def copyServer: copyGroup(linux.debian.german) 
+2017-07-11 03:30:33,926 INFO Checking 3 articles:  2-4 in linux.debian.german
+2017-07-11 03:30:34,025 INFO def copyGroup: 'linux.debian.german' added 0/3, seen 3, dupt 0, errt 0
+2017-07-11 03:30:34,026 INFO def sP: group 'linux.debian.i18n' in forcedList
+2017-07-11 03:30:34,026 INFO def copyServer: copyGroup(linux.debian.i18n) 
+2017-07-11 03:30:34,097 INFO Checking 9 articles:  2-10 in linux.debian.i18n
+2017-07-11 03:30:34,179 INFO def copyGroup: 'linux.debian.i18n' added 0/9, seen 9, dupt 0, errt 0
+2017-07-11 03:30:34,179 INFO def sP: group 'linux.debian.isp' in forcedList
+2017-07-11 03:30:34,179 INFO def copyServer: copyGroup(linux.debian.isp) 
+2017-07-11 03:30:34,250 INFO Checking 10000 articles:  93-10092 in linux.debian.isp
+2017-07-11 03:30:34,776 INFO def copyGroup: 'linux.debian.isp' already seen 10000/10000
+2017-07-11 03:30:34,777 INFO def copyGroup: 'linux.debian.isp' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:34,777 INFO def sP: group 'linux.debian.italian' in forcedList
+2017-07-11 03:30:34,777 INFO def copyServer: copyGroup(linux.debian.italian) 
+2017-07-11 03:30:34,874 INFO Checking 9 articles:  2-10 in linux.debian.italian
+2017-07-11 03:30:34,974 INFO def copyGroup: 'linux.debian.italian' added 0/9, seen 9, dupt 0, errt 0
+2017-07-11 03:30:34,974 INFO def sP: group 'linux.debian.kernel' in forcedList
+2017-07-11 03:30:34,974 INFO def copyServer: copyGroup(linux.debian.kernel) 
+2017-07-11 03:30:35,072 INFO Checking 10000 articles:  96238-106237 in linux.debian.kernel
+2017-07-11 03:30:35,668 INFO def copyGroup: 'linux.debian.kernel' already seen 10000/10000
+2017-07-11 03:30:35,668 INFO def copyGroup: 'linux.debian.kernel' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:35,668 INFO def sP: group 'linux.debian.l10n.danish' in forcedList
+2017-07-11 03:30:35,668 INFO def copyServer: copyGroup(linux.debian.l10n.danish) 
+2017-07-11 03:30:35,739 INFO Checking 2130 articles:  2-2131 in linux.debian.l10n.danish
+2017-07-11 03:30:35,942 INFO def copyGroup: 'linux.debian.l10n.danish' added 0/2130, seen 2130, dupt 0, errt 0
+2017-07-11 03:30:35,942 INFO def sP: group 'linux.debian.l10n.dutch' in forcedList
+2017-07-11 03:30:35,942 INFO def copyServer: copyGroup(linux.debian.l10n.dutch) 
+2017-07-11 03:30:36,015 INFO Checking 9286 articles:  2-9287 in linux.debian.l10n.dutch
+2017-07-11 03:30:36,587 INFO def copyGroup: 'linux.debian.l10n.dutch' added 0/9286, seen 9286, dupt 0, errt 0
+2017-07-11 03:30:36,588 INFO def sP: group 'linux.debian.l10n.finnish' in forcedList
+2017-07-11 03:30:36,588 INFO def copyServer: copyGroup(linux.debian.l10n.finnish) 
+2017-07-11 03:30:36,659 INFO Checking 913 articles:  2-914 in linux.debian.l10n.finnish
+2017-07-11 03:30:36,809 INFO def copyGroup: 'linux.debian.l10n.finnish' added 0/913, seen 913, dupt 0, errt 0
+2017-07-11 03:30:36,815 INFO def sP: group 'linux.debian.l10n.french' in forcedList
+2017-07-11 03:30:36,815 INFO def copyServer: copyGroup(linux.debian.l10n.french) 
+2017-07-11 03:30:36,886 INFO Checking 10000 articles:  52200-62199 in linux.debian.l10n.french
+2017-07-11 03:30:37,484 INFO def copyGroup: 'linux.debian.l10n.french' already seen 10000/10000
+2017-07-11 03:30:37,485 INFO def copyGroup: 'linux.debian.l10n.french' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:37,485 INFO def sP: group 'linux.debian.l10n.german' in forcedList
+2017-07-11 03:30:37,485 INFO def copyServer: copyGroup(linux.debian.l10n.german) 
+2017-07-11 03:30:37,556 INFO Checking 10000 articles:  13409-23408 in linux.debian.l10n.german
+2017-07-11 03:30:38,062 INFO def copyGroup: 'linux.debian.l10n.german' already seen 10000/10000
+2017-07-11 03:30:38,062 INFO def copyGroup: 'linux.debian.l10n.german' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:38,062 INFO def sP: group 'linux.debian.l10n.polish' in forcedList
+2017-07-11 03:30:38,062 INFO def copyServer: copyGroup(linux.debian.l10n.polish) 
+2017-07-11 03:30:38,134 INFO Checking 1015 articles:  2-1016 in linux.debian.l10n.polish
+2017-07-11 03:30:38,277 INFO def copyGroup: 'linux.debian.l10n.polish' added 0/1015, seen 1015, dupt 0, errt 0
+2017-07-11 03:30:38,278 INFO def sP: group 'linux.debian.l10n.portuguese' in forcedList
+2017-07-11 03:30:38,278 INFO def copyServer: copyGroup(linux.debian.l10n.portuguese) 
+2017-07-11 03:30:38,349 INFO Checking 10000 articles:  5052-15051 in linux.debian.l10n.portuguese
+2017-07-11 03:30:38,921 INFO def copyGroup: 'linux.debian.l10n.portuguese' already seen 10000/10000
+2017-07-11 03:30:38,921 INFO def copyGroup: 'linux.debian.l10n.portuguese' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:38,922 INFO def sP: group 'linux.debian.l10n.spanish' in forcedList
+2017-07-11 03:30:38,922 INFO def copyServer: copyGroup(linux.debian.l10n.spanish) 
+2017-07-11 03:30:39,019 INFO Checking 10000 articles:  10216-20215 in linux.debian.l10n.spanish
+2017-07-11 03:30:39,609 INFO def copyGroup: 'linux.debian.l10n.spanish' already seen 10000/10000
+2017-07-11 03:30:39,609 INFO def copyGroup: 'linux.debian.l10n.spanish' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:39,609 INFO def sP: group 'linux.debian.l10n.turkish' in forcedList
+2017-07-11 03:30:39,609 INFO def copyServer: copyGroup(linux.debian.l10n.turkish) 
+2017-07-11 03:30:39,656 INFO Checking 1601 articles:  2-1602 in linux.debian.l10n.turkish
+2017-07-11 03:30:39,848 INFO def copyGroup: 'linux.debian.l10n.turkish' added 0/1601, seen 1601, dupt 0, errt 0
+2017-07-11 03:30:39,849 INFO def sP: group 'linux.debian.laptop' in forcedList
+2017-07-11 03:30:39,849 INFO def copyServer: copyGroup(linux.debian.laptop) 
+2017-07-11 03:30:39,920 INFO Checking 10000 articles:  8028-18027 in linux.debian.laptop
+2017-07-11 03:30:40,594 INFO def copyGroup: 'linux.debian.laptop' already seen 10000/10000
+2017-07-11 03:30:40,594 INFO def copyGroup: 'linux.debian.laptop' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:40,594 INFO def sP: group 'linux.debian.legal' in forcedList
+2017-07-11 03:30:40,594 INFO def copyServer: copyGroup(linux.debian.legal) 
+2017-07-11 03:30:40,693 INFO Checking 10000 articles:  13495-23494 in linux.debian.legal
+2017-07-11 03:30:41,182 INFO def copyGroup: 'linux.debian.legal' already seen 10000/10000
+2017-07-11 03:30:41,182 INFO def copyGroup: 'linux.debian.legal' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:41,183 INFO def sP: group 'linux.debian.maint.admintool' in forcedList
+2017-07-11 03:30:41,183 INFO def copyServer: copyGroup(linux.debian.maint.admintool) 
+2017-07-11 03:30:41,254 INFO Checking 3 articles:  2-4 in linux.debian.maint.admintool
+2017-07-11 03:30:41,355 INFO def copyGroup: 'linux.debian.maint.admintool' added 0/3, seen 3, dupt 0, errt 0
+2017-07-11 03:30:41,355 INFO def sP: group 'linux.debian.maint.boot' in forcedList
+2017-07-11 03:30:41,355 INFO def copyServer: copyGroup(linux.debian.maint.boot) 
+2017-07-11 03:30:41,401 INFO Checking 10000 articles:  117707-127706 in linux.debian.maint.boot
+2017-07-11 03:30:41,896 INFO def copyGroup: 'linux.debian.maint.boot' already seen 10000/10000
+2017-07-11 03:30:41,896 INFO def copyGroup: 'linux.debian.maint.boot' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:41,897 INFO def sP: group 'linux.debian.maint.dpkg' in forcedList
+2017-07-11 03:30:41,897 INFO def copyServer: copyGroup(linux.debian.maint.dpkg) 
+2017-07-11 03:30:41,968 INFO Checking 10000 articles:  7148-17147 in linux.debian.maint.dpkg
+2017-07-11 03:30:42,507 INFO def copyGroup: 'linux.debian.maint.dpkg' already seen 10000/10000
+2017-07-11 03:30:42,507 INFO def copyGroup: 'linux.debian.maint.dpkg' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:42,507 INFO def sP: group 'linux.debian.maint.emacsen' in forcedList
+2017-07-11 03:30:42,507 INFO def copyServer: copyGroup(linux.debian.maint.emacsen) 
+2017-07-11 03:30:42,554 INFO Checking 1826 articles:  2-1827 in linux.debian.maint.emacsen
+2017-07-11 03:30:42,746 INFO def copyGroup: 'linux.debian.maint.emacsen' added 0/1826, seen 1826, dupt 0, errt 0
+2017-07-11 03:30:42,746 INFO def sP: group 'linux.debian.maint.firewall' in forcedList
+2017-07-11 03:30:42,746 INFO def copyServer: copyGroup(linux.debian.maint.firewall) 
+2017-07-11 03:30:42,818 INFO Checking 3793 articles:  2-3794 in linux.debian.maint.firewall
+2017-07-11 03:30:43,098 INFO def copyGroup: 'linux.debian.maint.firewall' added 0/3793, seen 3793, dupt 0, errt 0
+2017-07-11 03:30:43,098 INFO def sP: group 'linux.debian.maint.glibc' in forcedList
+2017-07-11 03:30:43,098 INFO def copyServer: copyGroup(linux.debian.maint.glibc) 
+2017-07-11 03:30:43,195 INFO Checking 10000 articles:  6814-16813 in linux.debian.maint.glibc
+2017-07-11 03:30:43,692 INFO def copyGroup: 'linux.debian.maint.glibc' already seen 10000/10000
+2017-07-11 03:30:43,692 INFO def copyGroup: 'linux.debian.maint.glibc' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:43,692 INFO def sP: group 'linux.debian.maint.gtk.gnome' in forcedList
+2017-07-11 03:30:43,692 INFO def copyServer: copyGroup(linux.debian.maint.gtk.gnome) 
+2017-07-11 03:30:43,764 INFO Checking 4871 articles:  2-4872 in linux.debian.maint.gtk.gnome
+2017-07-11 03:30:44,092 INFO def copyGroup: 'linux.debian.maint.gtk.gnome' added 0/4871, seen 4871, dupt 0, errt 0
+2017-07-11 03:30:44,092 INFO def sP: group 'linux.debian.maint.hams' in forcedList
+2017-07-11 03:30:44,092 INFO def copyServer: copyGroup(linux.debian.maint.hams) 
+2017-07-11 03:30:44,138 INFO Checking 5958 articles:  2-5959 in linux.debian.maint.hams
+2017-07-11 03:30:44,479 INFO def copyGroup: 'linux.debian.maint.hams' added 0/5958, seen 5958, dupt 0, errt 0
+2017-07-11 03:30:44,480 INFO def sP: group 'linux.debian.maint.i18n' in forcedList
+2017-07-11 03:30:44,480 INFO def copyServer: copyGroup(linux.debian.maint.i18n) 
+2017-07-11 03:30:44,577 INFO Checking 10000 articles:  7371-17370 in linux.debian.maint.i18n
+2017-07-11 03:30:45,087 INFO def copyGroup: 'linux.debian.maint.i18n' already seen 10000/10000
+2017-07-11 03:30:45,087 INFO def copyGroup: 'linux.debian.maint.i18n' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:45,087 INFO def sP: group 'linux.debian.maint.ipv6' in forcedList
+2017-07-11 03:30:45,087 INFO def copyServer: copyGroup(linux.debian.maint.ipv6) 
+2017-07-11 03:30:45,176 INFO Checking 1890 articles:  2-1891 in linux.debian.maint.ipv6
+2017-07-11 03:30:45,368 INFO def copyGroup: 'linux.debian.maint.ipv6' added 0/1890, seen 1890, dupt 0, errt 0
+2017-07-11 03:30:45,368 INFO def sP: group 'linux.debian.maint.java' in forcedList
+2017-07-11 03:30:45,368 INFO def copyServer: copyGroup(linux.debian.maint.java) 
+2017-07-11 03:30:45,439 INFO Checking 10000 articles:  2903-12902 in linux.debian.maint.java
+2017-07-11 03:30:45,895 INFO def copyGroup: 'linux.debian.maint.java' already seen 10000/10000
+2017-07-11 03:30:45,895 INFO def copyGroup: 'linux.debian.maint.java' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:45,895 INFO def sP: group 'linux.debian.maint.jr' in forcedList
+2017-07-11 03:30:45,896 INFO def copyServer: copyGroup(linux.debian.maint.jr) 
+2017-07-11 03:30:45,967 INFO Checking 1319 articles:  2-1320 in linux.debian.maint.jr
+2017-07-11 03:30:46,176 INFO def copyGroup: 'linux.debian.maint.jr' added 0/1319, seen 1319, dupt 0, errt 0
+2017-07-11 03:30:46,176 INFO def sP: group 'linux.debian.maint.kde' in forcedList
+2017-07-11 03:30:46,176 INFO def copyServer: copyGroup(linux.debian.maint.kde) 
+2017-07-11 03:30:46,248 INFO Checking 10000 articles:  7918-17917 in linux.debian.maint.kde
+2017-07-11 03:30:46,719 INFO def copyGroup: 'linux.debian.maint.kde' already seen 10000/10000
+2017-07-11 03:30:46,720 INFO def copyGroup: 'linux.debian.maint.kde' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:46,720 INFO def sP: group 'linux.debian.maint.ocaml.maint' in forcedList
+2017-07-11 03:30:46,720 INFO def copyServer: copyGroup(linux.debian.maint.ocaml.maint) 
+2017-07-11 03:30:46,791 INFO Checking 10000 articles:  10775-20774 in linux.debian.maint.ocaml.maint
+2017-07-11 03:30:47,522 INFO def copyGroup: 'linux.debian.maint.ocaml.maint' already seen 10000/10000
+2017-07-11 03:30:47,522 INFO def copyGroup: 'linux.debian.maint.ocaml.maint' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:47,522 INFO def sP: group 'linux.debian.maint.perl' in forcedList
+2017-07-11 03:30:47,522 INFO def copyServer: copyGroup(linux.debian.maint.perl) 
+2017-07-11 03:30:47,620 INFO Checking 10000 articles:  2316-12315 in linux.debian.maint.perl
+2017-07-11 03:30:48,131 INFO def copyGroup: 'linux.debian.maint.perl' already seen 10000/10000
+2017-07-11 03:30:48,132 INFO def copyGroup: 'linux.debian.maint.perl' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:48,132 INFO def sP: group 'linux.debian.maint.pilot' in forcedList
+2017-07-11 03:30:48,132 INFO def copyServer: copyGroup(linux.debian.maint.pilot) 
+2017-07-11 03:30:48,204 INFO Checking 683 articles:  2-684 in linux.debian.maint.pilot
+2017-07-11 03:30:48,354 INFO def copyGroup: 'linux.debian.maint.pilot' added 0/683, seen 683, dupt 0, errt 0
+2017-07-11 03:30:48,354 INFO def sP: group 'linux.debian.maint.python' in forcedList
+2017-07-11 03:30:48,354 INFO def copyServer: copyGroup(linux.debian.maint.python) 
+2017-07-11 03:30:48,399 INFO Checking 10000 articles:  2444-12443 in linux.debian.maint.python
+2017-07-11 03:30:48,920 INFO def copyGroup: 'linux.debian.maint.python' already seen 10000/10000
+2017-07-11 03:30:48,920 INFO def copyGroup: 'linux.debian.maint.python' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:48,921 INFO def sP: group 'linux.debian.maint.sgml' in forcedList
+2017-07-11 03:30:48,921 INFO def copyServer: copyGroup(linux.debian.maint.sgml) 
+2017-07-11 03:30:49,019 INFO Checking 708 articles:  2-709 in linux.debian.maint.sgml
+2017-07-11 03:30:49,159 INFO def copyGroup: 'linux.debian.maint.sgml' added 0/708, seen 708, dupt 0, errt 0
+2017-07-11 03:30:49,159 INFO def sP: group 'linux.debian.maint.tetex' in forcedList
+2017-07-11 03:30:49,159 INFO def copyServer: copyGroup(linux.debian.maint.tetex) 
+2017-07-11 03:30:49,231 INFO Checking 10000 articles:  1500-11499 in linux.debian.maint.tetex
+2017-07-11 03:30:49,726 INFO def copyGroup: 'linux.debian.maint.tetex' already seen 10000/10000
+2017-07-11 03:30:49,726 INFO def copyGroup: 'linux.debian.maint.tetex' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:49,727 INFO def sP: group 'linux.debian.maint.toolchain' in forcedList
+2017-07-11 03:30:49,727 INFO def copyServer: copyGroup(linux.debian.maint.toolchain) 
+2017-07-11 03:30:49,772 INFO Checking 6 articles:  2-7 in linux.debian.maint.toolchain
+2017-07-11 03:30:49,853 INFO def copyGroup: 'linux.debian.maint.toolchain' added 0/6, seen 6, dupt 0, errt 0
+2017-07-11 03:30:49,853 INFO def sP: group 'linux.debian.maint.x' in forcedList
+2017-07-11 03:30:49,853 INFO def copyServer: copyGroup(linux.debian.maint.x) 
+2017-07-11 03:30:49,924 INFO Checking 10000 articles:  47743-57742 in linux.debian.maint.x
+2017-07-11 03:30:50,534 INFO def copyGroup: 'linux.debian.maint.x' already seen 10000/10000
+2017-07-11 03:30:50,534 INFO def copyGroup: 'linux.debian.maint.x' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:50,535 INFO def sP: group 'linux.debian.news' in forcedList
+2017-07-11 03:30:50,535 INFO def copyServer: copyGroup(linux.debian.news) 
+2017-07-11 03:30:50,606 INFO Checking 388 articles:  2-389 in linux.debian.news
+2017-07-11 03:30:50,731 INFO def copyGroup: 'linux.debian.news' added 0/388, seen 388, dupt 0, errt 0
+2017-07-11 03:30:50,731 INFO def sP: group 'linux.debian.news.french' in forcedList
+2017-07-11 03:30:50,731 INFO def copyServer: copyGroup(linux.debian.news.french) 
+2017-07-11 03:30:50,803 INFO Checking 364 articles:  2-365 in linux.debian.news.french
+2017-07-11 03:30:50,927 INFO def copyGroup: 'linux.debian.news.french' added 0/364, seen 364, dupt 0, errt 0
+2017-07-11 03:30:50,928 INFO def sP: group 'linux.debian.news.german' in forcedList
+2017-07-11 03:30:50,928 INFO def copyServer: copyGroup(linux.debian.news.german) 
+2017-07-11 03:30:50,973 INFO Checking 168 articles:  2-169 in linux.debian.news.german
+2017-07-11 03:30:51,086 INFO def copyGroup: 'linux.debian.news.german' added 0/168, seen 168, dupt 0, errt 0
+2017-07-11 03:30:51,086 INFO def sP: group 'linux.debian.news.portuguese' in forcedList
+2017-07-11 03:30:51,086 INFO def copyServer: copyGroup(linux.debian.news.portuguese) 
+2017-07-11 03:30:51,184 INFO Checking 225 articles:  2-226 in linux.debian.news.portuguese
+2017-07-11 03:30:51,298 INFO def copyGroup: 'linux.debian.news.portuguese' added 0/225, seen 225, dupt 0, errt 0
+2017-07-11 03:30:51,299 INFO def sP: group 'linux.debian.policy' in forcedList
+2017-07-11 03:30:51,299 INFO def copyServer: copyGroup(linux.debian.policy) 
+2017-07-11 03:30:51,396 INFO Checking 10000 articles:  1606-11605 in linux.debian.policy
+2017-07-11 03:30:51,921 INFO def copyGroup: 'linux.debian.policy' already seen 10000/10000
+2017-07-11 03:30:51,922 INFO def copyGroup: 'linux.debian.policy' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:51,922 INFO def sP: group 'linux.debian.ports.68k' in forcedList
+2017-07-11 03:30:51,922 INFO def copyServer: copyGroup(linux.debian.ports.68k) 
+2017-07-11 03:30:51,993 INFO Checking 10000 articles:  726-10725 in linux.debian.ports.68k
+2017-07-11 03:30:52,457 INFO def copyGroup: 'linux.debian.ports.68k' already seen 10000/10000
+2017-07-11 03:30:52,458 INFO def copyGroup: 'linux.debian.ports.68k' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:52,473 INFO def sP: group 'linux.debian.ports.alpha' in forcedList
+2017-07-11 03:30:52,473 INFO def copyServer: copyGroup(linux.debian.ports.alpha) 
+2017-07-11 03:30:52,570 INFO Checking 4682 articles:  2-4683 in linux.debian.ports.alpha
+2017-07-11 03:30:52,892 INFO def copyGroup: 'linux.debian.ports.alpha' added 0/4682, seen 4682, dupt 0, errt 0
+2017-07-11 03:30:52,892 INFO def sP: group 'linux.debian.ports.arm' in forcedList
+2017-07-11 03:30:52,892 INFO def copyServer: copyGroup(linux.debian.ports.arm) 
+2017-07-11 03:30:52,963 INFO Checking 10000 articles:  5327-15326 in linux.debian.ports.arm
+2017-07-11 03:30:53,703 INFO def copyGroup: 'linux.debian.ports.arm' already seen 10000/10000
+2017-07-11 03:30:53,703 INFO def copyGroup: 'linux.debian.ports.arm' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:53,703 INFO def sP: group 'linux.debian.ports.hppa' in forcedList
+2017-07-11 03:30:53,703 INFO def copyServer: copyGroup(linux.debian.ports.hppa) 
+2017-07-11 03:30:53,749 INFO Checking 4033 articles:  2-4034 in linux.debian.ports.hppa
+2017-07-11 03:30:54,050 INFO def copyGroup: 'linux.debian.ports.hppa' added 0/4033, seen 4033, dupt 0, errt 0
+2017-07-11 03:30:54,050 INFO def sP: group 'linux.debian.ports.hurd' in forcedList
+2017-07-11 03:30:54,050 INFO def copyServer: copyGroup(linux.debian.ports.hurd) 
+2017-07-11 03:30:54,122 INFO Checking 10000 articles:  2072-12071 in linux.debian.ports.hurd
+2017-07-11 03:30:54,637 INFO def copyGroup: 'linux.debian.ports.hurd' already seen 10000/10000
+2017-07-11 03:30:54,637 INFO def copyGroup: 'linux.debian.ports.hurd' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:54,638 INFO def sP: group 'linux.debian.ports.ia64' in forcedList
+2017-07-11 03:30:54,638 INFO def copyServer: copyGroup(linux.debian.ports.ia64) 
+2017-07-11 03:30:54,709 INFO Checking 1856 articles:  2-1857 in linux.debian.ports.ia64
+2017-07-11 03:30:54,912 INFO def copyGroup: 'linux.debian.ports.ia64' added 0/1856, seen 1856, dupt 0, errt 0
+2017-07-11 03:30:54,913 INFO def sP: group 'linux.debian.ports.mips' in forcedList
+2017-07-11 03:30:54,913 INFO def copyServer: copyGroup(linux.debian.ports.mips) 
+2017-07-11 03:30:54,984 INFO Checking 5737 articles:  2-5738 in linux.debian.ports.mips
+2017-07-11 03:30:55,489 INFO def copyGroup: 'linux.debian.ports.mips' added 0/5737, seen 5737, dupt 0, errt 0
+2017-07-11 03:30:55,489 INFO def sP: group 'linux.debian.ports.powerpc' in forcedList
+2017-07-11 03:30:55,489 INFO def copyServer: copyGroup(linux.debian.ports.powerpc) 
+2017-07-11 03:30:55,587 INFO Checking 10000 articles:  16371-26370 in linux.debian.ports.powerpc
+2017-07-11 03:30:56,073 INFO def copyGroup: 'linux.debian.ports.powerpc' already seen 10000/10000
+2017-07-11 03:30:56,073 INFO def copyGroup: 'linux.debian.ports.powerpc' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:56,074 INFO def sP: group 'linux.debian.ports.s390' in forcedList
+2017-07-11 03:30:56,074 INFO def copyServer: copyGroup(linux.debian.ports.s390) 
+2017-07-11 03:30:56,145 INFO Checking 2289 articles:  2-2290 in linux.debian.ports.s390
+2017-07-11 03:30:56,368 INFO def copyGroup: 'linux.debian.ports.s390' added 0/2289, seen 2289, dupt 0, errt 0
+2017-07-11 03:30:56,368 INFO def sP: group 'linux.debian.ports.sparc' in forcedList
+2017-07-11 03:30:56,369 INFO def copyServer: copyGroup(linux.debian.ports.sparc) 
+2017-07-11 03:30:56,413 INFO Checking 10000 articles:  508-10507 in linux.debian.ports.sparc
+2017-07-11 03:30:56,904 INFO def copyGroup: 'linux.debian.ports.sparc' already seen 10000/10000
+2017-07-11 03:30:56,904 INFO def copyGroup: 'linux.debian.ports.sparc' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:56,904 INFO def sP: group 'linux.debian.ports.superh' in forcedList
+2017-07-11 03:30:56,904 INFO def copyServer: copyGroup(linux.debian.ports.superh) 
+2017-07-11 03:30:57,003 INFO Checking 1127 articles:  2-1128 in linux.debian.ports.superh
+2017-07-11 03:30:57,164 INFO def copyGroup: 'linux.debian.ports.superh' added 0/1127, seen 1127, dupt 0, errt 0
+2017-07-11 03:30:57,164 INFO def sP: group 'linux.debian.ports.x86-64' in forcedList
+2017-07-11 03:30:57,164 INFO def copyServer: copyGroup(linux.debian.ports.x86-64) 
+2017-07-11 03:30:57,235 INFO Checking 10000 articles:  15697-25696 in linux.debian.ports.x86-64
+2017-07-11 03:30:57,752 INFO def copyGroup: 'linux.debian.ports.x86-64' already seen 10000/10000
+2017-07-11 03:30:57,752 INFO def copyGroup: 'linux.debian.ports.x86-64' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:57,752 INFO def sP: group 'linux.debian.powerpc' in forcedList
+2017-07-11 03:30:57,752 INFO def copyServer: copyGroup(linux.debian.powerpc) 
+2017-07-11 03:30:57,798 INFO Checking 22 articles:  2-23 in linux.debian.powerpc
+2017-07-11 03:30:57,900 INFO def copyGroup: 'linux.debian.powerpc' added 0/22, seen 22, dupt 0, errt 0
+2017-07-11 03:30:57,900 INFO def sP: group 'linux.debian.project' in forcedList
+2017-07-11 03:30:57,900 INFO def copyServer: copyGroup(linux.debian.project) 
+2017-07-11 03:30:57,972 INFO Checking 10000 articles:  10887-20886 in linux.debian.project
+2017-07-11 03:30:58,455 INFO def copyGroup: 'linux.debian.project' already seen 10000/10000
+2017-07-11 03:30:58,455 INFO def copyGroup: 'linux.debian.project' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:58,455 INFO def sP: group 'linux.debian.publicity' in forcedList
+2017-07-11 03:30:58,455 INFO def copyServer: copyGroup(linux.debian.publicity) 
+2017-07-11 03:30:58,526 INFO Checking 10 articles:  2-11 in linux.debian.publicity
+2017-07-11 03:30:58,626 INFO def copyGroup: 'linux.debian.publicity' added 0/10, seen 10, dupt 0, errt 0
+2017-07-11 03:30:58,626 INFO def sP: group 'linux.debian.qa' in forcedList
+2017-07-11 03:30:58,626 INFO def copyServer: copyGroup(linux.debian.qa) 
+2017-07-11 03:30:58,697 INFO Checking 25 articles:  2-26 in linux.debian.qa
+2017-07-11 03:30:58,798 INFO def copyGroup: 'linux.debian.qa' added 0/25, seen 25, dupt 0, errt 0
+2017-07-11 03:30:58,798 INFO def sP: group 'linux.debian.security' in forcedList
+2017-07-11 03:30:58,798 INFO def copyServer: copyGroup(linux.debian.security) 
+2017-07-11 03:30:58,844 INFO Checking 10000 articles:  5087-15086 in linux.debian.security
+2017-07-11 03:30:59,335 INFO def copyGroup: 'linux.debian.security' already seen 10000/10000
+2017-07-11 03:30:59,336 INFO def copyGroup: 'linux.debian.security' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:30:59,336 INFO def sP: group 'linux.debian.spanish' in forcedList
+2017-07-11 03:30:59,336 INFO def copyServer: copyGroup(linux.debian.spanish) 
+2017-07-11 03:30:59,407 INFO Checking 40 articles:  2-41 in linux.debian.spanish
+2017-07-11 03:30:59,529 INFO def copyGroup: 'linux.debian.spanish' added 0/40, seen 40, dupt 0, errt 0
+2017-07-11 03:30:59,530 INFO def sP: group 'linux.debian.sparc' in forcedList
+2017-07-11 03:30:59,530 INFO def copyServer: copyGroup(linux.debian.sparc) 
+2017-07-11 03:30:59,601 INFO Checking 30 articles:  2-31 in linux.debian.sparc
+2017-07-11 03:30:59,702 INFO def copyGroup: 'linux.debian.sparc' added 0/30, seen 30, dupt 0, errt 0
+2017-07-11 03:30:59,703 INFO def sP: group 'linux.debian.user' in forcedList
+2017-07-11 03:30:59,703 INFO def copyServer: copyGroup(linux.debian.user) 
+2017-07-11 03:30:59,749 INFO Checking 10000 articles:  412984-422983 in linux.debian.user
+2017-07-11 03:31:00,244 INFO def copyGroup: 'linux.debian.user' already seen 10000/10000
+2017-07-11 03:31:00,244 INFO def copyGroup: 'linux.debian.user' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:00,245 INFO def sP: group 'linux.debian.user.catalan' in forcedList
+2017-07-11 03:31:00,245 INFO def copyServer: copyGroup(linux.debian.user.catalan) 
+2017-07-11 03:31:00,318 INFO Checking 10000 articles:  1753-11752 in linux.debian.user.catalan
+2017-07-11 03:31:00,846 INFO def copyGroup: 'linux.debian.user.catalan' already seen 10000/10000
+2017-07-11 03:31:00,846 INFO def copyGroup: 'linux.debian.user.catalan' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:00,847 INFO def sP: group 'linux.debian.user.chinese.big5' in forcedList
+2017-07-11 03:31:00,847 INFO def copyServer: copyGroup(linux.debian.user.chinese.big5) 
+2017-07-11 03:31:00,918 INFO Checking 1029 articles:  2-1030 in linux.debian.user.chinese.big5
+2017-07-11 03:31:01,081 INFO def copyGroup: 'linux.debian.user.chinese.big5' added 0/1029, seen 1029, dupt 0, errt 0
+2017-07-11 03:31:01,081 INFO def sP: group 'linux.debian.user.danish' in forcedList
+2017-07-11 03:31:01,082 INFO def copyServer: copyGroup(linux.debian.user.danish) 
+2017-07-11 03:31:01,128 INFO Checking 1488 articles:  2-1489 in linux.debian.user.danish
+2017-07-11 03:31:01,316 INFO def copyGroup: 'linux.debian.user.danish' added 0/1488, seen 1488, dupt 0, errt 0
+2017-07-11 03:31:01,317 INFO def sP: group 'linux.debian.user.french' in forcedList
+2017-07-11 03:31:01,317 INFO def copyServer: copyGroup(linux.debian.user.french) 
+2017-07-11 03:31:01,362 INFO Checking 10000 articles:  134765-144764 in linux.debian.user.french
+2017-07-11 03:31:01,816 INFO def copyGroup: 'linux.debian.user.french' already seen 10000/10000
+2017-07-11 03:31:01,816 INFO def copyGroup: 'linux.debian.user.french' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:01,817 INFO def sP: group 'linux.debian.user.german' in forcedList
+2017-07-11 03:31:01,817 INFO def copyServer: copyGroup(linux.debian.user.german) 
+2017-07-11 03:31:01,888 INFO Checking 10000 articles:  196342-206341 in linux.debian.user.german
+2017-07-11 03:31:02,594 INFO def copyGroup: 'linux.debian.user.german' already seen 10000/10000
+2017-07-11 03:31:02,594 INFO def copyGroup: 'linux.debian.user.german' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:02,594 INFO def sP: group 'linux.debian.user.italian' in forcedList
+2017-07-11 03:31:02,594 INFO def copyServer: copyGroup(linux.debian.user.italian) 
+2017-07-11 03:31:02,641 INFO Checking 10000 articles:  91347-101346 in linux.debian.user.italian
+2017-07-11 03:31:03,140 INFO def copyGroup: 'linux.debian.user.italian' already seen 10000/10000
+2017-07-11 03:31:03,140 INFO def copyGroup: 'linux.debian.user.italian' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:03,141 INFO def sP: group 'linux.debian.user.japanese' in forcedList
+2017-07-11 03:31:03,141 INFO def copyServer: copyGroup(linux.debian.user.japanese) 
+2017-07-11 03:31:03,214 INFO Checking 1888 articles:  2-1889 in linux.debian.user.japanese
+2017-07-11 03:31:03,447 INFO def copyGroup: 'linux.debian.user.japanese' added 0/1888, seen 1888, dupt 0, errt 0
+2017-07-11 03:31:03,447 INFO def sP: group 'linux.debian.user.polish' in forcedList
+2017-07-11 03:31:03,447 INFO def copyServer: copyGroup(linux.debian.user.polish) 
+2017-07-11 03:31:03,545 INFO Checking 10000 articles:  5099-15098 in linux.debian.user.polish
+2017-07-11 03:31:04,029 INFO def copyGroup: 'linux.debian.user.polish' already seen 10000/10000
+2017-07-11 03:31:04,029 INFO def copyGroup: 'linux.debian.user.polish' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:04,030 INFO def sP: group 'linux.debian.user.portuguese' in forcedList
+2017-07-11 03:31:04,030 INFO def copyServer: copyGroup(linux.debian.user.portuguese) 
+2017-07-11 03:31:04,101 INFO Checking 10000 articles:  88192-98191 in linux.debian.user.portuguese
+2017-07-11 03:31:04,580 INFO def copyGroup: 'linux.debian.user.portuguese' already seen 10000/10000
+2017-07-11 03:31:04,580 INFO def copyGroup: 'linux.debian.user.portuguese' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:04,581 INFO def sP: group 'linux.debian.user.russian' in forcedList
+2017-07-11 03:31:04,581 INFO def copyServer: copyGroup(linux.debian.user.russian) 
+2017-07-11 03:31:04,652 INFO Checking 10000 articles:  93136-103135 in linux.debian.user.russian
+2017-07-11 03:31:05,149 INFO def copyGroup: 'linux.debian.user.russian' already seen 10000/10000
+2017-07-11 03:31:05,149 INFO def copyGroup: 'linux.debian.user.russian' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:05,149 INFO def sP: group 'linux.debian.user.spanish' in forcedList
+2017-07-11 03:31:05,149 INFO def copyServer: copyGroup(linux.debian.user.spanish) 
+2017-07-11 03:31:05,221 INFO Checking 10000 articles:  168886-178885 in linux.debian.user.spanish
+2017-07-11 03:31:05,687 INFO def copyGroup: 'linux.debian.user.spanish' already seen 10000/10000
+2017-07-11 03:31:05,687 INFO def copyGroup: 'linux.debian.user.spanish' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:05,687 INFO def sP: group 'linux.debian.user.swedish' in forcedList
+2017-07-11 03:31:05,687 INFO def copyServer: copyGroup(linux.debian.user.swedish) 
+2017-07-11 03:31:05,759 INFO Checking 7442 articles:  2-7443 in linux.debian.user.swedish
+2017-07-11 03:31:06,172 INFO def copyGroup: 'linux.debian.user.swedish' added 0/7442, seen 7442, dupt 0, errt 0
+2017-07-11 03:31:06,172 INFO def sP: group 'linux.debian.user.turkish' in forcedList
+2017-07-11 03:31:06,172 INFO def copyServer: copyGroup(linux.debian.user.turkish) 
+2017-07-11 03:31:06,286 INFO Checking 10000 articles:  1539-11538 in linux.debian.user.turkish
+2017-07-11 03:31:06,798 INFO def copyGroup: 'linux.debian.user.turkish' already seen 10000/10000
+2017-07-11 03:31:06,798 INFO def copyGroup: 'linux.debian.user.turkish' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:06,799 INFO def sP: group 'linux.debian.user.ukrainian' in forcedList
+2017-07-11 03:31:06,799 INFO def copyServer: copyGroup(linux.debian.user.ukrainian) 
+2017-07-11 03:31:06,870 INFO Checking 518 articles:  2-519 in linux.debian.user.ukrainian
+2017-07-11 03:31:06,985 INFO def copyGroup: 'linux.debian.user.ukrainian' added 0/518, seen 518, dupt 0, errt 0
+2017-07-11 03:31:06,985 INFO def sP: group 'linux.debian.vote' in forcedList
+2017-07-11 03:31:06,985 INFO def copyServer: copyGroup(linux.debian.vote) 
+2017-07-11 03:31:07,057 INFO Checking 10000 articles:  3162-13161 in linux.debian.vote
+2017-07-11 03:31:07,573 INFO def copyGroup: 'linux.debian.vote' already seen 10000/10000
+2017-07-11 03:31:07,573 INFO def copyGroup: 'linux.debian.vote' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:07,573 INFO def sP: group 'linux.debian.www' in forcedList
+2017-07-11 03:31:07,573 INFO def copyServer: copyGroup(linux.debian.www) 
+2017-07-11 03:31:07,670 INFO Checking 10000 articles:  5082-15081 in linux.debian.www
+2017-07-11 03:31:08,188 INFO def copyGroup: 'linux.debian.www' already seen 10000/10000
+2017-07-11 03:31:08,188 INFO def copyGroup: 'linux.debian.www' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:08,188 INFO def sP: group 'linux.debs.changes' in forcedList
+2017-07-11 03:31:08,188 INFO def copyServer: copyGroup(linux.debs.changes) 
+2017-07-11 03:31:08,260 INFO Checking 4 articles:  2-5 in linux.debs.changes
+2017-07-11 03:31:08,358 INFO def copyGroup: 'linux.debs.changes' added 0/4, seen 4, dupt 0, errt 0
+2017-07-11 03:31:08,359 INFO def sP: group 'linux.dev.680x0' in forcedList
+2017-07-11 03:31:08,359 INFO def copyServer: copyGroup(linux.dev.680x0) 
+2017-07-11 03:31:08,406 INFO Checking 9 articles:  2-10 in linux.dev.680x0
+2017-07-11 03:31:08,510 INFO def copyGroup: 'linux.dev.680x0' added 0/9, seen 9, dupt 0, errt 0
+2017-07-11 03:31:08,510 INFO def sP: group 'linux.dev.8086' in forcedList
+2017-07-11 03:31:08,510 INFO def copyServer: copyGroup(linux.dev.8086) 
+2017-07-11 03:31:08,610 INFO Checking 11 articles:  2-12 in linux.dev.8086
+2017-07-11 03:31:08,732 INFO def copyGroup: 'linux.dev.8086' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:31:08,733 INFO def sP: group 'linux.dev.admin' in forcedList
+2017-07-11 03:31:08,733 INFO def copyServer: copyGroup(linux.dev.admin) 
+2017-07-11 03:31:08,807 INFO Checking 14 articles:  2-15 in linux.dev.admin
+2017-07-11 03:31:08,911 INFO def copyGroup: 'linux.dev.admin' added 0/14, seen 14, dupt 0, errt 0
+2017-07-11 03:31:08,911 INFO def sP: group 'linux.dev.apps' in forcedList
+2017-07-11 03:31:08,911 INFO def copyServer: copyGroup(linux.dev.apps) 
+2017-07-11 03:31:08,961 INFO Checking 12 articles:  2-13 in linux.dev.apps
+2017-07-11 03:31:09,067 INFO def copyGroup: 'linux.dev.apps' added 0/12, seen 12, dupt 0, errt 0
+2017-07-11 03:31:09,067 INFO def sP: group 'linux.dev.atm' in forcedList
+2017-07-11 03:31:09,067 INFO def copyServer: copyGroup(linux.dev.atm) 
+2017-07-11 03:31:09,141 INFO Checking 11 articles:  2-12 in linux.dev.atm
+2017-07-11 03:31:09,226 INFO def copyGroup: 'linux.dev.atm' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:31:09,226 INFO def sP: group 'linux.dev.bbs' in forcedList
+2017-07-11 03:31:09,226 INFO def copyServer: copyGroup(linux.dev.bbs) 
+2017-07-11 03:31:09,303 INFO Checking 13 articles:  2-14 in linux.dev.bbs
+2017-07-11 03:31:09,408 INFO def copyGroup: 'linux.dev.bbs' added 0/13, seen 13, dupt 0, errt 0
+2017-07-11 03:31:09,408 INFO def sP: group 'linux.dev.blab' in forcedList
+2017-07-11 03:31:09,408 INFO def copyServer: copyGroup(linux.dev.blab) 
+2017-07-11 03:31:09,483 INFO Checking 4 articles:  2-5 in linux.dev.blab
+2017-07-11 03:31:09,607 INFO def copyGroup: 'linux.dev.blab' added 0/4, seen 4, dupt 0, errt 0
+2017-07-11 03:31:09,607 INFO def sP: group 'linux.dev.config' in forcedList
+2017-07-11 03:31:09,607 INFO def copyServer: copyGroup(linux.dev.config) 
+2017-07-11 03:31:09,682 INFO Checking 15 articles:  2-16 in linux.dev.config
+2017-07-11 03:31:09,785 INFO def copyGroup: 'linux.dev.config' added 0/15, seen 15, dupt 0, errt 0
+2017-07-11 03:31:09,785 INFO def sP: group 'linux.dev.c-programming' in forcedList
+2017-07-11 03:31:09,785 INFO def copyServer: copyGroup(linux.dev.c-programming) 
+2017-07-11 03:31:09,835 INFO Checking 118 articles:  2-119 in linux.dev.c-programming
+2017-07-11 03:31:09,947 INFO def copyGroup: 'linux.dev.c-programming' added 0/118, seen 118, dupt 0, errt 0
+2017-07-11 03:31:09,947 INFO def sP: group 'linux.dev.debian' in forcedList
+2017-07-11 03:31:09,947 INFO def copyServer: copyGroup(linux.dev.debian) 
+2017-07-11 03:31:10,021 INFO Checking 18 articles:  2-19 in linux.dev.debian
+2017-07-11 03:31:10,106 INFO def copyGroup: 'linux.dev.debian' added 0/18, seen 18, dupt 0, errt 0
+2017-07-11 03:31:10,106 INFO def sP: group 'linux.dev.diald' in forcedList
+2017-07-11 03:31:10,106 INFO def copyServer: copyGroup(linux.dev.diald) 
+2017-07-11 03:31:10,182 INFO Checking 17 articles:  2-18 in linux.dev.diald
+2017-07-11 03:31:10,305 INFO def copyGroup: 'linux.dev.diald' added 0/17, seen 17, dupt 0, errt 0
+2017-07-11 03:31:10,306 INFO def sP: group 'linux.dev.doc' in forcedList
+2017-07-11 03:31:10,306 INFO def copyServer: copyGroup(linux.dev.doc) 
+2017-07-11 03:31:10,405 INFO Checking 18 articles:  2-19 in linux.dev.doc
+2017-07-11 03:31:10,529 INFO def copyGroup: 'linux.dev.doc' added 0/18, seen 18, dupt 0, errt 0
+2017-07-11 03:31:10,529 INFO def sP: group 'linux.dev.fido' in forcedList
+2017-07-11 03:31:10,529 INFO def copyServer: copyGroup(linux.dev.fido) 
+2017-07-11 03:31:10,603 INFO Checking 19 articles:  2-20 in linux.dev.fido
+2017-07-11 03:31:10,709 INFO def copyGroup: 'linux.dev.fido' added 0/19, seen 19, dupt 0, errt 0
+2017-07-11 03:31:10,709 INFO def sP: group 'linux.dev.fsf' in forcedList
+2017-07-11 03:31:10,709 INFO def copyServer: copyGroup(linux.dev.fsf) 
+2017-07-11 03:31:10,785 INFO Checking 20 articles:  2-21 in linux.dev.fsf
+2017-07-11 03:31:10,870 INFO def copyGroup: 'linux.dev.fsf' added 0/20, seen 20, dupt 0, errt 0
+2017-07-11 03:31:10,870 INFO def sP: group 'linux.dev.fsstnd' in forcedList
+2017-07-11 03:31:10,870 INFO def copyServer: copyGroup(linux.dev.fsstnd) 
+2017-07-11 03:31:10,947 INFO Checking 19 articles:  2-20 in linux.dev.fsstnd
+2017-07-11 03:31:11,051 INFO def copyGroup: 'linux.dev.fsstnd' added 0/19, seen 19, dupt 0, errt 0
+2017-07-11 03:31:11,051 INFO def sP: group 'linux.dev.ftp' in forcedList
+2017-07-11 03:31:11,051 INFO def copyServer: copyGroup(linux.dev.ftp) 
+2017-07-11 03:31:11,125 INFO Checking 20 articles:  2-21 in linux.dev.ftp
+2017-07-11 03:31:11,249 INFO def copyGroup: 'linux.dev.ftp' added 0/20, seen 20, dupt 0, errt 0
+2017-07-11 03:31:11,249 INFO def sP: group 'linux.dev.gcc' in forcedList
+2017-07-11 03:31:11,249 INFO def copyServer: copyGroup(linux.dev.gcc) 
+2017-07-11 03:31:11,324 INFO Checking 31 articles:  2-32 in linux.dev.gcc
+2017-07-11 03:31:11,428 INFO def copyGroup: 'linux.dev.gcc' added 0/31, seen 31, dupt 0, errt 0
+2017-07-11 03:31:11,428 INFO def sP: group 'linux.dev.hams' in forcedList
+2017-07-11 03:31:11,428 INFO def copyServer: copyGroup(linux.dev.hams) 
+2017-07-11 03:31:11,502 INFO Checking 21 articles:  2-22 in linux.dev.hams
+2017-07-11 03:31:11,607 INFO def copyGroup: 'linux.dev.hams' added 0/21, seen 21, dupt 0, errt 0
+2017-07-11 03:31:11,607 INFO def sP: group 'linux.dev.ibcs2' in forcedList
+2017-07-11 03:31:11,607 INFO def copyServer: copyGroup(linux.dev.ibcs2) 
+2017-07-11 03:31:11,655 INFO Checking 24 articles:  2-25 in linux.dev.ibcs2
+2017-07-11 03:31:11,738 INFO def copyGroup: 'linux.dev.ibcs2' added 0/24, seen 24, dupt 0, errt 0
+2017-07-11 03:31:11,739 INFO def sP: group 'linux.dev.interviews' in forcedList
+2017-07-11 03:31:11,739 INFO def copyServer: copyGroup(linux.dev.interviews) 
+2017-07-11 03:31:11,814 INFO Checking 23 articles:  2-24 in linux.dev.interviews
+2017-07-11 03:31:11,935 INFO def copyGroup: 'linux.dev.interviews' added 0/23, seen 23, dupt 0, errt 0
+2017-07-11 03:31:11,935 INFO def sP: group 'linux.dev.ipx' in forcedList
+2017-07-11 03:31:11,935 INFO def copyServer: copyGroup(linux.dev.ipx) 
+2017-07-11 03:31:12,032 INFO Checking 20 articles:  2-21 in linux.dev.ipx
+2017-07-11 03:31:12,134 INFO def copyGroup: 'linux.dev.ipx' added 0/20, seen 20, dupt 0, errt 0
+2017-07-11 03:31:12,134 INFO def sP: group 'linux.dev.isdn' in forcedList
+2017-07-11 03:31:12,134 INFO def copyServer: copyGroup(linux.dev.isdn) 
+2017-07-11 03:31:12,180 INFO Checking 23 articles:  2-24 in linux.dev.isdn
+2017-07-11 03:31:12,282 INFO def copyGroup: 'linux.dev.isdn' added 0/23, seen 23, dupt 0, errt 0
+2017-07-11 03:31:12,282 INFO def sP: group 'linux.dev.japanese' in forcedList
+2017-07-11 03:31:12,282 INFO def copyServer: copyGroup(linux.dev.japanese) 
+2017-07-11 03:31:12,353 INFO Checking 19 articles:  2-20 in linux.dev.japanese
+2017-07-11 03:31:12,435 INFO def copyGroup: 'linux.dev.japanese' added 0/19, seen 19, dupt 0, errt 0
+2017-07-11 03:31:12,435 INFO def sP: group 'linux.dev.kernel' in forcedList
+2017-07-11 03:31:12,435 INFO def copyServer: copyGroup(linux.dev.kernel) 
+2017-07-11 03:31:12,508 INFO Checking 141 articles:  2-142 in linux.dev.kernel
+2017-07-11 03:31:12,617 INFO def copyGroup: 'linux.dev.kernel' added 0/141, seen 141, dupt 0, errt 0
+2017-07-11 03:31:12,639 INFO def sP: group 'linux.dev.kernel.announce' in forcedList
+2017-07-11 03:31:12,640 INFO def copyServer: copyGroup(linux.dev.kernel.announce) 
+2017-07-11 03:31:12,716 INFO Checking 8 articles:  2-9 in linux.dev.kernel.announce
+2017-07-11 03:31:12,836 INFO def copyGroup: 'linux.dev.kernel.announce' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:31:12,836 INFO def sP: group 'linux.dev.kernel.patch' in forcedList
+2017-07-11 03:31:12,836 INFO def copyServer: copyGroup(linux.dev.kernel.patch) 
+2017-07-11 03:31:12,907 INFO Checking 6 articles:  2-7 in linux.dev.kernel.patch
+2017-07-11 03:31:12,989 INFO def copyGroup: 'linux.dev.kernel.patch' added 0/6, seen 6, dupt 0, errt 0
+2017-07-11 03:31:12,989 INFO def sP: group 'linux.dev.laptop' in forcedList
+2017-07-11 03:31:12,989 INFO def copyServer: copyGroup(linux.dev.laptop) 
+2017-07-11 03:31:13,060 INFO Checking 89 articles:  2-90 in linux.dev.laptop
+2017-07-11 03:31:13,200 INFO def copyGroup: 'linux.dev.laptop' added 0/89, seen 89, dupt 0, errt 0
+2017-07-11 03:31:13,201 INFO def sP: group 'linux.dev.linuxbsd' in forcedList
+2017-07-11 03:31:13,201 INFO def copyServer: copyGroup(linux.dev.linuxbsd) 
+2017-07-11 03:31:13,245 INFO Checking 15 articles:  2-16 in linux.dev.linuxbsd
+2017-07-11 03:31:13,346 INFO def copyGroup: 'linux.dev.linuxbsd' added 0/15, seen 15, dupt 0, errt 0
+2017-07-11 03:31:13,347 INFO def sP: group 'linux.dev.linuxnews' in forcedList
+2017-07-11 03:31:13,347 INFO def copyServer: copyGroup(linux.dev.linuxnews) 
+2017-07-11 03:31:13,418 INFO Checking 16 articles:  2-17 in linux.dev.linuxnews
+2017-07-11 03:31:13,538 INFO def copyGroup: 'linux.dev.linuxnews' added 0/16, seen 16, dupt 0, errt 0
+2017-07-11 03:31:13,538 INFO def sP: group 'linux.dev.linuxss' in forcedList
+2017-07-11 03:31:13,538 INFO def copyServer: copyGroup(linux.dev.linuxss) 
+2017-07-11 03:31:13,609 INFO Checking 13 articles:  2-14 in linux.dev.linuxss
+2017-07-11 03:31:13,710 INFO def copyGroup: 'linux.dev.linuxss' added 0/13, seen 13, dupt 0, errt 0
+2017-07-11 03:31:13,711 INFO def sP: group 'linux.dev.localbus' in forcedList
+2017-07-11 03:31:13,711 INFO def copyServer: copyGroup(linux.dev.localbus) 
+2017-07-11 03:31:13,782 INFO Checking 16 articles:  2-17 in linux.dev.localbus
+2017-07-11 03:31:13,883 INFO def copyGroup: 'linux.dev.localbus' added 0/16, seen 16, dupt 0, errt 0
+2017-07-11 03:31:13,883 INFO def sP: group 'linux.dev.lugnuts' in forcedList
+2017-07-11 03:31:13,883 INFO def copyServer: copyGroup(linux.dev.lugnuts) 
+2017-07-11 03:31:13,928 INFO Checking 14 articles:  2-15 in linux.dev.lugnuts
+2017-07-11 03:31:14,008 INFO def copyGroup: 'linux.dev.lugnuts' added 0/14, seen 14, dupt 0, errt 0
+2017-07-11 03:31:14,009 INFO def sP: group 'linux.dev.mca' in forcedList
+2017-07-11 03:31:14,009 INFO def copyServer: copyGroup(linux.dev.mca) 
+2017-07-11 03:31:14,080 INFO Checking 17 articles:  2-18 in linux.dev.mca
+2017-07-11 03:31:14,231 INFO def copyGroup: 'linux.dev.mca' added 0/17, seen 17, dupt 0, errt 0
+2017-07-11 03:31:14,232 INFO def sP: group 'linux.dev.mgr' in forcedList
+2017-07-11 03:31:14,232 INFO def copyServer: copyGroup(linux.dev.mgr) 
+2017-07-11 03:31:14,330 INFO Checking 16 articles:  2-17 in linux.dev.mgr
+2017-07-11 03:31:14,431 INFO def copyGroup: 'linux.dev.mgr' added 0/16, seen 16, dupt 0, errt 0
+2017-07-11 03:31:14,431 INFO def sP: group 'linux.dev.msdos' in forcedList
+2017-07-11 03:31:14,431 INFO def copyServer: copyGroup(linux.dev.msdos) 
+2017-07-11 03:31:14,506 INFO Checking 19 articles:  2-20 in linux.dev.msdos
+2017-07-11 03:31:14,588 INFO def copyGroup: 'linux.dev.msdos' added 0/19, seen 19, dupt 0, errt 0
+2017-07-11 03:31:14,588 INFO def sP: group 'linux.dev.net' in forcedList
+2017-07-11 03:31:14,588 INFO def copyServer: copyGroup(linux.dev.net) 
+2017-07-11 03:31:14,659 INFO Checking 34 articles:  2-35 in linux.dev.net
+2017-07-11 03:31:14,763 INFO def copyGroup: 'linux.dev.net' added 0/34, seen 34, dupt 0, errt 0
+2017-07-11 03:31:14,763 INFO def sP: group 'linux.dev.newbie' in forcedList
+2017-07-11 03:31:14,763 INFO def copyServer: copyGroup(linux.dev.newbie) 
+2017-07-11 03:31:14,809 INFO Checking 59 articles:  2-60 in linux.dev.newbie
+2017-07-11 03:31:14,913 INFO def copyGroup: 'linux.dev.newbie' added 0/59, seen 59, dupt 0, errt 0
+2017-07-11 03:31:14,914 INFO def sP: group 'linux.dev.new-lists' in forcedList
+2017-07-11 03:31:14,914 INFO def copyServer: copyGroup(linux.dev.new-lists) 
+2017-07-11 03:31:14,985 INFO Checking 19 articles:  2-20 in linux.dev.new-lists
+2017-07-11 03:31:15,109 INFO def copyGroup: 'linux.dev.new-lists' added 0/19, seen 19, dupt 0, errt 0
+2017-07-11 03:31:15,109 INFO def sP: group 'linux.dev.normal' in forcedList
+2017-07-11 03:31:15,109 INFO def copyServer: copyGroup(linux.dev.normal) 
+2017-07-11 03:31:15,204 INFO Checking 32 articles:  2-33 in linux.dev.normal
+2017-07-11 03:31:15,279 INFO def copyGroup: 'linux.dev.normal' added 0/32, seen 32, dupt 0, errt 0
+2017-07-11 03:31:15,279 INFO def sP: group 'linux.dev.nys' in forcedList
+2017-07-11 03:31:15,279 INFO def copyServer: copyGroup(linux.dev.nys) 
+2017-07-11 03:31:15,351 INFO Checking 19 articles:  2-20 in linux.dev.nys
+2017-07-11 03:31:15,451 INFO def copyGroup: 'linux.dev.nys' added 0/19, seen 19, dupt 0, errt 0
+2017-07-11 03:31:15,452 INFO def sP: group 'linux.dev.oasg' in forcedList
+2017-07-11 03:31:15,452 INFO def copyServer: copyGroup(linux.dev.oasg) 
+2017-07-11 03:31:15,499 INFO Checking 16 articles:  2-17 in linux.dev.oasg
+2017-07-11 03:31:15,582 INFO def copyGroup: 'linux.dev.oasg' added 0/16, seen 16, dupt 0, errt 0
+2017-07-11 03:31:15,582 INFO def sP: group 'linux.dev.oi' in forcedList
+2017-07-11 03:31:15,582 INFO def copyServer: copyGroup(linux.dev.oi) 
+2017-07-11 03:31:15,654 INFO Checking 22 articles:  2-23 in linux.dev.oi
+2017-07-11 03:31:15,774 INFO def copyGroup: 'linux.dev.oi' added 0/22, seen 22, dupt 0, errt 0
+2017-07-11 03:31:15,775 INFO def sP: group 'linux.dev.opengl' in forcedList
+2017-07-11 03:31:15,775 INFO def copyServer: copyGroup(linux.dev.opengl) 
+2017-07-11 03:31:15,874 INFO Checking 56 articles:  2-57 in linux.dev.opengl
+2017-07-11 03:31:15,980 INFO def copyGroup: 'linux.dev.opengl' added 0/56, seen 56, dupt 0, errt 0
+2017-07-11 03:31:15,980 INFO def sP: group 'linux.dev.pkg' in forcedList
+2017-07-11 03:31:15,980 INFO def copyServer: copyGroup(linux.dev.pkg) 
+2017-07-11 03:31:16,051 INFO Checking 21 articles:  2-22 in linux.dev.pkg
+2017-07-11 03:31:16,127 INFO def copyGroup: 'linux.dev.pkg' added 0/21, seen 21, dupt 0, errt 0
+2017-07-11 03:31:16,127 INFO def sP: group 'linux.dev.ppp' in forcedList
+2017-07-11 03:31:16,127 INFO def copyServer: copyGroup(linux.dev.ppp) 
+2017-07-11 03:31:16,198 INFO Checking 26 articles:  2-27 in linux.dev.ppp
+2017-07-11 03:31:16,299 INFO def copyGroup: 'linux.dev.ppp' added 0/26, seen 26, dupt 0, errt 0
+2017-07-11 03:31:16,299 INFO def sP: group 'linux.dev.qag' in forcedList
+2017-07-11 03:31:16,300 INFO def copyServer: copyGroup(linux.dev.qag) 
+2017-07-11 03:31:16,345 INFO Checking 15 articles:  2-16 in linux.dev.qag
+2017-07-11 03:31:16,447 INFO def copyGroup: 'linux.dev.qag' added 0/15, seen 15, dupt 0, errt 0
+2017-07-11 03:31:16,447 INFO def sP: group 'linux.dev.raid' in forcedList
+2017-07-11 03:31:16,448 INFO def copyServer: copyGroup(linux.dev.raid) 
+2017-07-11 03:31:16,545 INFO Checking 36 articles:  2-37 in linux.dev.raid
+2017-07-11 03:31:16,667 INFO def copyGroup: 'linux.dev.raid' added 0/36, seen 36, dupt 0, errt 0
+2017-07-11 03:31:16,667 INFO def sP: group 'linux.dev.scsi' in forcedList
+2017-07-11 03:31:16,667 INFO def copyServer: copyGroup(linux.dev.scsi) 
+2017-07-11 03:31:16,764 INFO Checking 27 articles:  2-28 in linux.dev.scsi
+2017-07-11 03:31:16,867 INFO def copyGroup: 'linux.dev.scsi' added 0/27, seen 27, dupt 0, errt 0
+2017-07-11 03:31:16,867 INFO def sP: group 'linux.dev.serial' in forcedList
+2017-07-11 03:31:16,868 INFO def copyServer: copyGroup(linux.dev.serial) 
+2017-07-11 03:31:16,914 INFO Checking 31 articles:  2-32 in linux.dev.serial
+2017-07-11 03:31:17,016 INFO def copyGroup: 'linux.dev.serial' added 0/31, seen 31, dupt 0, errt 0
+2017-07-11 03:31:17,016 INFO def sP: group 'linux.dev.seyon' in forcedList
+2017-07-11 03:31:17,016 INFO def copyServer: copyGroup(linux.dev.seyon) 
+2017-07-11 03:31:17,087 INFO Checking 13 articles:  2-14 in linux.dev.seyon
+2017-07-11 03:31:17,169 INFO def copyGroup: 'linux.dev.seyon' added 0/13, seen 13, dupt 0, errt 0
+2017-07-11 03:31:17,169 INFO def sP: group 'linux.dev.smp' in forcedList
+2017-07-11 03:31:17,169 INFO def copyServer: copyGroup(linux.dev.smp) 
+2017-07-11 03:31:17,242 INFO Checking 7 articles:  2-8 in linux.dev.smp
+2017-07-11 03:31:17,343 INFO def copyGroup: 'linux.dev.smp' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:31:17,343 INFO def sP: group 'linux.dev.sound' in forcedList
+2017-07-11 03:31:17,343 INFO def copyServer: copyGroup(linux.dev.sound) 
+2017-07-11 03:31:17,414 INFO Checking 41 articles:  2-42 in linux.dev.sound
+2017-07-11 03:31:17,592 INFO def copyGroup: 'linux.dev.sound' added 0/41, seen 41, dupt 0, errt 0
+2017-07-11 03:31:17,593 INFO def sP: group 'linux.dev.sparc' in forcedList
+2017-07-11 03:31:17,593 INFO def copyServer: copyGroup(linux.dev.sparc) 
+2017-07-11 03:31:17,664 INFO Checking 6 articles:  2-7 in linux.dev.sparc
+2017-07-11 03:31:17,764 INFO def copyGroup: 'linux.dev.sparc' added 0/6, seen 6, dupt 0, errt 0
+2017-07-11 03:31:17,764 INFO def sP: group 'linux.dev.standards' in forcedList
+2017-07-11 03:31:17,764 INFO def copyServer: copyGroup(linux.dev.standards) 
+2017-07-11 03:31:17,810 INFO Checking 18 articles:  2-19 in linux.dev.standards
+2017-07-11 03:31:17,913 INFO def copyGroup: 'linux.dev.standards' added 0/18, seen 18, dupt 0, errt 0
+2017-07-11 03:31:17,913 INFO def sP: group 'linux.dev.svgalib' in forcedList
+2017-07-11 03:31:17,913 INFO def copyServer: copyGroup(linux.dev.svgalib) 
+2017-07-11 03:31:17,984 INFO Checking 25 articles:  2-26 in linux.dev.svgalib
+2017-07-11 03:31:18,287 INFO def copyGroup: 'linux.dev.svgalib' added 0/25, seen 25, dupt 0, errt 0
+2017-07-11 03:31:18,287 INFO def sP: group 'linux.dev.tape' in forcedList
+2017-07-11 03:31:18,288 INFO def copyServer: copyGroup(linux.dev.tape) 
+2017-07-11 03:31:18,385 INFO Checking 17 articles:  2-18 in linux.dev.tape
+2017-07-11 03:31:18,486 INFO def copyGroup: 'linux.dev.tape' added 0/17, seen 17, dupt 0, errt 0
+2017-07-11 03:31:18,486 INFO def sP: group 'linux.dev.term' in forcedList
+2017-07-11 03:31:18,486 INFO def copyServer: copyGroup(linux.dev.term) 
+2017-07-11 03:31:18,583 INFO Checking 17 articles:  2-18 in linux.dev.term
+2017-07-11 03:31:18,683 INFO def copyGroup: 'linux.dev.term' added 0/17, seen 17, dupt 0, errt 0
+2017-07-11 03:31:18,684 INFO def sP: group 'linux.dev.userfs' in forcedList
+2017-07-11 03:31:18,684 INFO def copyServer: copyGroup(linux.dev.userfs) 
+2017-07-11 03:31:18,755 INFO Checking 15 articles:  2-16 in linux.dev.userfs
+2017-07-11 03:31:18,862 INFO def copyGroup: 'linux.dev.userfs' added 0/15, seen 15, dupt 0, errt 0
+2017-07-11 03:31:18,862 INFO def sP: group 'linux.dev.uucp' in forcedList
+2017-07-11 03:31:18,862 INFO def copyServer: copyGroup(linux.dev.uucp) 
+2017-07-11 03:31:18,934 INFO Checking 13 articles:  2-14 in linux.dev.uucp
+2017-07-11 03:31:19,016 INFO def copyGroup: 'linux.dev.uucp' added 0/13, seen 13, dupt 0, errt 0
+2017-07-11 03:31:19,016 INFO def sP: group 'linux.dev.wabi' in forcedList
+2017-07-11 03:31:19,017 INFO def copyServer: copyGroup(linux.dev.wabi) 
+2017-07-11 03:31:19,089 INFO Checking 10 articles:  2-11 in linux.dev.wabi
+2017-07-11 03:31:19,209 INFO def copyGroup: 'linux.dev.wabi' added 0/10, seen 10, dupt 0, errt 0
+2017-07-11 03:31:19,209 INFO def sP: group 'linux.dev.word' in forcedList
+2017-07-11 03:31:19,209 INFO def copyServer: copyGroup(linux.dev.word) 
+2017-07-11 03:31:19,307 INFO Checking 12 articles:  2-13 in linux.dev.word
+2017-07-11 03:31:19,630 INFO def copyGroup: 'linux.dev.word' added 0/12, seen 12, dupt 0, errt 0
+2017-07-11 03:31:19,630 INFO def sP: group 'linux.dev.x11' in forcedList
+2017-07-11 03:31:19,630 INFO def copyServer: copyGroup(linux.dev.x11) 
+2017-07-11 03:31:19,701 INFO Checking 30 articles:  2-31 in linux.dev.x11
+2017-07-11 03:31:19,805 INFO def copyGroup: 'linux.dev.x11' added 0/30, seen 30, dupt 0, errt 0
+2017-07-11 03:31:19,805 INFO def sP: group 'linux.dev.x25' in forcedList
+2017-07-11 03:31:19,805 INFO def copyServer: copyGroup(linux.dev.x25) 
+2017-07-11 03:31:19,876 INFO Checking 7 articles:  2-8 in linux.dev.x25
+2017-07-11 03:31:19,957 INFO def copyGroup: 'linux.dev.x25' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:31:19,957 INFO def sP: group 'linux.fido.ifmail' in forcedList
+2017-07-11 03:31:19,957 INFO def copyServer: copyGroup(linux.fido.ifmail) 
+2017-07-11 03:31:20,030 INFO Checking 11 articles:  2-12 in linux.fido.ifmail
+2017-07-11 03:31:20,132 INFO def copyGroup: 'linux.fido.ifmail' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:31:20,132 INFO def sP: group 'linux.free-widgets.announce' in forcedList
+2017-07-11 03:31:20,132 INFO def copyServer: copyGroup(linux.free-widgets.announce) 
+2017-07-11 03:31:20,206 INFO Checking 2 articles:  2-3 in linux.free-widgets.announce
+2017-07-11 03:31:20,328 WARNING Unexpected number of articles returned.  Expected 2, but got 0 groupname='linux.free-widgets.announce'
+2017-07-11 03:31:20,328 INFO def copyGroup: 'linux.free-widgets.announce' added 0/0, seen 0, dupt 0, errt 0
+2017-07-11 03:31:20,328 INFO def sP: group 'linux.free-widgets.bugs' in forcedList
+2017-07-11 03:31:20,328 INFO def copyServer: copyGroup(linux.free-widgets.bugs) 
+2017-07-11 03:31:20,402 INFO Checking 1 articles:  2-2 in linux.free-widgets.bugs
+2017-07-11 03:31:20,504 INFO def copyGroup: 'linux.free-widgets.bugs' added 0/1, seen 1, dupt 0, errt 0
+2017-07-11 03:31:20,505 INFO def sP: group 'linux.free-widgets.development' in forcedList
+2017-07-11 03:31:20,505 INFO def copyServer: copyGroup(linux.free-widgets.development) 
+2017-07-11 03:31:20,554 INFO Checking 2 articles:  2-3 in linux.free-widgets.development
+2017-07-11 03:31:20,655 WARNING Unexpected number of articles returned.  Expected 2, but got 0 groupname='linux.free-widgets.development'
+2017-07-11 03:31:20,655 INFO def copyGroup: 'linux.free-widgets.development' added 0/0, seen 0, dupt 0, errt 0
+2017-07-11 03:31:20,656 INFO def sP: group 'linuxfr.linuxfr-news' in forcedList
+2017-07-11 03:31:20,656 INFO def copyServer: copyGroup(linuxfr.linuxfr-news) 
+2017-07-11 03:31:20,729 INFO Checking 425 articles:  2-426 in linuxfr.linuxfr-news
+2017-07-11 03:31:20,866 INFO def copyGroup: 'linuxfr.linuxfr-news' added 0/425, seen 425, dupt 0, errt 0
+2017-07-11 03:31:20,866 INFO def sP: group 'linuxfr.ml.php-france' in forcedList
+2017-07-11 03:31:20,866 INFO def copyServer: copyGroup(linuxfr.ml.php-france) 
+2017-07-11 03:31:20,940 INFO Checking 5 articles:  2-6 in linuxfr.ml.php-france
+2017-07-11 03:31:21,062 INFO def copyGroup: 'linuxfr.ml.php-france' added 0/5, seen 5, dupt 0, errt 0
+2017-07-11 03:31:21,063 INFO def sP: group 'linuxfr.wireless.general' in forcedList
+2017-07-11 03:31:21,063 INFO def copyServer: copyGroup(linuxfr.wireless.general) 
+2017-07-11 03:31:21,162 INFO Checking 3 articles:  2-4 in linuxfr.wireless.general
+2017-07-11 03:31:21,284 INFO def copyGroup: 'linuxfr.wireless.general' added 0/3, seen 3, dupt 0, errt 0
+2017-07-11 03:31:21,284 INFO def sP: group 'linuxfr.wireless.technique' in forcedList
+2017-07-11 03:31:21,284 INFO def copyServer: copyGroup(linuxfr.wireless.technique) 
+2017-07-11 03:31:21,358 INFO Checking 2 articles:  2-3 in linuxfr.wireless.technique
+2017-07-11 03:31:21,667 INFO def copyGroup: 'linuxfr.wireless.technique' added 0/2, seen 2, dupt 0, errt 0
+2017-07-11 03:31:21,667 INFO def sP: group 'linux.gentoo.announce' in forcedList
+2017-07-11 03:31:21,667 INFO def copyServer: copyGroup(linux.gentoo.announce) 
+2017-07-11 03:31:21,741 INFO Checking 2478 articles:  2-2479 in linux.gentoo.announce
+2017-07-11 03:31:22,032 INFO def copyGroup: 'linux.gentoo.announce' added 0/2478, seen 2478, dupt 0, errt 0
+2017-07-11 03:31:22,033 INFO def sP: group 'linux.gentoo.dev' in forcedList
+2017-07-11 03:31:22,033 INFO def copyServer: copyGroup(linux.gentoo.dev) 
+2017-07-11 03:31:22,108 INFO Checking 10000 articles:  77638-87637 in linux.gentoo.dev
+2017-07-11 03:31:23,071 INFO def copyGroup: 'linux.gentoo.dev' added 0/10000, seen 9998, dupt 0, errt 0
+2017-07-11 03:31:23,071 INFO def sP: group 'linux.gentoo.user' in forcedList
+2017-07-11 03:31:23,071 INFO def copyServer: copyGroup(linux.gentoo.user) 
+2017-07-11 03:31:23,144 INFO Checking 10000 articles:  208523-218522 in linux.gentoo.user
+2017-07-11 03:31:23,801 INFO def copyGroup: 'linux.gentoo.user' already seen 10000/10000
+2017-07-11 03:31:23,801 INFO def copyGroup: 'linux.gentoo.user' added 2/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:23,801 INFO def sP: group 'linux.gentoo.user.de' in forcedList
+2017-07-11 03:31:23,801 INFO def copyServer: copyGroup(linux.gentoo.user.de) 
+2017-07-11 03:31:23,901 INFO Checking 10000 articles:  16595-26594 in linux.gentoo.user.de
+2017-07-11 03:31:24,545 INFO def copyGroup: 'linux.gentoo.user.de' already seen 10000/10000
+2017-07-11 03:31:24,546 INFO def copyGroup: 'linux.gentoo.user.de' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:24,546 INFO def sP: group 'linux.gentoo.user.es' in forcedList
+2017-07-11 03:31:24,546 INFO def copyServer: copyGroup(linux.gentoo.user.es) 
+2017-07-11 03:31:24,620 INFO Checking 5902 articles:  2-5903 in linux.gentoo.user.es
+2017-07-11 03:31:25,045 INFO def copyGroup: 'linux.gentoo.user.es' added 0/5902, seen 5902, dupt 0, errt 0
+2017-07-11 03:31:25,045 INFO def sP: group 'linux.gentoo.user.fr' in forcedList
+2017-07-11 03:31:25,045 INFO def copyServer: copyGroup(linux.gentoo.user.fr) 
+2017-07-11 03:31:25,119 INFO Checking 7922 articles:  2-7923 in linux.gentoo.user.fr
+2017-07-11 03:31:25,570 INFO def copyGroup: 'linux.gentoo.user.fr' added 0/7922, seen 7922, dupt 0, errt 0
+2017-07-11 03:31:25,571 INFO def sP: group 'linux.gentoo.user.id' in forcedList
+2017-07-11 03:31:25,571 INFO def copyServer: copyGroup(linux.gentoo.user.id) 
+2017-07-11 03:31:25,645 INFO Checking 140 articles:  2-141 in linux.gentoo.user.id
+2017-07-11 03:31:25,778 INFO def copyGroup: 'linux.gentoo.user.id' added 0/140, seen 140, dupt 0, errt 0
+2017-07-11 03:31:25,778 INFO def sP: group 'linux.gentoo.user.kr' in forcedList
+2017-07-11 03:31:25,778 INFO def copyServer: copyGroup(linux.gentoo.user.kr) 
+2017-07-11 03:31:25,851 INFO Checking 33 articles:  2-34 in linux.gentoo.user.kr
+2017-07-11 03:31:25,956 INFO def copyGroup: 'linux.gentoo.user.kr' added 0/33, seen 33, dupt 0, errt 0
+2017-07-11 03:31:25,957 INFO def sP: group 'linux.gentoo.user.pl' in forcedList
+2017-07-11 03:31:25,957 INFO def copyServer: copyGroup(linux.gentoo.user.pl) 
+2017-07-11 03:31:26,006 INFO Checking 764 articles:  2-765 in linux.gentoo.user.pl
+2017-07-11 03:31:26,165 INFO def copyGroup: 'linux.gentoo.user.pl' added 0/764, seen 764, dupt 0, errt 0
+2017-07-11 03:31:26,165 INFO def sP: group 'linux.gentoo.weekly-news' in forcedList
+2017-07-11 03:31:26,165 INFO def copyServer: copyGroup(linux.gentoo.weekly-news) 
+2017-07-11 03:31:26,239 INFO Checking 148 articles:  2-149 in linux.gentoo.weekly-news
+2017-07-11 03:31:26,332 INFO def copyGroup: 'linux.gentoo.weekly-news' added 0/148, seen 148, dupt 0, errt 0
+2017-07-11 03:31:26,333 INFO def sP: group 'linux.help' in forcedList
+2017-07-11 03:31:26,333 INFO def copyServer: copyGroup(linux.help) 
+2017-07-11 03:31:26,407 INFO Checking 331 articles:  2-332 in linux.help
+2017-07-11 03:31:26,554 INFO def copyGroup: 'linux.help' added 0/331, seen 331, dupt 0, errt 0
+2017-07-11 03:31:26,554 INFO def sP: group 'linux.i18n' in forcedList
+2017-07-11 03:31:26,554 INFO def copyServer: copyGroup(linux.i18n) 
+2017-07-11 03:31:26,656 INFO Checking 1 articles:  2-2 in linux.i18n
+2017-07-11 03:31:26,756 INFO def copyGroup: 'linux.i18n' added 0/1, seen 1, dupt 0, errt 0
+2017-07-11 03:31:26,756 INFO def sP: group 'linux.jobs' in forcedList
+2017-07-11 03:31:26,756 INFO def copyServer: copyGroup(linux.jobs) 
+2017-07-11 03:31:26,829 INFO Checking 146 articles:  2-147 in linux.jobs
+2017-07-11 03:31:26,923 INFO def copyGroup: 'linux.jobs' added 0/146, seen 146, dupt 0, errt 0
+2017-07-11 03:31:26,924 INFO def sP: group 'linux.kernel' in forcedList
+2017-07-11 03:31:26,924 INFO def copyServer: copyGroup(linux.kernel) 
+2017-07-11 03:31:26,998 INFO Checking 10000 articles:  2341145-2351144 in linux.kernel
+2017-07-11 03:31:27,544 INFO def copyGroup: 'linux.kernel' added 0/10000, seen 9998, dupt 0, errt 0
+2017-07-11 03:31:27,544 INFO def sP: group 'linux.largesites' in forcedList
+2017-07-11 03:31:27,544 INFO def copyServer: copyGroup(linux.largesites) 
+2017-07-11 03:31:27,619 INFO Checking 11 articles:  2-12 in linux.largesites
+2017-07-11 03:31:27,722 INFO def copyGroup: 'linux.largesites' added 2/11, seen 11, dupt 0, errt 0
+2017-07-11 03:31:27,722 INFO def sP: group 'linux.local.chicago' in forcedList
+2017-07-11 03:31:27,722 INFO def copyServer: copyGroup(linux.local.chicago) 
+2017-07-11 03:31:27,823 INFO Checking 2 articles:  2-3 in linux.local.chicago
+2017-07-11 03:31:28,147 WARNING Unexpected number of articles returned.  Expected 2, but got 0 groupname='linux.local.chicago'
+2017-07-11 03:31:28,147 INFO def copyGroup: 'linux.local.chicago' added 0/0, seen 0, dupt 0, errt 0
+2017-07-11 03:31:28,147 INFO def sP: group 'linux.local.nova-scotia' in forcedList
+2017-07-11 03:31:28,147 INFO def copyServer: copyGroup(linux.local.nova-scotia) 
+2017-07-11 03:31:28,197 INFO Checking 2 articles:  2-3 in linux.local.nova-scotia
+2017-07-11 03:31:28,311 WARNING Unexpected number of articles returned.  Expected 2, but got 0 groupname='linux.local.nova-scotia'
+2017-07-11 03:31:28,311 INFO def copyGroup: 'linux.local.nova-scotia' added 0/0, seen 0, dupt 0, errt 0
+2017-07-11 03:31:28,312 INFO def sP: group 'linux.local.silicon-valley' in forcedList
+2017-07-11 03:31:28,312 INFO def copyServer: copyGroup(linux.local.silicon-valley) 
+2017-07-11 03:31:28,598 INFO Checking 2 articles:  2-3 in linux.local.silicon-valley
+2017-07-11 03:31:28,675 WARNING Unexpected number of articles returned.  Expected 2, but got 0 groupname='linux.local.silicon-valley'
+2017-07-11 03:31:28,676 INFO def copyGroup: 'linux.local.silicon-valley' added 0/0, seen 0, dupt 0, errt 0
+2017-07-11 03:31:28,676 INFO def sP: group 'linux.misc' in forcedList
+2017-07-11 03:31:28,676 INFO def copyServer: copyGroup(linux.misc) 
+2017-07-11 03:31:28,776 INFO Checking 47 articles:  2-48 in linux.misc
+2017-07-11 03:31:28,882 INFO def copyGroup: 'linux.misc' added 0/47, seen 47, dupt 0, errt 0
+2017-07-11 03:31:28,883 INFO def sP: group 'linux.motif.clone' in forcedList
+2017-07-11 03:31:28,883 INFO def copyServer: copyGroup(linux.motif.clone) 
+2017-07-11 03:31:28,983 INFO Checking 2 articles:  2-3 in linux.motif.clone
+2017-07-11 03:31:29,310 WARNING Unexpected number of articles returned.  Expected 2, but got 0 groupname='linux.motif.clone'
+2017-07-11 03:31:29,310 INFO def copyGroup: 'linux.motif.clone' added 0/0, seen 0, dupt 0, errt 0
+2017-07-11 03:31:29,311 INFO def sP: group 'linux.motif.clone.lesstif' in forcedList
+2017-07-11 03:31:29,311 INFO def copyServer: copyGroup(linux.motif.clone.lesstif) 
+2017-07-11 03:31:29,384 INFO Checking 8 articles:  2-9 in linux.motif.clone.lesstif
+2017-07-11 03:31:29,488 INFO def copyGroup: 'linux.motif.clone.lesstif' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:31:29,488 INFO def sP: group 'linux.net.atm' in forcedList
+2017-07-11 03:31:29,488 INFO def copyServer: copyGroup(linux.net.atm) 
+2017-07-11 03:31:29,537 INFO Checking 8 articles:  2-9 in linux.net.atm
+2017-07-11 03:31:29,621 INFO def copyGroup: 'linux.net.atm' added 0/8, seen 8, dupt 0, errt 0
+2017-07-11 03:31:29,621 INFO def sP: group 'linux.net.masquerade' in forcedList
+2017-07-11 03:31:29,621 INFO def copyServer: copyGroup(linux.net.masquerade) 
+2017-07-11 03:31:29,696 INFO Checking 11 articles:  2-12 in linux.net.masquerade
+2017-07-11 03:31:29,818 INFO def copyGroup: 'linux.net.masquerade' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:31:29,818 INFO def sP: group 'linux.news.groups' in forcedList
+2017-07-11 03:31:29,818 INFO def copyServer: copyGroup(linux.news.groups) 
+2017-07-11 03:31:29,919 INFO Checking 59 articles:  2-60 in linux.news.groups
+2017-07-11 03:31:30,027 INFO def copyGroup: 'linux.news.groups' added 0/59, seen 59, dupt 0, errt 0
+2017-07-11 03:31:30,027 INFO def sP: group 'linux.new-tty' in forcedList
+2017-07-11 03:31:30,027 INFO def copyServer: copyGroup(linux.new-tty) 
+2017-07-11 03:31:30,101 INFO Checking 1 articles:  2-2 in linux.new-tty
+2017-07-11 03:31:30,185 INFO def copyGroup: 'linux.new-tty' added 0/1, seen 1, dupt 0, errt 0
+2017-07-11 03:31:30,185 INFO def sP: group 'linux.ports.alpha' in forcedList
+2017-07-11 03:31:30,185 INFO def copyServer: copyGroup(linux.ports.alpha) 
+2017-07-11 03:31:30,259 INFO Checking 1 articles:  2-2 in linux.ports.alpha
+2017-07-11 03:31:30,362 INFO def copyGroup: 'linux.ports.alpha' added 0/1, seen 1, dupt 0, errt 0
+2017-07-11 03:31:30,362 INFO def sP: group 'linux.ports.hp-pa' in forcedList
+2017-07-11 03:31:30,362 INFO def copyServer: copyGroup(linux.ports.hp-pa) 
+2017-07-11 03:31:30,413 INFO Checking 12 articles:  2-13 in linux.ports.hp-pa
+2017-07-11 03:31:30,518 INFO def copyGroup: 'linux.ports.hp-pa' added 0/12, seen 12, dupt 0, errt 0
+2017-07-11 03:31:30,518 INFO def sP: group 'linux.ports.powerpc' in forcedList
+2017-07-11 03:31:30,518 INFO def copyServer: copyGroup(linux.ports.powerpc) 
+2017-07-11 03:31:30,593 INFO Checking 20 articles:  2-21 in linux.ports.powerpc
+2017-07-11 03:31:30,698 INFO def copyGroup: 'linux.ports.powerpc' added 0/20, seen 20, dupt 0, errt 0
+2017-07-11 03:31:30,698 INFO def sP: group 'linux.postgres' in forcedList
+2017-07-11 03:31:30,698 INFO def copyServer: copyGroup(linux.postgres) 
+2017-07-11 03:31:30,799 INFO Checking 1 articles:  2-2 in linux.postgres
+2017-07-11 03:31:30,901 INFO def copyGroup: 'linux.postgres' added 0/1, seen 1, dupt 0, errt 0
+2017-07-11 03:31:30,902 INFO def sP: group 'linux.pvt' in forcedList
+2017-07-11 03:31:30,902 INFO def copyServer: copyGroup(linux.pvt) 
+2017-07-11 03:31:30,976 INFO Checking 4 articles:  2-5 in linux.pvt
+2017-07-11 03:31:31,058 INFO def copyGroup: 'linux.pvt' added 0/4, seen 4, dupt 0, errt 0
+2017-07-11 03:31:31,059 INFO def sP: group 'linux.pvt.png.announce' in forcedList
+2017-07-11 03:31:31,059 INFO def copyServer: copyGroup(linux.pvt.png.announce) 
+2017-07-11 03:31:31,132 INFO Checking 2 articles:  2-3 in linux.pvt.png.announce
+2017-07-11 03:31:31,233 WARNING Unexpected number of articles returned.  Expected 2, but got 0 groupname='linux.pvt.png.announce'
+2017-07-11 03:31:31,233 INFO def copyGroup: 'linux.pvt.png.announce' added 0/0, seen 0, dupt 0, errt 0
+2017-07-11 03:31:31,233 INFO def sP: group 'linux.pvt.png.implement' in forcedList
+2017-07-11 03:31:31,233 INFO def copyServer: copyGroup(linux.pvt.png.implement) 
+2017-07-11 03:31:31,281 INFO Checking 2 articles:  2-3 in linux.pvt.png.implement
+2017-07-11 03:31:31,384 WARNING Unexpected number of articles returned.  Expected 2, but got 0 groupname='linux.pvt.png.implement'
+2017-07-11 03:31:31,384 INFO def copyGroup: 'linux.pvt.png.implement' added 0/0, seen 0, dupt 0, errt 0
+2017-07-11 03:31:31,384 INFO def sP: group 'linux.redhat' in forcedList
+2017-07-11 03:31:31,384 INFO def copyServer: copyGroup(linux.redhat) 
+2017-07-11 03:31:31,483 INFO Checking 10000 articles:  20713-30712 in linux.redhat
+2017-07-11 03:31:32,238 INFO def copyGroup: 'linux.redhat' already seen 10000/10000
+2017-07-11 03:31:32,238 INFO def copyGroup: 'linux.redhat' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:32,239 INFO def sP: group 'linux.redhat.announce' in forcedList
+2017-07-11 03:31:32,239 INFO def copyServer: copyGroup(linux.redhat.announce) 
+2017-07-11 03:31:32,289 INFO Checking 56 articles:  2-57 in linux.redhat.announce
+2017-07-11 03:31:32,395 INFO def copyGroup: 'linux.redhat.announce' added 0/56, seen 56, dupt 0, errt 0
+2017-07-11 03:31:32,395 INFO def sP: group 'linux.redhat.applixware' in forcedList
+2017-07-11 03:31:32,396 INFO def copyServer: copyGroup(linux.redhat.applixware) 
+2017-07-11 03:31:32,469 INFO Checking 19 articles:  2-20 in linux.redhat.applixware
+2017-07-11 03:31:32,554 INFO def copyGroup: 'linux.redhat.applixware' added 0/19, seen 19, dupt 0, errt 0
+2017-07-11 03:31:32,554 INFO def sP: group 'linux.redhat.axp' in forcedList
+2017-07-11 03:31:32,554 INFO def copyServer: copyGroup(linux.redhat.axp) 
+2017-07-11 03:31:32,631 INFO Checking 12 articles:  2-13 in linux.redhat.axp
+2017-07-11 03:31:32,752 INFO def copyGroup: 'linux.redhat.axp' added 0/12, seen 12, dupt 0, errt 0
+2017-07-11 03:31:32,752 INFO def sP: group 'linux.redhat.devel' in forcedList
+2017-07-11 03:31:32,752 INFO def copyServer: copyGroup(linux.redhat.devel) 
+2017-07-11 03:31:32,825 INFO Checking 319 articles:  2-320 in linux.redhat.devel
+2017-07-11 03:31:32,971 INFO def copyGroup: 'linux.redhat.devel' added 0/319, seen 319, dupt 0, errt 0
+2017-07-11 03:31:32,972 INFO def sP: group 'linux.redhat.development' in forcedList
+2017-07-11 03:31:32,972 INFO def copyServer: copyGroup(linux.redhat.development) 
+2017-07-11 03:31:33,046 INFO Checking 45 articles:  2-46 in linux.redhat.development
+2017-07-11 03:31:33,152 INFO def copyGroup: 'linux.redhat.development' added 0/45, seen 45, dupt 0, errt 0
+2017-07-11 03:31:33,173 INFO def sP: group 'linux.redhat.digest' in forcedList
+2017-07-11 03:31:33,173 INFO def copyServer: copyGroup(linux.redhat.digest) 
+2017-07-11 03:31:33,247 INFO Checking 76 articles:  2-77 in linux.redhat.digest
+2017-07-11 03:31:33,355 INFO def copyGroup: 'linux.redhat.digest' added 0/76, seen 76, dupt 0, errt 0
+2017-07-11 03:31:33,355 INFO def sP: group 'linux.redhat.install' in forcedList
+2017-07-11 03:31:33,355 INFO def copyServer: copyGroup(linux.redhat.install) 
+2017-07-11 03:31:33,403 INFO Checking 9973 articles:  2-9974 in linux.redhat.install
+2017-07-11 03:31:33,966 INFO def copyGroup: 'linux.redhat.install' added 0/9973, seen 9973, dupt 0, errt 0
+2017-07-11 03:31:33,966 INFO def sP: group 'linux.redhat.list' in forcedList
+2017-07-11 03:31:33,966 INFO def copyServer: copyGroup(linux.redhat.list) 
+2017-07-11 03:31:34,066 INFO Checking 62 articles:  2-63 in linux.redhat.list
+2017-07-11 03:31:34,173 INFO def copyGroup: 'linux.redhat.list' added 0/62, seen 62, dupt 0, errt 0
+2017-07-11 03:31:34,173 INFO def sP: group 'linux.redhat.lists' in forcedList
+2017-07-11 03:31:34,173 INFO def copyServer: copyGroup(linux.redhat.lists) 
+2017-07-11 03:31:34,247 INFO Checking 11 articles:  2-12 in linux.redhat.lists
+2017-07-11 03:31:34,331 INFO def copyGroup: 'linux.redhat.lists' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:31:34,331 INFO def sP: group 'linux.redhat.misc' in forcedList
+2017-07-11 03:31:34,331 INFO def copyServer: copyGroup(linux.redhat.misc) 
+2017-07-11 03:31:34,406 INFO Checking 9040 articles:  2-9041 in linux.redhat.misc
+2017-07-11 03:31:34,930 INFO def copyGroup: 'linux.redhat.misc' added 0/9040, seen 9040, dupt 0, errt 0
+2017-07-11 03:31:34,930 INFO def sP: group 'linux.redhat.pam' in forcedList
+2017-07-11 03:31:34,931 INFO def copyServer: copyGroup(linux.redhat.pam) 
+2017-07-11 03:31:35,032 INFO Checking 16 articles:  2-17 in linux.redhat.pam
+2017-07-11 03:31:35,135 INFO def copyGroup: 'linux.redhat.pam' added 0/16, seen 16, dupt 0, errt 0
+2017-07-11 03:31:35,135 INFO def sP: group 'linux.redhat.ppp' in forcedList
+2017-07-11 03:31:35,135 INFO def copyServer: copyGroup(linux.redhat.ppp) 
+2017-07-11 03:31:35,446 INFO Checking 240 articles:  2-241 in linux.redhat.ppp
+2017-07-11 03:31:35,541 INFO def copyGroup: 'linux.redhat.ppp' added 0/240, seen 240, dupt 0, errt 0
+2017-07-11 03:31:35,541 INFO def sP: group 'linux.redhat.rpm' in forcedList
+2017-07-11 03:31:35,541 INFO def copyServer: copyGroup(linux.redhat.rpm) 
+2017-07-11 03:31:35,592 INFO Checking 2524 articles:  2-2525 in linux.redhat.rpm
+2017-07-11 03:31:35,866 INFO def copyGroup: 'linux.redhat.rpm' added 0/2524, seen 2524, dupt 0, errt 0
+2017-07-11 03:31:35,866 INFO def sP: group 'linux.redhat.sparc' in forcedList
+2017-07-11 03:31:35,866 INFO def copyServer: copyGroup(linux.redhat.sparc) 
+2017-07-11 03:31:35,916 INFO Checking 30 articles:  2-31 in linux.redhat.sparc
+2017-07-11 03:31:36,023 INFO def copyGroup: 'linux.redhat.sparc' added 0/30, seen 30, dupt 0, errt 0
+2017-07-11 03:31:36,023 INFO def sP: group 'linux.samba' in forcedList
+2017-07-11 03:31:36,023 INFO def copyServer: copyGroup(linux.samba) 
+2017-07-11 03:31:36,123 INFO Checking 10000 articles:  121804-131803 in linux.samba
+2017-07-11 03:31:36,692 INFO def copyGroup: 'linux.samba' already seen 10000/10000
+2017-07-11 03:31:36,692 INFO def copyGroup: 'linux.samba' added 0/10000, seen 10000, dupt 0, errt 0
+2017-07-11 03:31:36,692 INFO def sP: group 'linux.samba.announce' in forcedList
+2017-07-11 03:31:36,692 INFO def copyServer: copyGroup(linux.samba.announce) 
+2017-07-11 03:31:36,768 INFO Checking 272 articles:  2-273 in linux.samba.announce
+2017-07-11 03:31:36,871 INFO def copyGroup: 'linux.samba.announce' added 0/272, seen 272, dupt 0, errt 0
+2017-07-11 03:31:36,871 INFO def sP: group 'linux.samba+it.hobby.creativi' in forcedList
+2017-07-11 03:31:36,871 INFO def copyServer: copyGroup(linux.samba+it.hobby.creativi) 
+2017-07-11 03:31:36,945 INFO Checking 5 articles:  2-6 in linux.samba+it.hobby.creativi
+2017-07-11 03:31:37,030 INFO def copyGroup: 'linux.samba+it.hobby.creativi' added 0/5, seen 5, dupt 0, errt 0
+2017-07-11 03:31:37,030 INFO def sP: group 'linux.scsi.nc53c8xx' in forcedList
+2017-07-11 03:31:37,030 INFO def copyServer: copyGroup(linux.scsi.nc53c8xx) 
+2017-07-11 03:31:37,107 INFO Checking 4 articles:  2-5 in linux.scsi.nc53c8xx
+2017-07-11 03:31:37,210 INFO def copyGroup: 'linux.scsi.nc53c8xx' added 0/4, seen 4, dupt 0, errt 0
+2017-07-11 03:31:37,210 INFO def sP: group 'linux.scsi.ncr53c8xx' in forcedList
+2017-07-11 03:31:37,210 INFO def copyServer: copyGroup(linux.scsi.ncr53c8xx) 
+2017-07-11 03:31:37,284 INFO Checking 11 articles:  2-12 in linux.scsi.ncr53c8xx
+2017-07-11 03:31:37,418 INFO def copyGroup: 'linux.scsi.ncr53c8xx' added 0/11, seen 11, dupt 0, errt 0
+2017-07-11 03:31:37,418 INFO def sP: group 'linux.sdk' in forcedList
+2017-07-11 03:31:37,418 INFO def copyServer: copyGroup(linux.sdk) 
+2017-07-11 03:31:37,502 INFO Checking 1 articles:  2-2 in linux.sdk
+2017-07-11 03:31:37,605 INFO def copyGroup: 'linux.sdk' added 0/1, seen 1, dupt 0, errt 0
+2017-07-11 03:31:37,605 INFO def sP: group 'linux.setup.install' in forcedList
+2017-07-11 03:31:37,605 INFO def copyServer: copyGroup(linux.setup.install) 
+2017-07-11 03:31:37,655 INFO Checking 7 articles:  2-8 in linux.setup.install
+2017-07-11 03:31:37,757 INFO def copyGroup: 'linux.setup.install' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:31:37,757 INFO def sP: group 'linux.sources.kernel' in forcedList
+2017-07-11 03:31:37,757 INFO def copyServer: copyGroup(linux.sources.kernel) 
+2017-07-11 03:31:37,831 INFO Checking 2 articles:  2-3 in linux.sources.kernel
+2017-07-11 03:31:37,913 WARNING Unexpected number of articles returned.  Expected 2, but got 0 groupname='linux.sources.kernel'
+2017-07-11 03:31:37,913 INFO def copyGroup: 'linux.sources.kernel' added 0/0, seen 0, dupt 0, errt 0
+2017-07-11 03:31:37,913 INFO def sP: group 'linux.support.commercial' in forcedList
+2017-07-11 03:31:37,913 INFO def copyServer: copyGroup(linux.support.commercial) 
+2017-07-11 03:31:37,988 INFO Checking 9 articles:  2-10 in linux.support.commercial
+2017-07-11 03:31:38,110 INFO def copyGroup: 'linux.support.commercial' added 0/9, seen 9, dupt 0, errt 0
+2017-07-11 03:31:38,111 INFO def sP: group 'linux.syquest' in forcedList
+2017-07-11 03:31:38,111 INFO def copyServer: copyGroup(linux.syquest) 
+2017-07-11 03:31:38,213 INFO Checking 7 articles:  2-8 in linux.syquest
+2017-07-11 03:31:38,337 INFO def copyGroup: 'linux.syquest' added 0/7, seen 7, dupt 0, errt 0
+2017-07-11 03:31:38,337 INFO def sP: group 'linux.sys.alpha' in forcedList
+2017-07-11 03:31:38,337 INFO def copyServer: copyGroup(linux.sys.alpha) 
+2017-07-11 03:31:38,412 INFO Checking 6 articles:  2-7 in linux.sys.alpha
+2017-07-11 03:31:38,516 INFO def copyGroup: 'linux.sys.alpha' added 0/6, seen 6, dupt 0, errt 0
+2017-07-11 03:31:38,516 INFO def sP: group 'linux.test' in forcedList
+2017-07-11 03:31:38,516 INFO def copyServer: copyGroup(linux.test) 
+2017-07-11 03:31:38,591 INFO Checking 1229 articles:  2-1230 in linux.test
+2017-07-11 03:31:38,813 INFO def copyGroup: 'linux.test' added 0/1229, seen 663, dupt 227, errt 0
+2017-07-11 03:31:38,813 INFO def sP: group 'linux.test.moderated' in forcedList
+2017-07-11 03:31:38,814 INFO def copyServer: copyGroup(linux.test.moderated) 
+2017-07-11 03:31:38,862 INFO Checking 15 articles:  2-16 in linux.test.moderated
+2017-07-11 03:31:38,968 INFO def copyGroup: 'linux.test.moderated' added 0/15, seen 0, dupt 15, errt 0
+2017-07-11 03:31:38,968 INFO def sP: group 'linux.wine.users' in forcedList
+2017-07-11 03:31:38,968 INFO def copyServer: copyGroup(linux.wine.users) 
+2017-07-11 03:31:39,069 INFO Checking 3 articles:  2-4 in linux.wine.users
+2017-07-11 03:31:39,194 INFO def copyGroup: 'linux.wine.users' added 0/3, seen 0, dupt 3, errt 0
+2017-07-11 03:31:39,293 INFO Moved:  5, duplicate:  695253, Other:  0
+2017-07-11 03:31:39,293 INFO Total time spent:  91.5206038952s
