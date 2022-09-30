@@ -1,90 +1,8 @@
 #!/usr/bin/env python
 #
 # Copyright (c) 2002  Dustin Sallings <dustin@spy.net>
-# Copyright (c) 2017-2019  MrNice <root@ovpn.to>
 #
-"""
-# SAMPLE CONFIG START
-
-[DEFAULT]
-# Default level for loggers and handlers
-level=INFO
-
-[servers]
-from=127.0.0.1
-to=127.0.0.2
-
-# Example news server specific config
-[127.0.0.1]
-username=USER
-password=PASS
-port=119
-
-[127.0.0.2]
-port=4119
-
-[misc]
-# Name of the file that will contain the news db
-newsdb=/nntpsucka/newsdb/newsdb_linux
-
-# number of workers (needed connections = workers + 1)
-workers=4
-
-# mode=reader, mode=ihave, mode=ihave2
-mode=reader
-
-# Name of the pid file
-pidfile=nntpsucka_linux.pid
-
-# List of exceptions
-useIgnore=True
-
-# regex like: ^junk
-globalfilterList=globalfilter.txt
-
-# write doneList with finished groups
-doneList=doneList.linux
-
-# regex like: ^linux\.not\.this\.group
-filterList=filterList.linux
-
-# regex like: ^linux\.
-forcedList=forcedList.linux
-
-# Maximum number of articles to get per group
-maxArticles=0
-
-# Whether ``seen'' articles should be marked in the news DB config
-shouldMarkArticles=yes
-
-
-###### Logging config #######
-
-[loggers]
-keys=root
-
-[handlers]
-keys=def
-
-[formatters]
-keys=std
-
-[logger_root]
-handlers=def
-qualname=(root)
-
-[handler_def]
-class=StreamHandler
-formatter=std
-args=(sys.stdout,)
-
-[formatter_std]
-format=%(asctime)s %(levelname)s %(message)s
-datefmt=
-
-# SAMPLE CONFIG END
-"""
-
+# 
 from __future__ import division
 from sqlite3 import dbapi2 as sqlite
 import ConfigParser
@@ -103,6 +21,8 @@ import traceback
 import pidlock
 import mailbox
 from zipfile import ZipFile
+
+#lock = threading.Lock()
 
 MBOX_DIR="/mnt/ST4T1/usenethist"
 
@@ -424,7 +344,7 @@ class NNTPClient(nntplib.NNTP):
         self.log.debug("def copyArticle: Moving which='" + str(which) + "' messid='" + messid + "', grp='%s'"%(group))
         pgrp = group.replace(".","/")
 
-        if self.currentmode == 'reader':
+        if self.currentmode == 'reader' or self.currentmode == 'reader1':
             self.log.debug("def copyArticle: read messid = '%s'"%messid)
             try:
                 src.article(str(which))
@@ -453,7 +373,17 @@ class NNTPClient(nntplib.NNTP):
                 try:
                     #resp, nr, nid, lines = src.article(messid)
                     resp, nr, nid, lines = src.article(str(which))
-                    self.log.debug("def copyArticle: ihave srced article '%s', messid='%s', grp='%s'"%(which,messid,group))
+                    if resp == None:
+                        self.log.info("def copyArticle: resp=None, messid='%s', grp='%s'"%(which,messid,group))
+                        return False
+                    #self.log.info("def copyArticle: ihave srced article '%s', messid='%s', grp='%s'"%(which,messid,group))
+                    #self.log.info("def copyArticle: ihave srced article '%s', messid='%s', grp='%s' resp='%s'"%(which,messid,group,resp))
+                    """
+                    len_lines = len(lines)
+                    if len_lines > 1500:
+                        self.log.info("def copyArticle: prefilter unwanted 437 len(lines)=%s" % len_lines)
+                        return 437
+                    """
                     try:
                         valtakethis = self.takeThis(messid, lines)
                         if valtakethis == True:
@@ -461,6 +391,7 @@ class NNTPClient(nntplib.NNTP):
                             return True
                         elif valtakethis == 437:
                             # 437 unwanted
+                            self.log.debug("def copyArticle: unwanted 437 len(lines)=%s" % len(lines))
                             return 437
                         elif valtakethis == 436:
                             # 436 retry later
@@ -578,6 +509,11 @@ class NNTPClient(nntplib.NNTP):
         try:
             """Stream an article to this server."""
             self.log.debug("def takeThis: messid = '%s', lines='%d'" % (messid,len(lines)))
+            """
+            if len(lines) > 1500:
+                self.log.info("def takeThis: prefilter messid = '%s', lines='%d'" % (messid,len(lines)))
+                return 437
+            """
             for l in lines:
                 if l == '.':
                     self.log.debug("*** L was ., adding a dot. ***")
@@ -714,11 +650,11 @@ class Worker(threading.Thread):
             resp = None
 
             try:
-                self.log.debug("def mainLoop: inq.get queue GET grp='%s'"%(group))
+                #self.log.debug("def mainLoop: inq.get queue GET grp='%s'"%(group))
                 group, num, messid = self.inq.get_nowait()
-                self.log.debug("def mainLoop: inq.get queue GOT grp='%s', num = '%s', messid = '%s'"%(group,num,messid))
+                #self.log.debug("def mainLoop: inq.get queue GOT grp='%s', num = '%s', messid = '%s'"%(group,num,messid))
             except Queue.Empty:
-                self.log.debug("def mainLoop: inq.get queue empty, grp='%s', pass"%(group))
+                #self.log.debug("def mainLoop: inq.get queue empty, grp='%s', pass"%(group))
                 time.sleep(0.1)
                 continue
                 
@@ -904,6 +840,7 @@ class NNTPSucka:
             return False
         except Exception as e:
             self.log.warn("def copyGroup(): failed grp = '%s', exception = '%s', path=%s))"%(groupname,e,pgrp))
+            writetoBadGroupsList(groupname)
             return False
             #sys.exit(1)
         
@@ -1012,9 +949,9 @@ class NNTPSucka:
        
     def processor(self,groupname,block):
         try:
-            self.log.debug("def processor: doneQueue try get job grp '%s'"%(groupname))
+            #self.log.debug("def processor: doneQueue try get job grp '%s'"%(groupname))
             t,  messid, groupname, idx = self.doneQueue.get(block)
-            self.log.debug("def processor: doneQueue got job grp='%s', messid='%s'"%(groupname,messid))
+            #self.log.debug("def processor: doneQueue got job grp='%s', messid='%s'"%(groupname,messid))
                       
             if t == 'success':
                 status = "suc"
@@ -1117,8 +1054,8 @@ class NNTPSucka:
             return True
             
         except Queue.Empty:
-            self.log.debug("def copyGroup: done.queue empty, grp='%s', pass"%(groupname))
-            time.sleep(0.1)
+            #self.log.debug("def copyGroup: done.queue empty, grp='%s', pass"%(groupname))
+            time.sleep(1)
             
         except Exception as e:
             self.log.warn("def copyGroup: failed Queue '%s', exception = '%s'"%(groupname,e))
@@ -1146,7 +1083,7 @@ class NNTPSucka:
                 except Exception as e:
                     self.log.warn("def sP: failed exception = %s"%e)
         else:
-            self.info.debug("def shouldProcess: group '%s', else YES"%(group))
+            self.log.debug("def shouldProcess: group '%s', else YES"%(group))
             return True
 
         if inforcedlist == False:
@@ -1405,6 +1342,21 @@ def writetoDoneList(group):
             log.debug("def writetoDoneList: fn='%s', group='%s', regex = 'False' done"%(fn,group))
     except Exception as e:
         log.warn("def writetoDoneList failed, exception = '%s', fn='%s', group='%s'"%(e,fn,group))
+        
+def writetoBadGroupsList(group):
+    if CONFIG['running_workers'] == 0:
+            return True
+    log=logging.getLogger("nntpsucka")
+    try:
+        fn = "list.BadGroups.txt"
+        if fn != None:
+            log.info("def writetoBadList: fn='%s', group='%s'"%(fn,group))
+            fp = open(fn, "a")
+            fp.write(group+'\n')
+            fp.close()
+            log.debug("def writetoBadList: fn='%s', group='%s', regex = 'False' done"%(fn,group))
+    except Exception as e:
+        log.warn("def writetoBadList failed, exception = '%s', fn='%s', group='%s'"%(e,fn,group))
 
 def writetoMessageList(fn,group,l):
     log=logging.getLogger("nntpsucka")
@@ -1538,6 +1490,8 @@ def main():
         CONFIG['mode'] = "post"
     elif modeSelect == "mbox":
         CONFIG['mode'] = "mbox"
+    elif modeSelect == "reader1":
+        CONFIG['mode'] = "reader1"
     else:
         CONFIG['mode'] = "reader"
         
